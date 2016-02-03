@@ -54,11 +54,12 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 ####Zgłoszenie
 - formularz
-	- imie nazwisko
+	- imie
+	- nazwisko
 	- mail
 	- telefon
 	- jaki kurs
-	- terminy zajęć (sob-niedz, pon-pt)
+	- (dla cisco)terminy zajęć (sob-niedz, pon-pt)
 	- (dla cisco) 2/4 semestry
 - jakiś modal
 - 3 selecty:
@@ -96,11 +97,12 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- mail
 	- co wybrał
 - zgłoszenia
-	- imie nazwisko
+	- imie 
+	- nazwisko
 	- mail
 	- telefon
 	- jaki kurs
-	- terminy zajęć (sob-niedz, pon-pt)
+	- (dla cisco)terminy zajęć (sob-niedz, pon-pt)
 	- (dla cisco) 2/4 semestry
 	- czy odpisane, odpowiedziane
 - aktualności
