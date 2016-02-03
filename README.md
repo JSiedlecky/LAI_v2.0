@@ -1,8 +1,15 @@
-### LAI_v2.0
+#### LAI_v2.0
 Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz, J. Siedlecki.
 
 ----
 
+####CSS kolory:
+
+ **\#1b1b1b** - ciemny
+ **\#e4e4e4** - szary
+
+
+---
 
 ###Super funkcjonalności:
 - ładujemy rzeczy po scrollu 
@@ -15,6 +22,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - ładne animacje ładowania
 - glyphicons & fontawesome
 - responsywna
+- favicon
 
 ####Stopka:
 - zapisz się na newsletter
@@ -93,6 +101,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 - dane logowania
 	- login
+	- hash
 	- mail
 	- lastLogin
 - newsletter - dane:
