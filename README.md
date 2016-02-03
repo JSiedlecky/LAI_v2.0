@@ -5,8 +5,8 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 ####CSS kolory:
 
- **\#1b1b1b** - ciemny
- **\#e4e4e4** - szary
+ - **\#1b1b1b** - ciemny
+ - **\#e4e4e4** - szary
 
 
 ---
@@ -25,16 +25,16 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - favicon
 
 ####Stopka:
-- [ ] zapisz się na newsletter
-- [ ] kontakt
+- zapisz się na newsletter
+- kontakt
 	- adres
 	- telefon
 	- mail
 	- do kogo?
-- [ ] menu vertical
+- menu vertical
 	- aktualna strona
 	- pozostałe podstrony
-- [ ] copyright
+- copyright
 
 ####Aktualności
 - ładuje się 5 postów (ogłoszeń)
