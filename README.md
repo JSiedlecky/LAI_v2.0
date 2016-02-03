@@ -30,6 +30,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - logowanie email/hasło
 - newslettery
 - meta tagi
+- teamcolor?
 
 
 ####Stopka:
