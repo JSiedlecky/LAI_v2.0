@@ -27,6 +27,8 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - favicon
 - logowanie email/hasło
 - newslettery
+- meta tagi
+
 
 ####Stopka:
 - zapisz się na newsletter
@@ -40,6 +42,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- pozostałe podstrony
 - copyright
 
+
 ####Aktualności
 - ładuje się 5 postów (ogłoszeń)
 - button 'starsze' ładuje następne 5
@@ -50,11 +53,13 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- 'czytaj więcej'
 - posty oddzielone liniami
 
+
 ####Cisco
 - 4 zdjęcia (na semestry)
 - opisy
 - w góry co to jest itd
 - na dole podsumowanie
+
 
 ####WWW
 - o co chodzi z kursem, czym się zajmujemy
@@ -63,6 +68,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- manualne przesuwanie
 	- tracking aka kropki
 - html css - czym się zajmują itd
+
 
 ####Zgłoszenie
 - formularz
@@ -83,6 +89,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - dodatkowe informacje
 - reset + wyślij
 - coś aka: *'zastrzegamy sobie prawo do odpowiedzi tylko na wybrane zgłoszenia'*
+
 
 ####Akademia
 - w góry wypas zdjęcie
