@@ -72,8 +72,8 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - coś aka: *'zastrzegamy sobie prawo do odpowiedzi tylko na wybrane zgłoszenia'*
 
 ####Akademia
-- [ ] w góry wypas zdjęcie
-- [ x ] coś o akademi, od kiedy, co oferuje itd
+- w góry wypas zdjęcie
+- coś o akademi, od kiedy, co oferuje itd
 - 2 sekcje:
 	- cisco
 	- tworzenie aplikacji
