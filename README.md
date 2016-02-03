@@ -96,7 +96,8 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- mail
 	- lastLogin
 - newsletter - dane:
-	- imie nazwisko
+	- imie
+	- nazwisko
 	- mail
 	- co wybrał
 - zgłoszenia
