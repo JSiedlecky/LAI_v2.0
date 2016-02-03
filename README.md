@@ -5,10 +5,16 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 
 ###Super funkcjonalności:
-- ładujemy rzeczy po scrollu
+- ładujemy rzeczy po scrollu 
+	- http://www.templatemonster.com/demo/58352.html)
 - parallax
 - one-page całość
 - breadcrumbs?
+- animacje like:
+	- http://www.dunckelfeld.de/
+- ładne animacje ładowania
+- glyphicons & fontawesome
+- responsywna
 
 ####Stopka:
 - zapisz się na newsletter
