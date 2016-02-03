@@ -25,16 +25,16 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - favicon
 
 ####Stopka:
-- [] zapisz się na newsletter
+- [ ] zapisz się na newsletter
 - [ ] kontakt
 	- adres
 	- telefon
 	- mail
 	- do kogo?
-- [x] menu vertical
+- [ ] menu vertical
 	- aktualna strona
 	- pozostałe podstrony
-- copyright
+- [ ] copyright
 
 ####Aktualności
 - ładuje się 5 postów (ogłoszeń)
