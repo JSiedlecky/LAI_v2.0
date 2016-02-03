@@ -54,6 +54,12 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 ####Zgłoszenie
 - formularz
+	- imie nazwisko
+	- mail
+	- telefon
+	- jaki kurs
+	- terminy zajęć (sob-niedz, pon-pt)
+	- (dla cisco) 2/4 semestry
 - jakiś modal
 - 3 selecty:
 	- nie rozwijane
@@ -63,6 +69,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- jeśli wybrane aplikacje
 - dodatkowe informacje
 - reset + wyślij
+- coś aka: *'zastrzegamy sobie prawo do odpowiedzi tylko na wybrane zgłoszenia'*
 
 ####Akademia
 - w góry wypas zdjęcie
@@ -74,3 +81,31 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - zdjęcie (z zoom-in like: http://www.templatemonster.com/demo/58365.html)
 - ilość uczniów napis
 - 'zgłoś się' -> do zgłoszenia
+
+
+###Baza danych
+
+- dane logowania
+	- login
+	- mail
+	- lastLogin
+- newsletter - dane:
+	- imie nazwisko
+	- mail
+	- co wybrał
+- zgłoszenia
+	- imie nazwisko
+	- mail
+	- telefon
+	- jaki kurs
+	- terminy zajęć (sob-niedz, pon-pt)
+	- (dla cisco) 2/4 semestry
+	- czy odpisane, odpowiedziane
+- aktualności
+	- tytuł
+	- zajawka
+	- data
+	- treść
+
+	
+	
