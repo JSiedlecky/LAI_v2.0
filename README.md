@@ -5,7 +5,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 ####CSS kolory:
 
-#####Podgląd: ** http://server.marox44.pl/lai_colors/laicolors.html**
+#####Podgląd: http://server.marox44.pl/lai_colors/laicolors.html
 	
  - **\#1b1b1b** - ciemny
  - **\#e4e4e4** - szary
@@ -25,6 +25,8 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - glyphicons & fontawesome
 - responsywna
 - favicon
+- logowanie email/hasło
+- newslettery
 
 ####Stopka:
 - zapisz się na newsletter
@@ -110,7 +112,6 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- imie
 	- nazwisko
 	- mail
-	- co wybrał
 - zgłoszenia
 	- imie 
 	- nazwisko
