@@ -84,7 +84,10 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - 'zgłoś się' -> do zgłoszenia
 
 
+
 ---
+
+
 
 ###Baza danych
 
