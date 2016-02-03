@@ -9,7 +9,6 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - parallax
 - one-page całość
 - breadcrumbs?
-- 
 
 ####Stopka:
 - zapisz się na newsletter
