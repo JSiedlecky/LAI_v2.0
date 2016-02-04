@@ -49,7 +49,28 @@
         </article>
     </main>
     <footer>
-        
+        <div class="container" id="botContainer">
+            <div class="row">
+                <div class="col-xs-4 fContents" id="newsletter">
+                    <h2>Zapisz się na newsletter.</h2>
+                    <div class="col-xs-12 newsletterInputAroundsDiv">
+                        <form action="#">
+                            <div class="input-group">
+                              <input type="email" class="form-control" placeholder="Wpisz adres E-Mail">
+                              <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Subskrybuj</button>
+                              </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p class="newsletterInfo">
+                        Newsletter to usługa przesyłająca informacje o nadchodzących terminach rozpoczęcia kursów w module CISCO oraz Tworzenia Stron WWW.
+                    </p>
+                </div>
+                <div class="col-xs-4 fContents" id="contact"><h2>Skontaktuj się z nami.</h2></div>
+                <div class="col-xs-4 fContents" id="bottomNav"><h2>Menu</h2></div>
+            </div>
+        </div>
     </footer>
     
 </body>

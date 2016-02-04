@@ -131,3 +131,12 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 ![zdjecie bazy](http://screenshooterusnortheu.blob.core.windows.net/engine4files/xwtdvuoqygyrpdduzmodpmwdwnshtzwlwwvmujobwszawrnpiltckwpdwhpsfcuujlyijdxnprhcrmpvraisdfygoktszrltvrld
 )
 	
+
+---
+
+### Notkatki
+
+- dokończyć newsletter w stópce (action)
+- dynamiczne menu (podświetlanie obecjenj karty)
+
+    
