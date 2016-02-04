@@ -15,16 +15,5 @@
     }catch(PDOException $e){
         echo "Connection failed: " . $e->getMessage();
     }
-    
-echo "<br>";
-    
-        $sql = 'SELECT * FROM news';
-        foreach ($conn->query($sql) as $row) {
-            print $row['id'] . "&#09;";
-            print $row['title'] . "&#09;";
-            print $row['brief'] . "&#09;";
-            print $row['date'] . "<br><br>";
-        }
-    
 
 ?>
