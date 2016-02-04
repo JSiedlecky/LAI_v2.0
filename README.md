@@ -1,16 +1,6 @@
 #### LAI_v2.0
 Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz, J. Siedlecki.
 
-----
-
-####CSS kolory:
-
-#####Podgląd: http://server.marox44.pl/lai_colors/laicolors.html
-	
- - **\#1b1b1b** - ciemny
- - **\#e4e4e4** - szary
-
-
 ---
 
 

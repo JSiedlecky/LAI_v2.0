@@ -17,14 +17,30 @@
     <meta name="format-detection" content="telephone=yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="indexStyle.css">
+    
 </head>
 <body>
    
     <header>
-        
+        <figure>
+            <img src="http://lorempixel.com/image_output/abstract-q-c-1920-250-1.jpg" alt=":C">
+        </figure>
     </header>
-    <main>
-        
+    <main class="container">
+        <nav id="topNav">
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </nav>
+        <article id="changingContent">
+            
+        </article>
     </main>
     <footer>
         
