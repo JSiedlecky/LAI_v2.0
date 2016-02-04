@@ -1,21 +1,45 @@
-html, body, header, main, nav, ul, li, a, article, footer, figure, img {
+html,
+body,
+header,
+main,
+nav,
+ul,
+li,
+a,
+article,
+footer,
+figure,
+img {
     margin: 0;
     paddin: 0;
-    box-sizing: border-box;
-    border: 1px solid black;
 }
-
 html {
     height: 100%;
 }
-
 body {
     min-height: 100%;
 }
-
-
-
-figure img {
+header {
     width: 100%;
+    height: 15%;
 }
-
+    figure {
+        height: 100%;
+        width: 100%;
+    }
+    figure img#headerImg {
+        height: 100%;
+        width: 100%;
+    }
+main {
+    height: 85%;
+    background-color: black;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    background-color: red;
+}
