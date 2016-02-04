@@ -137,4 +137,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- data
 	- treść
 
+#### Mniej więcej struktua bazy :v:
+![zdjecie bazy](http://screenshooterusnortheu.blob.core.windows.net/engine4files/xwtdvuoqygyrpdduzmodpmwdwnshtzwlwwvmujobwszawrnpiltckwpdwhpsfcuujlyijdxnprhcrmpvraisdfygoktszrltvrld
+)
 	
