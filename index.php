@@ -51,7 +51,7 @@
     <footer>
         <div class="container" id="botContainer">
             <div class="row">
-                <div class="col-xs-4 fContents" id="newsletter">
+                <div class="col-lg-4 col-md-12  fContents" id="newsletter">
                     <h2>Zapisz się na newsletter.</h2>
                     <div class="col-xs-12 newsletterInputAroundsDiv">
                         <form action="#">
@@ -67,8 +67,18 @@
                         Newsletter to usługa przesyłająca informacje o nadchodzących terminach rozpoczęcia kursów w module CISCO oraz Tworzenia Stron WWW.
                     </p>
                 </div>
-                <div class="col-xs-4 fContents" id="contact"><h2>Skontaktuj się z nami.</h2></div>
-                <div class="col-xs-4 fContents" id="bottomNav"><h2>Menu</h2></div>
+                <div class="col-lg-4 col-md-6 fContents" id="contact">
+                    <h2>Skontaktuj się z nami.</h2>
+                    <p class="contactPar">Adres: 44-100 Gliwice, ul.Chorzowska 5</p>
+                    <p class="contactPar">Adres E-Mail: ####</p>
+                    <p class="contactPar">Telefon kontaktowy: ###-###-###</p>
+                </div>
+                <div class="col-lg-4 col-md-6 fContents" id="bottomNav"><h2>Menu</h2></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 copyrights">
+                    &copy; LAI Gliwice 2016.
+                </div>
             </div>
         </div>
     </footer>

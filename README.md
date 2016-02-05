@@ -136,7 +136,9 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 ### Notkatki
 
-- dokończyć newsletter w stópce (action)
+- dokończyć newsletter w stópce (action)(formularz powinien działąć :v)
 - dynamiczne menu (podświetlanie obecjenj karty)
+- dopytać o adresy email i telefony
+
 
     
