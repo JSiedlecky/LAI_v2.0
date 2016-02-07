@@ -43,7 +43,7 @@
                 <li class="zgloszenie"><a href="#/zgloszenie">Zgłoszenie</a></li><li class="aplikacje">
                     <a href="#/aplikacje">Tworzenie witryn WWW</a></li><li class="cisco">
                     <a href="#/cisco">CISCO</a></li><li class="aktualnosci">
-                    <a href="#/aktualnosci">Aktualności</a></li><li class="akademia activeMenuItem">
+                    <a href="#/aktualnosci">Aktualności</a></li><li class="akademia activeTopMenuItem">
                     <a href="#/akademia">Akademia</a></li>
             </ul>
         </nav>
