@@ -23,6 +23,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
     <script src="js/mainCtrl.js"></script>
+    <script src="js/activeMenu.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -39,10 +40,10 @@
     <main class="container" ng-app="lai">
         <nav id="topNav">
             <ul>
-                <li><a href="#/zgloszenie">Zgłoszenie</a></li><li>
-                    <a href="#/aplikacje">Tworzenie witryn WWW</a></li><li>
-                    <a href="#/cisco">CISCO</a></li><li>
-                    <a href="#/aktualnosci">Aktualności</a></li><li class="activeMenuItem">
+                <li class="zgloszenie"><a href="#/zgloszenie">Zgłoszenie</a></li><li class="aplikacje">
+                    <a href="#/aplikacje">Tworzenie witryn WWW</a></li><li class="cisco">
+                    <a href="#/cisco">CISCO</a></li><li class="aktualnosci">
+                    <a href="#/aktualnosci">Aktualności</a></li><li class="akademia activeMenuItem">
                     <a href="#/akademia">Akademia</a></li>
             </ul>
         </nav>
@@ -80,11 +81,11 @@
                 <div class="col-lg-4 col-md-6 fContents" id="fNav">
                     <nav id="bottomNav">
                         <ul>
-                            <li><a href="/akademia">Akademia</a></li>
-                            <li><a href="/aktualnosci">Aktualności</a></li>
-                            <li><a href="/cisco">CISCO</a></li>
-                            <li><a href="/aplikacje">Tworzenie witryn www</a></li>
-                            <li><a href="/zgloszenie">Zgłoszenie</a></li>
+                            <li class="akademia"><a href="#/akademia">Akademia</a></li>
+                            <li class="aktualnosci"><a href="#/aktualnosci">Aktualności</a></li>
+                            <li class="cisco"><a href="#/cisco">CISCO</a></li>
+                            <li class="aplikacje"><a href="#/aplikacje">Tworzenie witryn www</a></li>
+                            <li class="zgloszenie"><a href="#/zgloszenie">Zgłoszenie</a></li>
                         </ul>
                     </nav>
                 </div>

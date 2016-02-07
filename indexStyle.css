@@ -67,6 +67,11 @@ main {
 }
 .activeMenuItem {
   float:left !important;
+  transition: 0.3s;
+}
+.activeMenuItem a {
+  color: #f25532 !important;
+  text-decoration: underline;
 }
 
 /*FOOTER AND SUBCONTENTS*/
