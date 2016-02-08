@@ -6,7 +6,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 
 ###Super funkcjonalności:
-- ładujemy rzeczy po scrollu 
+- ładujemy rzeczy po scrollu
 	- http://www.templatemonster.com/demo/58352.html)
 - parallax
 - one-page całość
@@ -113,7 +113,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- nazwisko
 	- mail
 - zgłoszenia
-	- imie 
+	- imie
 	- nazwisko
 	- mail
 	- telefon
@@ -130,7 +130,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 #### Mniej więcej struktua bazy :v:
 ![zdjecie bazy](http://screenshooterusnortheu.blob.core.windows.net/engine4files/xwtdvuoqygyrpdduzmodpmwdwnshtzwlwwvmujobwszawrnpiltckwpdwhpsfcuujlyijdxnprhcrmpvraisdfygoktszrltvrld
 )
-	
+
 
 ---
 
@@ -139,6 +139,4 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - dokończyć newsletter w stópce (action)(formularz powinien działąć :v)
 - dynamiczne menu (podświetlanie obecjenj karty)
 - dopytać o adresy email i telefony
-
-
-    
+- przy rozdzielczości niższej niż 1200px dodaje się dziwny padding/margin z prawej i nie wiem co to jest. do naprawy :v

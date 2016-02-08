@@ -40,10 +40,11 @@
     <main class="container" ng-app="lai">
         <nav id="topNav">
             <ul>
-                <li class="zgloszenie"><a href="#/zgloszenie">Zgłoszenie</a></li><li class="aplikacje">
-                    <a href="#/aplikacje">Tworzenie witryn WWW</a></li><li class="cisco">
-                    <a href="#/cisco">CISCO</a></li><li class="aktualnosci">
-                    <a href="#/aktualnosci">Aktualności</a></li><li class="akademia activeTopMenuItem">
+                <li class="menuBtn">MENU</li><li class="menuTopItem zgloszenie">
+                    <a href="#/zgloszenie">Zgłoszenie</a></li><li class="menuTopItem aplikacje">
+                    <a href="#/aplikacje">Tworzenie witryn WWW</a></li><li class="menuTopItem cisco">
+                    <a href="#/cisco">CISCO</a></li><li class="menuTopItem aktualnosci">
+                    <a href="#/aktualnosci">Aktualności</a></li><li class="menuTopItem akademia activeTopMenuItem">
                     <a href="#/akademia">Akademia</a></li>
             </ul>
         </nav>
