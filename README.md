@@ -5,7 +5,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 
 
-###Super funkcjonalności:
+### Super funkcjonalności:
 - ładujemy rzeczy po scrollu
 	- http://www.templatemonster.com/demo/58352.html)
 - parallax
@@ -23,7 +23,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - teamcolor?
 
 
-####Stopka:
+#### Stopka:
 - zapisz się na newsletter
 - kontakt
 	- adres
@@ -36,7 +36,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - copyright
 
 
-####Aktualności
+#### Aktualności
 - ładuje się 5 postów (ogłoszeń)
 - button 'starsze' ładuje następne 5
 - posty:
@@ -47,14 +47,14 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - posty oddzielone liniami
 
 
-####Cisco
+#### Cisco
 - 4 zdjęcia (na semestry)
 - opisy
 - w góry co to jest itd
 - na dole podsumowanie
 
 
-####WWW
+#### WWW
 - o co chodzi z kursem, czym się zajmujemy
 - slider zdjęcia (5/8 zdjęć)
 	- sam się przesuwa
@@ -63,7 +63,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - html css - czym się zajmują itd
 
 
-####Zgłoszenie
+#### Zgłoszenie
 - formularz
 	- imie
 	- nazwisko
@@ -84,7 +84,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - coś aka: *'zastrzegamy sobie prawo do odpowiedzi tylko na wybrane zgłoszenia'*
 
 
-####Akademia
+#### Akademia
 - w góry wypas zdjęcie
 - coś o akademi, od kiedy, co oferuje itd
 - 2 sekcje:
@@ -101,7 +101,7 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 
 
-###Baza danych
+### Baza danych
 
 - dane logowania
 	- login
@@ -128,15 +128,16 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- treść
 
 #### Mniej więcej struktua bazy :v:
-![zdjecie bazy](http://screenshooterusnortheu.blob.core.windows.net/engine4files/xwtdvuoqygyrpdduzmodpmwdwnshtzwlwwvmujobwszawrnpiltckwpdwhpsfcuujlyijdxnprhcrmpvraisdfygoktszrltvrld
-)
+![zdjecie bazy](http://i.imgur.com/Hi6w145.png)
 
 
 ---
 
 ### Notkatki
 
-- dokończyć newsletter w stópce (action)(formularz powinien działąć :v)
+- dokończyć newsletter w stópce (action)(formularz powinien działać :v)
 - dynamiczne menu (podświetlanie obecjenj karty)
 - dopytać o adresy email i telefony
 - przy rozdzielczości niższej niż 1200px dodaje się dziwny padding/margin z prawej i nie wiem co to jest. do naprawy :v
+- nowe zgłoszenie = powiadomienie na email do Szołtyska
+
