@@ -136,7 +136,9 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 ### Notkatki
 
+- ATTENTION! Minimalna szerokośc = Apple Iphone 4 (320px)
 - dokończyć newsletter w stópce (action)(formularz powinien działąć :v)
 - dynamiczne menu (podświetlanie obecjenj karty)
 - dopytać o adresy email i telefony
 - przy rozdzielczości niższej niż 1200px dodaje się dziwny padding/margin z prawej i nie wiem co to jest. do naprawy :v
+- wzor tablicy zgłoszenia zaakceptowany - mail przy submicie :)

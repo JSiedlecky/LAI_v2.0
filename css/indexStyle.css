@@ -14,6 +14,10 @@ body {
   min-height: 100%;
   background-color: #bdc3c7;
 }
+.row {
+    margin: 0;
+    padding: 0;
+}
 
 /*HEADER AND IMG*/
 
@@ -25,9 +29,14 @@ figure {
   height: 100%;
   width: 100%;
 }
-figure img#headerImg {
-  height: 100%;
-  width: 100%;
+figure img#headerImg2 {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+figure img#headerImg4 {
+    height: 100%;
+    width: 100%;
 }
 
 /*MAIN - MENU AND CHANGING CONTENTS DIV*/
@@ -37,6 +46,25 @@ main {
   box-sizing: border-box;
   border: 1px solid black;
 }
+#topNav {
+    font-size: 13px;
+}
+#topNav ul {
+    position: fixed;
+    padding: 0;
+    margin: 0 0 10px 0;
+    width: 100%;
+    list-style-type: none;
+    text-align: center;
+    z-index: 100;
+}
+#topNav ul li {
+    line-height: 25px;
+}
+#topNav ul li.menuTopItem {
+    display: none;
+}
+
 
 /*FOOTER AND SUBCONTENTS*/
 
@@ -205,6 +233,12 @@ footer {
   }
   .contactPar:nth-child(2) {
     margin-top: 40px;
+  }
+  figure img#headerImg2 {
+      display: block;
+  }
+  figure img#headerImg4 {
+      display: none
   }
   #topNav {
     height: 50px;

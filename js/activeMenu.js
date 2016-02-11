@@ -5,3 +5,12 @@ $(document).on('click', 'li', function(){
   $('#topNav .'+url[urlLength]).addClass('activeTopMenuItem');
   console.log($('#'+url[urlLength]));
 });
+
+$(document).on('click', '.menuBtn', function(){
+        var item = $('.menuTopItem');
+        if (item.is(":visible")){
+			item.slideUp(400);
+		}else{
+			item.slideDown(400);
+		}
+});

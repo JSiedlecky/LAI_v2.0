@@ -27,20 +27,23 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="css/indexStyle.css">
 
 </head>
 <body>
 
     <header>
         <figure>
-            <img src="img/ph2375x200.png" id="headerImg"alt=":C">
+            <img src="img/ph2375x200.png" id="headerImg2" alt=":C">
+        </figure>
+        <figure>
+            <img src="img/ph2375x400.png" id="headerImg4" alt=":C" />
         </figure>
     </header>
     <main class="container" ng-app="lai">
         <nav id="topNav">
             <ul>
-                <li class="menuBtn">MENU</li><li class="menuTopItem zgloszenie">
+                <li class="menuBtn">MENU</li><li class="menuTopItem">
                     <a href="#/zgloszenie">Zgłoszenie</a></li><li class="menuTopItem aplikacje">
                     <a href="#/aplikacje">Tworzenie witryn WWW</a></li><li class="menuTopItem cisco">
                     <a href="#/cisco">CISCO</a></li><li class="menuTopItem aktualnosci">
