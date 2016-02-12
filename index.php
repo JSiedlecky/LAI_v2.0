@@ -37,13 +37,13 @@
             <img src="img/ph2375x200.png" id="headerImg2" alt=":C">
         </figure>
         <figure>
-            <img src="img/ph2375x400.png" id="headerImg4" alt=":C" />
+            <img src="img/ph2375x400.png" id="headerImg4" alt=":C">
         </figure>
     </header>
     <main class="container" ng-app="lai">
         <nav id="topNav">
             <ul>
-                <li class="menuBtn">MENU</li><li class="menuTopItem">
+                <li class="menuBtn">MENU</li><li class="menuTopItem zgloszenie">
                     <a href="#/zgloszenie">Zgłoszenie</a></li><li class="menuTopItem aplikacje">
                     <a href="#/aplikacje">Tworzenie witryn WWW</a></li><li class="menuTopItem cisco">
                     <a href="#/cisco">CISCO</a></li><li class="menuTopItem aktualnosci">
