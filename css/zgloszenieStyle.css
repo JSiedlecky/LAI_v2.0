@@ -1,0 +1,33 @@
+.zgloszenieHeader {
+    padding-top: 1px;
+}
+.zgloszenieHeader *{
+    text-align: center;
+}
+.zgloszenieFormularz {
+    margin-top: 30px;
+    display: block;
+}
+.zgloszenieTopFormPanel {
+    min-height: 200px;
+}
+.zgloszenieBotForm{
+    min-height: 100px;
+}
+.textareaForm {
+    margin-top: 30px;
+}
+.panel {
+    margin-top: 30px;
+}
+.zgloszenieBtns {
+    height: 30px;
+    text-align: center;
+}
+
+
+@media (min-width: 1200px) {
+    .panel{
+        margin-top: 0;
+    }
+}

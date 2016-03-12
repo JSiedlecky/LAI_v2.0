@@ -1,4 +1,13 @@
-$(document).on('click', 'li', function(){
+$(document).ready(function(){
+    var url = location.href.split('/');
+    var urlLength = url.length - 1;
+    if( url[urlLength] === "" ){
+         url[urlLength] = "akademia";
+    }
+    $('#topNav .'+url[urlLength]).addClass('activeTopMenuItem');
+});
+
+$(document).on('click', '.bothMenuItem', function(){
   var url = location.href.split('/');
   var urlLength = url.length - 1;
   $('#topNav .activeTopMenuItem').removeClass('activeTopMenuItem');
