@@ -120,7 +120,6 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- jaki kurs
 	- (dla cisco)terminy zajęć (sob-niedz, pon-pt)
 	- (dla cisco) 2/4 semestry
-	- czy odpisane, odpowiedziane
 - aktualności
 	- tytuł
 	- zajawka
