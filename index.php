@@ -22,7 +22,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
-    <script src="../1SOURCES/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
+    <script src="js/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
     <script src="js/ui-bootstrap-1.2.4.min.js"></script>
     <script src="js/mainCtrl.js"></script>
     <script src="js/activeMenu.js"></script>
