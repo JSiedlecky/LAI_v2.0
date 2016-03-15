@@ -52,5 +52,4 @@ lai.controller('mainCtrl', function ($scope, $http) {
         }
     };
 
-
 });
