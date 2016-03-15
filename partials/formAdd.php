@@ -14,5 +14,23 @@
 
         $statement = $conn->prepare("INSERT INTO `applications`(`name`, `surname`, `email`, `phone`, `module`, `years`, `days`, `addInfo`) VALUES('$name', '$surname', '$mail', '$phone', '$module', '$years', '$days', '$addInfo')");
 
-    echo $statement->execute();
+        $numberOmails = 0;
+        $query = $conn->query('SELECT `email` FROM `applications`');
+
+        while($row = $query->fetch(PDO::FETCH_NUM)){
+            if($row = $mail) $numberOmails++;
+            if($numberOmails == 3){
+                echo "ERROR SKURWYSYN";
+                die();
+            }
+        }
+        $statement->execute();
+        echo "SUPER";
+
+
+        // foreach ($query as $key => $value) {
+        //     if($query[$key] == $mail){
+        //         $numberOmails++;
+        //     }
+        // }
 ?>

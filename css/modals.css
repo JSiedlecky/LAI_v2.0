@@ -10,7 +10,7 @@
 .gi-5x {
     font-size: 5em;
 }
-.text-success > .glypicon-ok {
+.modal-body > p {
     line-height: 2em;
     vertical-align: middle;
 }

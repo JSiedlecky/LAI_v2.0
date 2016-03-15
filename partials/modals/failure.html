@@ -1,9 +1,14 @@
 <div class="modal-header">
-    <h2>Komunikat z serwera</h2>
+    Komunikat z serwera
 </div>
 <div class="modal-body">
-    <span class="glyphicon glyphicon-ok success" aria-hidden="true"></span>
+    <p class="text-warning">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="glyphicon glyphicon glyphicon-exclamation-sign gi-2x" aria-hidden="true"></span>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;<strong>Wiadomośc wysłano więcej niż 3 razy!</strong>
+    </p>
 </div>
 <div class="modal-footer">
-
+    <a href="#/aktualnosci"><button ng-click="closeModal()" class="btn btn-primary return">Powrót do strony głównej</button></a>
 </div>
