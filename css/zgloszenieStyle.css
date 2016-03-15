@@ -24,10 +24,11 @@
     height: 30px;
     text-align: center;
 }
-
-
 @media (min-width: 1200px) {
     .panel{
         margin-top: 0;
     }
+}
+.help-block{
+    transition: 0.2s !important;
 }

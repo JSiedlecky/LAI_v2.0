@@ -3,31 +3,59 @@
     <p> Karta zgłoszenia uczestnika szkolenia w module CISCO i Tworzenia Witryn WWW. </p>
 </div>
     <hr>
-<form class="zgloszenieFormularz form-horizontal" ng-submit="onSub()" novalidate>
+<form class="zgloszenieFormularz form-horizontal"
+      ng-submit="onSub()"
+      novalidate>
     <div class="zgloszenieTopFormPanel">
         <div class="zgloszenieTopForm col-lg-8 col-md-12">
             <div class="form-group col-lg-12">
                 <label for="imie" class="col-lg-3 control-label">Imię: </label>
                 <div class="col-lg-9">
-                    <input type="text" class="form-control" name="imie" placeholder="Jan">
+                    <input type="text"
+                           ng-model="user.name"
+                           ng-pattern="/^[A-Za-z]{1,}$/"
+                           ng-pattern-err-type="badName"
+                           class="form-control"
+                           name="imie"
+                           placeholder="Jan"
+                           required>
                 </div>
             </div>
             <div class="form-group col-lg-12">
                 <label for="nazwisko" class="col-lg-3 control-label">Nazwisko: </label>
                 <div class="col-lg-9">
-                    <input type="text" class="form-control" name="nazwisko" placeholder="Kowalski">
+                    <input type="text"
+                           ng-model="user.surname"
+                           ng-pattern="/^[A-Za-z-]{1,}$/"
+                           ng-pattern-err-type="badSurname"
+                           class="form-control"
+                           name="nazwisko"
+                           placeholder="Kowalski"
+                           required>
                 </div>
             </div>
             <div class="form-group col-lg-12">
                 <label for="emial" class="col-lg-3 control-label">E-mail: </label>
                 <div class="col-lg-9">
-                    <input type="email" class="form-control" name="emial" placeholder="jankowalski@wp.pl">
+                    <input type="email"
+                    ng-model="user.mail"
+                    class="form-control"
+                    name="emial"
+                    placeholder="jankowalski@wp.pl"
+                     required>
                 </div>
             </div>
             <div class="form-group col-lg-12">
                 <label for="telefon" class="col-lg-3 control-label">Telefon kontaktowy: </label>
                 <div class="col-lg-9">
-                    <input type="text" class="form-control" name="telefon" placeholder="123-456-789">
+                    <input ng-model="user.phone"
+                           ng-pattern="/\d[+-]{1,}"
+                           ng-pattern-err-type="badPhone"
+                           type="text"
+                           class="form-control"
+                           name="telefon"
+                           placeholder="+48 123-456-789"
+                           required>
                 </div>
             </div>
         </div>
@@ -48,7 +76,8 @@
             <div class="form-group col-lg-4 col-md-12">
                 <label for="model" class="col-lg-4 control-label">Moduł:</label>
                 <div class="col-lg-8">
-                     <select class="form-control" name="model">
+                     <select ng-model="user.module" class="form-control" name="model" required>
+                         <option value="">Wybierz moduł zajęć</option>
                          <option value="cisco">CISCO</option>
                          <option value="aplikacje">Tworzenie Witryn WWW</option>
                      </select>
@@ -57,7 +86,8 @@
             <div class="form-group col-lg-4 col-md-12">
                 <label for="lata" class="col-lg-4 control-label">Tryb zajęć: </label>
                 <div class="col-lg-8">
-                     <select class="form-control" name="lata">
+                     <select ng-disabled="(user.module == 'aplikacje')" ng-model="user.years" class="form-control" name="lata" ng-required="user.module == 'cisco'">
+                         <option value="">Wybierz tryb zajęć</option>
                          <option value="rok">4 semestry/rok</option>
                          <option value="dwalata">4 semestry/2 lata</option>
                      </select>
@@ -66,7 +96,8 @@
             <div class="form-group col-lg-4 col-md-12">
                 <label for="dni" class="col-lg-4 control-label">Zajęcia w:</label>
                 <div class="col-lg-8">
-                     <select class="form-control" name="dni">
+                     <select ng-disabled="(user.module == 'aplikacje')" ng-model="user.days" class="form-control" name="dni" ng-required="user.module == 'cisco'">
+                         <option value="">Wybierz dni zajęć</option>
                          <option value="tygodzien">Tygodniu roboczym</option>
                          <option value="weekend">Weekendy</option>
                      </select>
@@ -80,14 +111,13 @@
             <div class="form-group col-lg-10 textareaForm">
                 <label for="comment" class="col-lg-12">Informacje dodatkowe: </label>
                 <div class="col-lg-12">
-                    <textarea class="form-control" rows="10"></textarea>
+                    <textarea ng-model="user.addInfo" class="form-control" rows="10"></textarea>
                 </div>
             </div>
         </div>
         <div class="zgloszenieBtns col-lg-12">
-            <input type="button" name="send" value="Wyślij zgłoszenie" id="sendBtn">
-            <input type="reset" name="reset" value="Reseuj formularz" id="resetBtn">
+            <input type="submit" name="send" value="Wyślij zgłoszenie" id="sendBtn">
+            <input type="reset" name="reset" value="Czyść formularz" id="resetBtn">
         </div>
     </div>
-
 </form>
