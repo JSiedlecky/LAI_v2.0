@@ -1,6 +1,7 @@
 var lai = angular.module('lai', [
     'ngRoute',
-    'jcs-autoValidate'
+    'jcs-autoValidate',
+    'ui.bootstrap'
 ]);
 
 lai.run(function (defaultErrorMessageResolver){
@@ -23,12 +24,19 @@ lai.config(function($routeProvider, $locationProvider){
         .otherwise({ redirectTo:'/' });
 });
 
-lai.controller('mainCtrl', function ($scope, $http) {
+lai.controller('modalsCtrl', function($scope){
+
+});
+
+lai.controller('zgloszenieCtrl', function ($scope, $uibModal, $http) {
     $scope.user = {
         'addInfo': ""
     };
 
-    var method = "POST";
+    $scope.closeModal = function() {
+
+    };
+
     var url = "partials/formAdd.php";
 
     $scope.onSub = function(){
@@ -41,9 +49,17 @@ lai.controller('mainCtrl', function ($scope, $http) {
         $http.post(url, $scope.user)
         .success(function(response){
             console.dir(response);
+            $uibModal.open({
+                templateUrl: 'partials/modals/success.html',
+                controller: 'modalsCtrl'
+            });
         })
         .error(function(err){
             console.dir(err);
+            $uibModal.open({
+                templateUrl: 'partials/modals/failure.html',
+                controller: 'modalsCtrl'
+            });
         });
 
         if($scope.user.module === "aplikacje"){

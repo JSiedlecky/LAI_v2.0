@@ -24,6 +24,9 @@
     height: 30px;
     text-align: center;
 }
+.g-recaptcha > div > div{
+    margin: 0 auto 10px auto;
+}
 @media (min-width: 1200px) {
     .panel{
         margin-top: 0;

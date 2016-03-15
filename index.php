@@ -23,6 +23,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
     <script src="../1SOURCES/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
+    <script src="js/ui-bootstrap-1.2.4.min.js"></script>
     <script src="js/mainCtrl.js"></script>
     <script src="js/activeMenu.js"></script>
 
@@ -30,6 +31,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/indexStyle.css">
     <link rel="stylesheet" href="css/zgloszenieStyle.css">
+    <link rel="stylesheet" href="css/modals.css">
 
 </head>
 <body>
@@ -53,7 +55,7 @@
                     <a href="#/akademia">Akademia</a></li>
             </ul>
         </nav>
-        <article ng-controller="mainCtrl">
+        <article>
             <ng-view>
 
             </ng-view>

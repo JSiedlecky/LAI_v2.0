@@ -7,7 +7,7 @@ $(document).ready(function(){
     $('#topNav .'+url[urlLength]).addClass('activeTopMenuItem');
 });
 
-$(document).on('click', '.bothMenuItem', function(){
+$(document).on('click', '.bothMenuItem, .return', function(){
   var url = location.href.split('/');
   var urlLength = url.length - 1;
   $('#topNav .activeTopMenuItem').removeClass('activeTopMenuItem');
