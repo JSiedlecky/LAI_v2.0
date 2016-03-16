@@ -5,9 +5,11 @@ $(document).ready(function(){
          url[urlLength] = "akademia";
     }
     $('#topNav .'+url[urlLength]).addClass('activeTopMenuItem');
+
+    
 });
 
-$(document).on('click', '.bothMenuItem, .return', function(){
+$(window).on('popstate', function() {
   var url = location.href.split('/');
   var urlLength = url.length - 1;
   $('#topNav .activeTopMenuItem').removeClass('activeTopMenuItem');

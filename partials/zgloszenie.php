@@ -6,7 +6,7 @@
 <div ng-controller="zgloszenieCtrl">
     <form class="zgloszenieFormularz form-horizontal"
           ng-submit="onSub()"
-          novalidate>
+          novalidate name="zgloszenieForm">
         <div class="zgloszenieTopFormPanel">
             <div class="zgloszenieTopForm col-lg-8 col-md-12">
                 <div class="form-group col-lg-12">

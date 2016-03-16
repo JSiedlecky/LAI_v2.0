@@ -4,6 +4,13 @@ var lai = angular.module('lai', [
     'ui.bootstrap'
 ]);
 
+lai.service('User', function(){
+    return {};
+});
+lai.service('Form', function(){
+    return {};
+});
+
 lai.run(function (defaultErrorMessageResolver){
     defaultErrorMessageResolver.setCulture('pl-PL');
     defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages){
@@ -24,18 +31,10 @@ lai.config(function($routeProvider, $locationProvider){
         .otherwise({ redirectTo:'/' });
 });
 
-lai.controller('modalsCtrl', function($scope){
+lai.controller('zgloszenieCtrl', function ($scope, $uibModal, $http, User) {
+    $scope.user = User;
+    $scope.user.addInfo = "";
 
-});
-
-lai.controller('zgloszenieCtrl', function ($scope, $uibModal, $http) {
-    $scope.user = {
-        'addInfo': ""
-    };
-
-    $scope.closeModal = function() {
-
-    };
 
     var url = "partials/formAdd.php";
 
@@ -46,20 +45,26 @@ lai.controller('zgloszenieCtrl', function ($scope, $uibModal, $http) {
             $scope.user.days = " - ";
         }
 
+        var result = "";
+
         $http.post(url, $scope.user)
         .success(function(response){
             console.dir(response);
-            $uibModal.open({
-                templateUrl: 'partials/modals/success.html',
-                controller: 'modalsCtrl'
-            });
+            if(response === "SUPER"){
+                $uibModal.open({
+                    templateUrl: 'partials/modals/success.html',
+                    controller: 'modalsCtrl'
+                });
+            }else if(response === "ERROR"){
+                $uibModal.open({
+                    templateUrl: 'partials/modals/failure.html',
+                    controller: 'modalsCtrl'
+                });
+            }
+            console.dir($scope);
         })
         .error(function(err){
             console.dir(err);
-            $uibModal.open({
-                templateUrl: 'partials/modals/failure.html',
-                controller: 'modalsCtrl'
-            });
         });
 
         if($scope.user.module === "aplikacje"){
@@ -67,5 +72,27 @@ lai.controller('zgloszenieCtrl', function ($scope, $uibModal, $http) {
             $scope.user.days = "";
         }
     };
+    user = $scope.user;
+});
 
+lai.controller('modalsCtrl', function($scope, $uibModalInstance, User){
+    $scope.user = User;
+    $scope.closeModal = function() {
+        $uibModalInstance.close('cancel');
+    };
+
+    $scope.clearFormCloseModal = function() {
+        console.dir($scope);
+        console.dir($scope.user);
+        $scope.user.name = "";
+        $scope.user.surname = "";
+        $scope.user.mail = "";
+        $scope.user.phone = "";
+        $scope.user.module = "";
+        $scope.user.years = "";
+        $scope.user.days = "";
+        $scope.user.addInfo = "";
+
+        $uibModalInstance.close('cancel');
+    };
 });

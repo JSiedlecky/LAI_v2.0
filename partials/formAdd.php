@@ -20,7 +20,7 @@
         while($row = $query->fetch(PDO::FETCH_NUM)){
             if($row = $mail) $numberOmails++;
             if($numberOmails == 3){
-                echo "ERROR SKURWYSYN";
+                echo "ERROR";
                 die();
             }
         }
