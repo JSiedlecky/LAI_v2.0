@@ -16,7 +16,7 @@ lai.run(function (defaultErrorMessageResolver){
     defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages){
         errorMessages.badName = 'Imie składa się tylko z liter.';
         errorMessages.badSurname = 'Nazwisko może składać się wyłącznie z liter i myślnika.';
-        errorMessages.badPhone = 'Szablon numeru telefonu +48 123-456-789.';
+        errorMessages.badPhone = 'Szablon numeru telefonu +48 123 456 789.';
     });
 });
 
@@ -78,12 +78,18 @@ lai.controller('zgloszenieCtrl', function ($scope, $uibModal, $http, User) {
 lai.controller('modalsCtrl', function($scope, $uibModalInstance, User){
     $scope.user = User;
     $scope.closeModal = function() {
+        $scope.user.name = "";
+        $scope.user.surname = "";
+        $scope.user.mail = "";
+        $scope.user.phone = "";
+        $scope.user.module = "";
+        $scope.user.years = "";
+        $scope.user.days = "";
+        $scope.user.addInfo = "";
         $uibModalInstance.close('cancel');
     };
 
     $scope.clearFormCloseModal = function() {
-        console.dir($scope);
-        console.dir($scope.user);
         $scope.user.name = "";
         $scope.user.surname = "";
         $scope.user.mail = "";

@@ -50,7 +50,7 @@
                     <label for="telefon" class="col-lg-3 control-label">Telefon kontaktowy: </label>
                     <div class="col-lg-9">
                         <input ng-model="user.phone"
-                               ng-pattern="/\d[+-]{1,}"
+                               ng-pattern="/\d{1,}/"
                                ng-pattern-err-type="badPhone"
                                type="text"
                                class="form-control"

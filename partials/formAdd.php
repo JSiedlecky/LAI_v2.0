@@ -18,7 +18,7 @@
         $query = $conn->query('SELECT `email` FROM `applications`');
 
         while($row = $query->fetch(PDO::FETCH_NUM)){
-            if($row = $mail) $numberOmails++;
+            if($row == $mail) $numberOmails++;
             if($numberOmails == 3){
                 echo "ERROR";
                 die();
