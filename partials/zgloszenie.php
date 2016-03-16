@@ -27,7 +27,7 @@
                     <div class="col-lg-9">
                         <input type="text"
                                ng-model="user.surname"
-                               ng-pattern="/^[A-Za-z-]{1,}$/"
+                               ng-pattern="/^[A-Za-z\u0104\u0106\u0118\u0141\u0143\u00D3\u015A\u0179\u017B\u0105\u0107\u0119\u0142\u0144\u00F3\u015B\u017A\u017C-]{1,}$/"
                                ng-pattern-err-type="badSurname"
                                class="form-control"
                                name="nazwisko"

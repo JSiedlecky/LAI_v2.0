@@ -6,12 +6,15 @@ $(document).ready(function(){
     }
     $('#topNav .'+url[urlLength]).addClass('activeTopMenuItem');
 
-    
+
 });
 
 $(window).on('popstate', function() {
   var url = location.href.split('/');
   var urlLength = url.length - 1;
+  if( url[urlLength] === "" ){
+       url[urlLength] = "akademia";
+  }
   $('#topNav .activeTopMenuItem').removeClass('activeTopMenuItem');
   $('#topNav .'+url[urlLength]).addClass('activeTopMenuItem');
 });
