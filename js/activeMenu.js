@@ -5,8 +5,6 @@ $(document).ready(function(){
          url[urlLength] = "akademia";
     }
     $('#topNav .'+url[urlLength]).addClass('activeTopMenuItem');
-
-
 });
 
 $(window).on('popstate', function() {

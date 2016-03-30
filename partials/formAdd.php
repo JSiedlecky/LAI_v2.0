@@ -12,18 +12,21 @@
         $days = $data->days; if($days == "") $days = " - ";
         $addInfo = $data->addInfo;
 
-        $statement = $conn->prepare("INSERT INTO `applications`(`name`, `surname`, `email`, `phone`, `module`, `years`, `days`, `addInfo`) VALUES('$name', '$surname', '$mail', '$phone', '$module', '$years', '$days', '$addInfo')");
-
         $numberOmails = 0;
-        $query = $conn->query('SELECT `email` FROM `applications`');
+        $query = $conn->prepare('SELECT * FROM `applications`');
+        $query->execute();
 
-        while($row = $query->fetch(PDO::FETCH_NUM)){
-            if($row == $mail) $numberOmails++;
-            if($numberOmails == 3){
+        while($row = $query->fetch(PDO::FETCH_ASSOC)){
+            if($mail == $row['email']) $numberOmails++;
+            if($numberOmails >= 3){
                 echo "ERROR";
                 die();
             }
         }
+
+        $statement = $conn->prepare("INSERT INTO `applications`(`name`, `surname`, `email`, `phone`, `module`, `years`, `days`, `addInfo`) VALUES('$name', '$surname', '$mail', '$phone', '$module', '$years', '$days', '$addInfo')");
+
+        $numberOmails = 0;
         $statement->execute();
         echo "SUPER";
 

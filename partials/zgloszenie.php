@@ -4,7 +4,9 @@
 </div>
     <hr>
 <div ng-controller="zgloszenieCtrl">
-    <form class="zgloszenieFormularz form-horizontal"
+    <form
+          id="zgloszenieFormularz"
+          class="zgloszenieFormularz form-horizontal"
           ng-submit="onSub()"
           novalidate name="zgloszenieForm">
         <div class="zgloszenieTopFormPanel">
@@ -36,12 +38,12 @@
                     </div>
                 </div>
                 <div class="form-group col-lg-12">
-                    <label for="emial" class="col-lg-3 control-label">E-mail: </label>
+                    <label for="email" class="col-lg-3 control-label">E-mail: </label>
                     <div class="col-lg-9">
                         <input type="email"
                         ng-model="user.mail"
                         class="form-control"
-                        name="emial"
+                        name="email"
                         placeholder="jankowalski@wp.pl"
                          required>
                     </div>

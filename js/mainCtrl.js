@@ -7,9 +7,6 @@ var lai = angular.module('lai', [
 lai.service('User', function(){
     return {};
 });
-lai.service('Form', function(){
-    return {};
-});
 
 lai.run(function (defaultErrorMessageResolver){
     defaultErrorMessageResolver.setCulture('pl-PL');
@@ -25,9 +22,9 @@ lai.config(function($routeProvider, $locationProvider){
         .when('/', { templateUrl:'partials/akademia.html' })
         .when('/akademia', { templateUrl:'partials/akademia.html'})
         .when('/cisco', { templateUrl:'partials/cisco.html'})
-        .when('/aplikacje', { templateUrl:'partials/aplikacje.html'})
+        .when('/aplikacje', { templateUrl:'partials/aplikacje.php'})
         .when('/zgloszenie', { templateUrl:'partials/zgloszenie.php'})
-        .when('/aktualnosci', { templateUrl:'partials/aktualnosci.html'})
+        .when('/aktualnosci', { templateUrl:'partials/aktualnosci.php'})
         .otherwise({ redirectTo:'/' });
 });
 

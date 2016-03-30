@@ -27,11 +27,13 @@
     <script src="js/ui-bootstrap-1.2.4.min.js"></script>
     <script src="js/mainCtrl.js"></script>
     <script src="js/activeMenu.js"></script>
+    <script src="js/slider.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/indexStyle.css">
     <link rel="stylesheet" href="css/zgloszenieStyle.css">
+    <link rel="stylesheet" href="css/aplikacjeStyle.css">
     <link rel="stylesheet" href="css/modals.css">
 
 </head>
@@ -48,11 +50,11 @@
     <main class="container" ng-app="lai">
         <nav id="topNav">
             <ul>
-                <li class="menuBtn">MENU</li><li class="menuTopItem bothMenuItem zgloszenie">
-                    <a href="#/zgloszenie">Zgłoszenie</a></li><li class="menuTopItem bothMenuItem aplikacje">
-                    <a href="#/aplikacje">Tworzenie witryn WWW</a></li><li class="menuTopItem bothMenuItem cisco">
-                    <a href="#/cisco">CISCO</a></li><li class="menuTopItem bothMenuItem aktualnosci">
-                    <a href="#/aktualnosci">Aktualności</a></li><li class="menuTopItem bothMenuItem akademia">
+                <li class="menuBtn">MENU</li><li class="menuTopItem zgloszenie">
+                    <a href="#/zgloszenie">Zgłoszenie</a></li><li class="menuTopItem aplikacje">
+                    <a href="#/aplikacje">Tworzenie witryn WWW</a></li><li class="menuTopItem cisco">
+                    <a href="#/cisco">CISCO</a></li><li class="menuTopItem aktualnosci">
+                    <a href="#/aktualnosci">Aktualności</a></li><li class="menuTopItem akademia">
                     <a href="#/akademia">Akademia</a></li>
             </ul>
         </nav>
