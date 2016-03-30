@@ -1,9 +1,8 @@
-$(document).ready(function(){
-    var width = "1500px";
+
+    var width = 1500;
     var animationSpeed = 1000;
     var pause = 3000;
     var currentSlide = 1;
-    console.log('elo');
 
     var $slider = $('.slider');
     var $slides = $slider.find('.slide');
@@ -18,4 +17,3 @@ $(document).ready(function(){
             console.log('elo');
         });
     }, pause);
-});

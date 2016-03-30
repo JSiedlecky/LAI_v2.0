@@ -27,7 +27,6 @@
     <script src="js/ui-bootstrap-1.2.4.min.js"></script>
     <script src="js/mainCtrl.js"></script>
     <script src="js/activeMenu.js"></script>
-    <script src="js/slider.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">

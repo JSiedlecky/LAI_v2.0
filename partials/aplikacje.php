@@ -16,7 +16,7 @@ Sed sed placerat ante. Donec tempus pretium efficitur. Phasellus odio turpis, va
             <li class="slide"><img src="img/ph1.png" alt="" /></li>
             <li class="slide"><img src="img/ph2.png" alt="" /></li>
             <li class="slide"><img src="img/ph3.png" alt="" /></li>
-            <li class="slide"><img src="img/ph1.png" alt="" /></li>
+            <li class="slide" id="lastSlide"><img src="img/ph1.png" alt="" /></li>
         </ul>
     </div>
 </div>
@@ -37,3 +37,4 @@ Sed sed placerat ante. Donec tempus pretium efficitur. Phasellus odio turpis, va
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque lorem sed blandit maximus. Nulla efficitur nisl eget velit faucibus, et feugiat dui suscipit. Curabitur sed blandit lacus, nec malesuada justo. Maecenas iaculis mi orci, ullamcorper pharetra orci tincidunt quis. Maecenas eget purus orci. Mauris rutrum condimentum auctor. Cras porttitor in enim eu sagittis. Nam ultricies in urna quis sagittis. Nulla facilisi. Sed eget viverra lorem.</p>
     </div>
 </div>
+<script src="js/slider.js"></script>
