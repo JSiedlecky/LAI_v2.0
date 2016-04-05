@@ -2,7 +2,7 @@ $(document).ready(function(){
     var url = location.href.split('/');
     var urlLength = url.length - 1;
     if( url[urlLength] === "" ){
-         url[urlLength] = "akademia";
+         url[urlLength] = "aktualnosci";
     }
     $('#topNav .'+url[urlLength]).addClass('activeTopMenuItem');
 });

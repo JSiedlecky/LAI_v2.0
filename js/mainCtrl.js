@@ -19,7 +19,7 @@ lai.run(function (defaultErrorMessageResolver){
 
 lai.config(function($routeProvider, $locationProvider){
     $routeProvider
-        .when('/', { templateUrl:'partials/akademia.html' })
+        .when('/', { templateUrl:'partials/aktualnosci.php' })
         .when('/akademia', { templateUrl:'partials/akademia.html'})
         .when('/cisco', { templateUrl:'partials/cisco.html'})
         .when('/aplikacje', { templateUrl:'partials/aplikacje.php'})

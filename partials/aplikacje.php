@@ -20,21 +20,27 @@ Sed sed placerat ante. Donec tempus pretium efficitur. Phasellus odio turpis, va
         </ul>
     </div>
 </div>
-<div class="aplikacjeBottom col-lg-12">
-    <div class="col-lg-4 col-md-12">
+<div class="aplikacjeBottom col-lg-12 ">
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
         <h2 class="text-center">HTML</h2>
-        <figure><img src="img/html5badge.png"/></figure>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque lorem sed blandit maximus. Nulla efficitur nisl eget velit faucibus, et feugiat dui suscipit. Curabitur sed blandit lacus, nec malesuada justo. Maecenas iaculis mi orci, ullamcorper pharetra orci tincidunt quis. Maecenas eget purus orci. Mauris rutrum condimentum auctor. Cras porttitor in enim eu sagittis. Nam ultricies in urna quis sagittis. Nulla facilisi. Sed eget viverra lorem.</p>
+        <section class="text-justify">
+            <figure><img src="img/html5badge.png" alt="" /></figure>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque lorem sed blandit maximus. Nulla efficitur nisl eget velit faucibus, et feugiat dui suscipit. Curabitur sed blandit lacus, nec malesuada justo. Maecenas iaculis mi orci, ullamcorper pharetra orci tincidunt quis. Maecenas eget purus orci. Mauris rutrum condimentum auctor. Cras porttitor in enim eu sagittis. Nam ultricies in urna quis sagittis. Nulla facilisi. Sed eget viverra lorem.
+        </section>
     </div>
-    <div class="col-lg-4 col-md-12">
-        <h2 class="text-center"> CSS </h2>
-        <figure><img src="img/css3badge.png"/></figure>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque lorem sed blandit maximus. Nulla efficitur nisl eget velit faucibus, et feugiat dui suscipit. Curabitur sed blandit lacus, nec malesuada justo. Maecenas iaculis mi orci, ullamcorper pharetra orci tincidunt quis. Maecenas eget purus orci. Mauris rutrum condimentum auctor. Cras porttitor in enim eu sagittis. Nam ultricies in urna quis sagittis. Nulla facilisi. Sed eget viverra lorem.</p>
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+        <h2 class="text-center">CSS</h2>
+        <section class="text-justify">
+            <figure><img src="img/css3badge.png" alt="" /></figure>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque lorem sed blandit maximus. Nulla efficitur nisl eget velit faucibus, et feugiat dui suscipit. Curabitur sed blandit lacus, nec malesuada justo. Maecenas iaculis mi orci, ullamcorper pharetra orci tincidunt quis. Maecenas eget purus orci. Mauris rutrum condimentum auctor. Cras porttitor in enim eu sagittis. Nam ultricies in urna quis sagittis. Nulla facilisi. Sed eget viverra lorem.
+        </section>
     </div>
-    <div class="col-lg-4 col-md-12">
-        <h2 class="text-center"> Grafika </h2>
-        <figure><img src="img/psbadge.png"/></figure>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque lorem sed blandit maximus. Nulla efficitur nisl eget velit faucibus, et feugiat dui suscipit. Curabitur sed blandit lacus, nec malesuada justo. Maecenas iaculis mi orci, ullamcorper pharetra orci tincidunt quis. Maecenas eget purus orci. Mauris rutrum condimentum auctor. Cras porttitor in enim eu sagittis. Nam ultricies in urna quis sagittis. Nulla facilisi. Sed eget viverra lorem.</p>
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+        <h2 class="text-center">Grafika</h2>
+        <section class="text-justify">
+            <figure><img src="img/psbadge.png" alt="" /></figure>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque lorem sed blandit maximus. Nulla efficitur nisl eget velit faucibus, et feugiat dui suscipit. Curabitur sed blandit lacus, nec malesuada justo. Maecenas iaculis mi orci, ullamcorper pharetra orci tincidunt quis. Maecenas eget purus orci. Mauris rutrum condimentum auctor. Cras porttitor in enim eu sagittis. Nam ultricies in urna quis sagittis. Nulla facilisi. Sed eget viverra lorem.
+        </section>
     </div>
 </div>
 <script src="js/slider.js"></script>
