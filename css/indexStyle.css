@@ -140,8 +140,12 @@ footer .row {
     margin: 20px;
     text-align: center;
     color: #726c65;
-    background-color: #;
 }
+
+div.viw.ng-enter {
+    animation: slideInRight 0.5s;
+}
+
 
 /*MEDIA QUERIES*/
 

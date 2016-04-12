@@ -1,5 +1,6 @@
 var lai = angular.module('lai', [
     'ngRoute',
+    'ngAnimate',
     'jcs-autoValidate',
     'ui.bootstrap'
 ]);
