@@ -1,0 +1,49 @@
+.akademiaParallax {
+    background: url("../img/parallax1.png") fixed 100%;
+}
+.akademiaParallaxInner {
+    padding: 7%;
+    color: white;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .akademiaCisco {
+        padding-bottom: 30px;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid black;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .akademiaCisco {
+        padding-bottom: 30px;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid black;
+    }
+}
+
+@media (min-width: 922px) and (max-width: 1200px) {
+    .akademiaCisco {
+        padding-bottom: 30px;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid black;
+    }
+}
+
+@media (min-width: 1200px) {
+    .akademiaCiscoWWW {
+        margin-top: 15px;
+    }
+    .akademiaCisco, .akademiaWWW {
+        padding-bottom: 15px;
+    }
+    .akademiaCisco {
+        box-sizing: border-box;
+        border: none;
+        border-right: 1px solid black;
+    }
+}

@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="css/aplikacjeStyle.css">
     <link rel="stylesheet" href="css/modals.css">
     <link rel="stylesheet" href="css/ciscoStyle.css">
+    <link rel="stylesheet" href="css/akademiaStyle.css">
 
 </head>
 <body>
