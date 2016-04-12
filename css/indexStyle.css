@@ -2,7 +2,7 @@
 
 html, body, header, main, nav, ul, li, a, article, footer, figure, img {
     margin: 0;
-    paddin: 0;
+    padding: 0;
 }
 .container {
     padding: 0;

@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="css/zgloszenieStyle.css">
     <link rel="stylesheet" href="css/aplikacjeStyle.css">
     <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/ciscoStyle.css">
 
 </head>
 <body>
@@ -102,7 +103,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 copyrights">
-                    &copy; LAI Gliwice 2016.
+                    &copy; <?php echo date("Y") ?>
                 </div>
             </div>
         </div>

@@ -82,6 +82,7 @@
         margin-top: 20px;
     }
     .aplikacjeBottom div {
+        border: none;
         box-sizing: border-box;
         border-right: 1px solid black;
     }

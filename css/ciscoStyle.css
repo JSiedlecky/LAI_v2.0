@@ -1,0 +1,36 @@
+.ciscoTop section, .ciscoTop section h2, .ciscoTop section figure, .ciscoTop section article {
+    padding: 0;
+    margin: 0;
+}
+.ciscoTop section .odd {
+    float: right;
+}
+.ciscoTop p {
+    padding: 0 10px 0 10px;
+}
+.ciscoTop img {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .ciscoTop h2 {
+        margin-top: 10px !important;
+    }
+    .ciscoTop p {
+        margin-bottom: 15px;
+    }
+}
+
+@media (min-width: 922px) and (max-width: 1200px) {
+    .ciscoTop img {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+
+}

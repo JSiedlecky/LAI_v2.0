@@ -21,7 +21,7 @@ lai.config(function($routeProvider, $locationProvider){
     $routeProvider
         .when('/', { templateUrl:'partials/aktualnosci.php' })
         .when('/akademia', { templateUrl:'partials/akademia.html'})
-        .when('/cisco', { templateUrl:'partials/cisco.html'})
+        .when('/cisco', { templateUrl:'partials/cisco.php'})
         .when('/aplikacje', { templateUrl:'partials/aplikacje.php'})
         .when('/zgloszenie', { templateUrl:'partials/zgloszenie.php'})
         .when('/aktualnosci', { templateUrl:'partials/aktualnosci.php'})

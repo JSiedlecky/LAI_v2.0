@@ -140,3 +140,23 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - przy rozdzielczości niższej niż 1200px dodaje się dziwny padding/margin z prawej i nie wiem co to jest. do naprawy :v
 - nowe zgłoszenie = powiadomienie na email do Szołtyska
 - tworzenie wirtryn www - uzupełni wlaściwym tekstem, dodac właściwą grafike
+
+### Admin stuff
+
+- Left navi:
+	- nowy wpis do aktualności
+	- wyślij newsletter
+	- ustawienia
+	- wyloguj
+	- copyright LAI 2016
+
+- Top navi:
+	- Grupy (do 15 osob)
+		- dodaj grupę
+	- Nowi uczniowie
+		- przydziel grupę
+		- dane kontatkowe
+	- Uczniowie
+		- płatnosci
+		- statusy
+		- wyszukiwarka
