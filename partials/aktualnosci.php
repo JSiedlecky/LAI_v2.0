@@ -1,3 +1,10 @@
+<!-- Redirect kiedy nie ma zapytania z angulara -->
+<script type="text/javascript">
+  if(typeof lai === 'undefined'){
+    document.location.href="../";
+  }
+</script>
+
 <?php
 
 	require("../connect.php");
@@ -35,8 +42,8 @@
 		$('#newsContainer .newsEntry').last().append('<p>' + _jsonData[index]["brief"] + '</p>');
 		$('#newsContainer .newsEntry').last().append('<p><a href="#">Czytaj więcej</a></p>');
 		$('#newsContainer .newsEntry').last().append('<hr />');
-		
-		
+
+
 	}
 </script>
 

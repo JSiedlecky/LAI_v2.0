@@ -1,3 +1,10 @@
+<!-- Redirect kiedy nie ma zapytania z angulara -->
+<script type="text/javascript">
+  if(typeof lai === 'undefined'){
+    document.location.href="../";
+  }
+</script>
+
 <div class="ciscoTop col-lg-12 col-md-8 col-sm-10 col-xs-12 col-lg-offset-0 col-md-offset-2 col-sm-offset-1">
     <div class="ciscoHeader">
         <h2 class="text-center">CISCO</h2>

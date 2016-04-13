@@ -26,6 +26,8 @@ lai.config(function($routeProvider, $locationProvider){
         .when('/aplikacje', { templateUrl:'partials/aplikacje.php'})
         .when('/zgloszenie', { templateUrl:'partials/zgloszenie.php'})
         .when('/aktualnosci', { templateUrl:'partials/aktualnosci.php'})
+        .when('/partials', {redirectTo: '/'})
+        .when('../', {redirectTo: '/'})
         .otherwise({ redirectTo:'/' });
 });
 
