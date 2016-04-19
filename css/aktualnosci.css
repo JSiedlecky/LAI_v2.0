@@ -1,0 +1,16 @@
+.newsLoadMore {}
+.newsLoadMore button {}
+#newsContainer {
+    padding: 20px;
+}
+.newsEntry {
+    //padding: 10px;
+}
+.newsTitle {
+    font-weight: bold;
+    font-size: x-large;
+    margin-bottom: 0;
+}
+.newsDate {
+    margin-bottom: 0;
+}
