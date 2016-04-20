@@ -14,3 +14,7 @@
 .newsDate {
     margin-bottom: 0;
 }
+
+.newsContent {
+    display: none;
+}

@@ -58,7 +58,7 @@
                   ajaxRequestGetNewsAmount: true
               },
               success: function(data) {
-                  console.dir(JSON.parse(data));
+                   NEWS_AMOUNT = JSON.parse(data).toString();
               }
         });
     }
@@ -67,6 +67,7 @@
 
 
     var NEWS_LIMIT = 5;
+    var NEWS_AMOUNT = 999;
 
     function getNews(_limit, _startPos) {
         $.ajax({
@@ -78,6 +79,7 @@
               },
               success: function(data) {
                   appendNews(JSON.parse(data), _startPos);
+                  console.dir(JSON.parse(data));
               }
         });
     }
@@ -94,10 +96,13 @@
             $('#newsContainer .newsEntry').last().append('<p class="newsDate">' + _jsonData[i]["date"] + '</p>');
             $('#newsContainer .newsEntry').last().append('<p class="newsTitle">' + _jsonData[i]["title"] + '</p>');
             $('#newsContainer .newsEntry').last().append('<p class="newsBrief">' + _jsonData[i]["brief"] + '</p>');
-            $('#newsContainer .newsEntry').last().append('<p><a href="#">Czytaj więcej</a></p>');
+            $('#newsContainer .newsEntry').last().append('<p class="newsContent">' + _jsonData[i]["content"] + '</p>');
+            $('#newsContainer .newsEntry').last().append('<p><a class="linkReadMore" href="#" action="show">Czytaj więcej</a></p>');
             $('#newsContainer .newsEntry').last().append('<hr />');
 
         }
+
+        bindEventsToReadMoreLinks();
 	}
 
     function clearNews() {
@@ -109,8 +114,34 @@
 
         var STEP = 5;
         NEWS_LIMIT += STEP;
-        getNews(NEWS_LIMIT, NEWS_LIMIT - STEP);
+
+        if((NEWS_LIMIT <= NEWS_AMOUNT)){
+            getNews(NEWS_LIMIT, NEWS_LIMIT - STEP);
+        }
+        else {
+            $('#btnNewsLoadMore').hide();
+        }
+
     }
+
+    function bindEventsToReadMoreLinks() {
+        $.each($('a.linkReadMore'), function(i,v) {
+            $(v).click(function(event) {
+                event.preventDefault();
+
+                if($(v).attr('action') === 'show'){
+                    $(this).parent().siblings('p.newsContent').show('slow');
+                    $(v).attr('action', 'hide');
+                }
+                else {
+                    $(this).parent().siblings('p.newsContent').hide('slow');
+                    $(v).attr('action', 'show');
+                }
+
+            });
+        });
+    }
+
 
     getNews(NEWS_LIMIT, 0);
 </script>
@@ -122,5 +153,5 @@
 </div>
 
 <div class="newsLoadMore text-center">
-    <button type="button" class="btn btn-default btn-lg" onclick="btnNewsLoadMore();">Wczytaj więcej</button>
+    <button id="btnNewsLoadMore" type="button" class="btn btn-default btn-lg" onclick="btnNewsLoadMore();">Wczytaj więcej</button>
 </div>
