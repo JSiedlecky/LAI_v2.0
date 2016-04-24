@@ -15,6 +15,7 @@ lai.run(function (defaultErrorMessageResolver){
         errorMessages.badName = 'Imie składa się tylko z liter.';
         errorMessages.badSurname = 'Nazwisko może składać się wyłącznie z liter i myślnika.';
         errorMessages.badPhone = 'Szablon numeru telefonu +48 123 456 789.';
+        errorMessages.badMail = '';
     });
 });
 
@@ -71,6 +72,31 @@ lai.controller('zgloszenieCtrl', function ($scope, $uibModal, $http, User) {
         }
     };
     user = $scope.user;
+});
+
+lai.controller('newsletterCtrl', function ($scope, $http) {
+    $scope.newsletterAdd = function(){
+        var url = "partials/newsletter.php";
+        console.log("donbe");
+
+        var data = {
+
+            "mail":$scope.newsletterEmail
+        };
+
+        if($scope.newsletterEmail === undefined || $scope.newsletterEmail === "") console.log("puste Pole!");
+        else{
+            $http.post(url, data)
+            .success(function(response){
+               console.log(response);
+            })
+            .error(function(err){
+               console.error(err);
+            });
+        }
+
+        $scope.newsletterEmail = "";
+    };
 });
 
 lai.controller('modalsCtrl', function($scope, $uibModalInstance, User){

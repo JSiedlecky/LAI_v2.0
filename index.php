@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="css/akademiaStyle.css">
 
 </head>
-<body>
+<body ng-app="lai">
 
     <header>
         <figure>
@@ -49,7 +49,7 @@
             <img src="img/ph2375x400.png" id="headerImg4" alt=":C">
         </figure>
     </header>
-    <main class="container" ng-app="lai">
+    <main class="container">
         <nav id="topNav">
             <ul>
                 <li class="menuBtn">MENU</li><li class="menuTopItem zgloszenie">
@@ -71,13 +71,22 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12  fContents" id="newsletter">
                     <h2>Zapisz się na newsletter.</h2>
-                    <div class="col-xs-12 newsletterInputAroundsDiv">
-                        <form action="#">
-                            <div class="input-group">
-                              <input type="email" class="form-control" placeholder="Wpisz adres E-Mail">
-                              <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Subskrybuj</button>
-                              </span>
+                    <div ng-controller="newsletterCtrl" class="col-xs-12 newsletterInputAroundsDiv">
+                        <form ng-submit="newsletterAdd()"
+                              method="post"
+                              novalidate>
+                            <div class="form-group">
+                                <div class="input-group">
+                                  <input type="email"
+                                         name="newsletterEmail"
+                                         ng-model="newsletterEmail"
+                                         disable-invalid-styling="true"
+                                         class="form-control"
+                                         placeholder="Wpisz adres E-Mail">
+                                  <span class="input-group-btn">
+                                    <input type="submit" class="btn btn-default" name="submit" value="Subskrybuj">
+                                  </span>
+                                </div>
                             </div>
                         </form>
                     </div>

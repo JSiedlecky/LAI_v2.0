@@ -29,11 +29,4 @@
         $numberOmails = 0;
         $statement->execute();
         echo "SUPER";
-
-
-        // foreach ($query as $key => $value) {
-        //     if($query[$key] == $mail){
-        //         $numberOmails++;
-        //     }
-        // }
 ?>
