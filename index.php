@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="css/modals.css">
     <link rel="stylesheet" href="css/ciscoStyle.css">
     <link rel="stylesheet" href="css/akademiaStyle.css">
+    <link rel="stylesheet" href="css/aktualnosci.css">
 
 </head>
 <body ng-app="lai">
