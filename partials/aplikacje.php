@@ -1,3 +1,10 @@
+<!-- Redirect kiedy nie ma zapytania z angulara -->
+<script type="text/javascript">
+  if(typeof lai === 'undefined'){
+    document.location.href="../";
+  }
+</script>
+
 <div class="aplikacjeHeader text-center">
     <h2>Tworzenie witryn WWW</h2>
     <p>
