@@ -69,6 +69,10 @@ article {
 #topNav ul li a {
     color: #f25532;
 }
+
+#topNav ul li a{
+    text-decoration: none;
+}
 .menuBtn {
     border: none !important;
     display: block !important;

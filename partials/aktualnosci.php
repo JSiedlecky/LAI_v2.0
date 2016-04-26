@@ -85,6 +85,7 @@
     }
 
     function appendNews(_jsonData, _startPos) {
+        $('#btnNewsLoadMore').show();
 
         for (var i = _startPos; i < _jsonData.length; i++) {
             if (i >= _jsonData.length) {
