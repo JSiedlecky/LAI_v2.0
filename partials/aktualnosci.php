@@ -94,10 +94,10 @@
 
 
             $('#newsContainer').append('<div class="newsEntry"></div>');
-            $('#newsContainer .newsEntry').last().append('<p class="newsDate">' + _jsonData[i]["date"] + '</p>');
-            $('#newsContainer .newsEntry').last().append('<p class="newsTitle">' + _jsonData[i]["title"] + '</p>');
-            $('#newsContainer .newsEntry').last().append('<p class="newsBrief">' + _jsonData[i]["brief"] + '</p>');
-            $('#newsContainer .newsEntry').last().append('<p class="newsContent">' + _jsonData[i]["content"] + '</p>');
+            $('#newsContainer .newsEntry').last().append('<p class="newsDate">' + _jsonData[i].date + '</p>');
+            $('#newsContainer .newsEntry').last().append('<p class="newsTitle">' + _jsonData[i].title + '</p>');
+            $('#newsContainer .newsEntry').last().append('<p class="newsBrief">' + _jsonData[i].brief + '</p>');
+            $('#newsContainer .newsEntry').last().append('<p class="newsContent">' + _jsonData[i].content + '</p>');
             $('#newsContainer .newsEntry').last().append('<p><a class="linkReadMore" href="#" action="show">Czytaj więcej</a></p>');
             $('#newsContainer .newsEntry').last().append('<hr />');
 
