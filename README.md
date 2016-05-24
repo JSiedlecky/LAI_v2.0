@@ -164,13 +164,12 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 ### Grafika
 
-- Nagłówek strony > 2375x200  (tam gdzie obecnie placeholder)
-- Akademia, ładny paralax > 1200x215
+- Nagłówek strony > 2375x200  (tam gdzie obecnie placeholder)    | mobilne:  768x129
+- Akademia, ładny paralax > 1200x215   | mobilne:   738x138
 - Akademia, "ZAPISZ SIĘ NA ZAJĘCIA", napis + ładne tło > 1200x200  (może być mniejszy)
 - Cisco, 4 grafiki tematyczne (4 semestry)  >  600 x 200
 - WWW, min. 3 grafiki tematyczne > 1500x200
 - Do tego przydało by się z jedno jakieś ładne logo Cisco / ew. ZSTI; nie musi być duże
-- ? może coś co stopki
 - ? może jakieś lekkie tło
 
 Grafiki mogą być większe, byle z zachowaniem skali.
