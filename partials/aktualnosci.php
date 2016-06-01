@@ -101,6 +101,10 @@
             $('#newsContainer .newsEntry').last().append('<p><a class="linkReadMore" href="#" action="show">Czytaj więcej</a></p>');
             $('#newsContainer .newsEntry').last().append('<hr />');
 
+
+            if(NEWS_LIMIT >= NEWS_AMOUNT) {
+                $('#btnNewsLoadMore').hide();
+            }
         }
 
         bindEventsToReadMoreLinks();
@@ -123,12 +127,19 @@
             $('#btnNewsLoadMore').hide();
         }
 
+
+
+        console.log('NEWS_LIMIT ' + NEWS_LIMIT);
+        console.log('NEWS_AMOUNT ' + NEWS_AMOUNT);
+
     }
 
     function bindEventsToReadMoreLinks() {
         $.each($('a.linkReadMore'), function(i,v) {
+            $(v).off('click');
             $(v).click(function(event) {
                 event.preventDefault();
+
 
                 if($(v).attr('action') === 'show'){
                     $(this).parent().siblings('p.newsContent').show('slow');
