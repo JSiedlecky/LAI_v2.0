@@ -49,6 +49,9 @@
 	//console.dir(_jsonData);
 	//console.dir(jsonData);
 	//
+	//
+	var NEWS_LIMIT = 5;
+    var NEWS_AMOUNT = 999;
 
     function getNewsAmount() {
         $.ajax({
@@ -59,6 +62,7 @@
               },
               success: function(data) {
                    NEWS_AMOUNT = JSON.parse(data).toString();
+                   getNews(NEWS_LIMIT, 0);
               }
         });
     }
@@ -66,8 +70,6 @@
     getNewsAmount();
 
 
-    var NEWS_LIMIT = 5;
-    var NEWS_AMOUNT = 999;
 
     function getNews(_limit, _startPos) {
         $.ajax({
@@ -105,6 +107,9 @@
             if(NEWS_LIMIT >= NEWS_AMOUNT) {
                 $('#btnNewsLoadMore').hide();
             }
+
+            console.log('NEWS_LIMIT ' + NEWS_LIMIT);
+            console.log('NEWS_AMOUNT ' + NEWS_AMOUNT);
         }
 
         bindEventsToReadMoreLinks();
@@ -136,6 +141,9 @@
 
     function bindEventsToReadMoreLinks() {
         $.each($('a.linkReadMore'), function(i,v) {
+            if($(this).parent().siblings('p.newsContent').html().trim().length <= 1){
+                $(v).hide();
+            }
             $(v).off('click');
             $(v).click(function(event) {
                 event.preventDefault();
@@ -155,7 +163,7 @@
     }
 
 
-    getNews(NEWS_LIMIT, 0);
+    //getNews(NEWS_LIMIT, 0);
 </script>
 
 

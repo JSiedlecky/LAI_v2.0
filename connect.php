@@ -16,5 +16,5 @@
         $connMsg = "Connection failed: " . $e->getMessage();
     }
 
-    
+
 ?>
