@@ -1,25 +1,24 @@
 <?php
-    include('../connect.php');
+    include('classes/Database.php');
     include('classes/User.php');
 
     session_start();
     if(isset($_POST['submit']) && !isset($_SESSION['user'])){
+        $db = new Database();
+
         $login = $_POST['usrnm'];
         $passwd = $_POST['passwd'];
-        $sql = "SELECT `idu`,`password` FROM `users` WHERE `login`='".$login."'";
 
-        $q = $conn->prepare($sql);
-        $q->execute();
-        $result = $q->fetch(PDO::FETCH_ASSOC);
+        $result = $db->Select("users",['idu','password'],['login'=>$login],"","1");
 
         if(empty($result)){
-            header('location: index.php');
+            header('location: enter.php');
             die();
         }
 
-        if(password_verify($passwd,$result['password'])){
-            $user = new User($result['idu']);
-            $_SESSION['user'] = $user;
+        if(password_verify($passwd,$result[0]['password'])){
+            $user = new User($result[0]['idu']);
+            $_SESSION['user'] = serialize($user);
         }
 
     }
