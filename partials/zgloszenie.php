@@ -98,8 +98,8 @@
                     <div class="col-lg-8">
                          <select ng-disabled="(user.module == 'aplikacje')" ng-model="user.years" class="form-control" name="lata" ng-required="user.module == 'cisco'">
                              <option value="">Wybierz tryb zajęć</option>
-                             <option value="rok">4 semestry/rok</option>
-                             <option value="dwalata">4 semestry/2 lata</option>
+                             <option value="Rok">4 semestry/rok</option>
+                             <option value="Dwa lata">4 semestry/2 lata</option>
                          </select>
                     </div>
                 </div>
@@ -108,8 +108,8 @@
                     <div class="col-lg-8">
                          <select ng-disabled="(user.module == 'aplikacje')" ng-model="user.days" class="form-control" name="dni" ng-required="user.module == 'cisco'">
                              <option value="">Wybierz dni zajęć</option>
-                             <option value="tygodzien">Tygodniu roboczym</option>
-                             <option value="weekend">Weekendy</option>
+                             <option value="Tydzien">Tygodniu roboczym</option>
+                             <option value="Weekend">Weekendy</option>
                          </select>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ lai.service('User', function(){
     return {};
 });
 
+//custom errrors for form
 lai.run(function (defaultErrorMessageResolver){
     defaultErrorMessageResolver.setCulture('pl-PL');
     defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages){
@@ -19,6 +20,7 @@ lai.run(function (defaultErrorMessageResolver){
     });
 });
 
+//routing
 lai.config(function($routeProvider, $locationProvider){
     $routeProvider
         .when('/', { templateUrl:'partials/aktualnosci.php' })
@@ -44,25 +46,26 @@ lai.controller('zgloszenieCtrl', function ($scope, $uibModal, $http, User) {
         if($scope.user.module != "cisco") {
             $scope.user.years = " - ";
             $scope.user.days = " - ";
-        }
+            $scope.user.module = "Aplikacje";
+        } else $scope.user.module = "Cisco";
 
         var result = "";
 
         $http.post(url, $scope.user)
         .success(function(response){
-            console.dir(response);
-            if(response === "SUPER"){
+            console.log(response.trim());
+            response = response.trim();
+            if(response == "SUPER"){
                 $uibModal.open({
                     templateUrl: 'partials/modals/success.html',
                     controller: 'modalsCtrl'
                 });
-            }else if(response === "ERROR"){
+            }else if(response == "ERROR"){
                 $uibModal.open({
                     templateUrl: 'partials/modals/failure.html',
                     controller: 'modalsCtrl'
                 });
             }
-            console.dir($scope);
         })
         .error(function(err){
             console.dir(err);

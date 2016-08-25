@@ -171,4 +171,29 @@ html, body {
     background-color: #F1F2F4;
 }
 
+/* GENERAL VIEW */
 
+  /* TABLE */
+  .default-table {
+    width: 100%;
+    border: 1px solid #e4e4e4;
+    background-color: white;
+  }
+
+  .default-table, .default-table tbody tr td{
+    border: 1px solid #e4e4e4;
+  }
+
+  .default-table th{
+    border: 3px solid #e4e4e4;
+  }
+
+  .default-table thead tr th, .default-table tbody tr td{
+    padding: 8px;
+    min-height: 10px;
+  }
+
+
+/* USER VIEW */
+
+/* APPLICATIONS VIEW */

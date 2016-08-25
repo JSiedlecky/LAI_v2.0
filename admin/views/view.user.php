@@ -6,15 +6,6 @@ $db = new Database();
 
 $view->Header("Profil użytkownika: ".$user->getDisplayName());
 
-$result = $db->DescribeTable('applications');
-
-
-echo '<pre>';
-foreach($result as $r){
-    echo $r['Field'].'<br>';
-}
-echo '</pre>';
-
 $result = $db->Select('applications',['*']);
 
 $applications_data = array();
@@ -40,5 +31,7 @@ $view->Table([
 ]);
 
 $view->Render();
+
+print_obj($applications_data);
 
 ?>

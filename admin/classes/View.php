@@ -6,7 +6,7 @@ class View {
     private $content;
 
     public function Header($string){
-        $this->header = '<h2>'.$string.'</h2>';
+        $this->header = '<h2 class="view-header">'.$string.'</h2>';
     }
 
     public function AppendContent($appending){
@@ -38,6 +38,7 @@ class View {
                 foreach ($options['data'] as $k => $r){
                     $table .= '<tr>';
                         if($options['ordinal']) $table .= '<td class="t-ordinal">'.$k++.'</td>';
+                        $k--;
                         foreach ($options['data'][$k] as $col){
                             $table .= '<td class="t-columns">'.$col.'</td>';
                         }
@@ -52,8 +53,7 @@ class View {
 
     public function Render($options = ["debug"=>false]){
         if($options['debug']){
-            echo $this->content;
-            die();
+            die($this->content);
         } else {
             echo $this->header;
             echo $this->content;

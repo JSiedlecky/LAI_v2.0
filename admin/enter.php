@@ -21,6 +21,7 @@
             $_SESSION['user'] = serialize($user);
         }
 
+        $db->Disconnect();
     }
     if(isset($_SESSION['user'])){
         header("location: index.php");
