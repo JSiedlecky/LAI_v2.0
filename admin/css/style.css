@@ -175,9 +175,7 @@ html, body {
 
   /* TABLE */
   .default-table {
-    width: 100%;
     border: 1px solid #e4e4e4;
-    background-color: white;
   }
 
   .default-table, .default-table tbody tr td{
@@ -189,11 +187,39 @@ html, body {
   }
 
   .default-table thead tr th, .default-table tbody tr td{
+    background: white;
     padding: 8px;
     min-height: 10px;
+  }
+
+  /* SECTION */
+  .default-section {
+
   }
 
 
 /* USER VIEW */
 
 /* APPLICATIONS VIEW */
+.applications {
+  border-right: none;
+  border-bottom: none;
+}
+
+.applications tbody tr td:last-child {
+  border: none;
+  background-color: transparent;
+}
+
+.applications tbody tr:hover td {
+  background-color: #e4e4e4;
+  cursor: pointer;
+}
+
+.applications tbody tr:hover td:last-child {
+  background-color: transparent;
+}
+
+.applications tbody tr td:nth-child(10) {
+  background-color: rgba(39, 174, 96, 0.5);
+}

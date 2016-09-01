@@ -4,6 +4,11 @@ class View {
 
     private $header;
     private $content;
+    public  $db;
+
+    public function __construct(){
+      $this->db = new Database;
+    }
 
     public function Header($string){
         $this->header = '<h2 class="view-header">'.$string.'</h2>';
@@ -13,7 +18,18 @@ class View {
         $this->content .= $appending;
     }
 
-    public function Table($options = ["name"=>"","ordinal"=>false,"class"=>"default-table","column_names"=>[],"data"=>[]]){
+    public function Section($options = ["name"=>"","content"=>"","class"=>"default-section"]) {
+        $section =  '<section class="'.$options['class'].'">';
+        $section .=   '<h3 class="section_header">'.$options['name'].'</h3>';
+
+        $section .=   $options['content'];
+
+        $section .= '</section>';
+
+        $this->content .= $section;
+    }
+
+    public function Table($options = ["name"=>"","ordinal"=>false,"class"=>"default-table","column_names"=>[],"data"=>[],"column_class"=>[]]){
         $table = '<table class="'.$options['class'].'">';
 
             $table .= "<thead>";
@@ -37,8 +53,8 @@ class View {
 
                 foreach ($options['data'] as $k => $r){
                     $table .= '<tr>';
-                        if($options['ordinal']) $table .= '<td class="t-ordinal">'.$k++.'</td>';
-                        $k--;
+                        $lp = $k + 1;
+                        if($options['ordinal']) $table .= '<td class="t-ordinal">'.$lp.'</td>';
                         foreach ($options['data'][$k] as $col){
                             $table .= '<td class="t-columns">'.$col.'</td>';
                         }

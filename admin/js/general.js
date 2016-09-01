@@ -73,5 +73,18 @@ $(document).ready(function(){
         }
     });
 
+    //BEAUTIFY WHAT IS TO HARD TO DO WITH PHP OR IM TOO LAZY
+    $('.applications tbody tr td:nth-child(10)').each(function(index){
+      if($(this).text().trim() == 'Nie rozpatrzono.') $(this).css('background-color','rgba(231, 76, 60, 0.5)');
+    });
+
+    //APPLICATIONS TABLE ANIMATIONS AND ADDITIONAL USAGE
+    $('.applications tbody tr td:not(:last-of-type)').on('click touch', function(e){
+      var checkbox_input = $(this).parent().find('input[type="checkbox"]');
+      var is_checked = checkbox_input.prop('checked');
+      checkbox_input.prop('checked',!is_checked);
+    });
+
+    //AJAX REQUESTS
 
 });
