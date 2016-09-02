@@ -4,7 +4,7 @@
     private $method;
     private $url;
     private $radioName = '';
-    
+
     public function __construct($method = "POST",$typeOfDataTransport = "submit",$url = "#"){
       if(strtolower($typeOfDataTransport) != "get"){
 
@@ -17,6 +17,9 @@
     }
     public function close(){
       return '</form>';
+    }
+    public function getRadiName(){
+      return $this->radioName;
     }
     public function getTextbox($name,$placeholder){
       $html = '<input type="text" name="'.$name.'" placeholder="'.$placeholder.'"/>';
