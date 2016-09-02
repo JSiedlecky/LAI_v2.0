@@ -4,12 +4,7 @@ $view = new View();
 
 $result = $view->db->Select('groups');
 
-$groups = array();
-foreach($result as $count => $array){
-  foreach($array as $key => $value){
-    $groups[$count][] = $value;
-  }
-}
+$groups = ParseToTable($result);
 
 $view->Header('Grupy');
 
