@@ -1,6 +1,5 @@
 <?php
 
-
 $view = new View();
 
 $result = $view->db->Select('groups');
@@ -8,13 +7,25 @@ $result = $view->db->Select('groups');
 $groups = array();
 foreach($result as $count => $array){
   foreach($array as $key => $value){
-    $groups[$key][] = $value;
+    $groups[$count][] = $value;
   }
 }
 
 $view->Header('Grupy');
 
-$view->Table();
+$view->Table([
+              "name"=>"Lista grup",
+              "ordinal"=>false,
+              "column_names"=> ['LP',
+                                'Nazwa Grupy',
+                                'Moduł',
+                                'Lata',
+                                'Tydzień/weekend',
+                                'Ilość studentow',
+                                'Status'],
+                                "data"=> $groups,
+                "class"=>"default-table"
+]);
 
 $view->Render();
 

@@ -9,4 +9,6 @@
     //helpers
     include('helpers/string.functions.php');
 
+    //consts
+
 ?>
