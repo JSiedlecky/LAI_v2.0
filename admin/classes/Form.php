@@ -54,7 +54,7 @@
       return '<input type="checkboc" name="'.$name.'" value="'.$value.'" />'.$displayName;
     }
     public function getButton($name,$value){
-      return '<input type="button" name="'.$name'" value="'.$value.'"/>';
+      return '<input type="button" name="'.$name.'" value="'.$value.'"/>';
     }
     public function getNumber($name,$value){
       if($value == null){
