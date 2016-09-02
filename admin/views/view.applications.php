@@ -2,11 +2,16 @@
 
 $view = new View();
 
-$db = new Database;
+$db = new Database();
+
+
 
 $result = $db->Select('applications',['*']);
 
 $applications_data = array();
+
+
+
 foreach($result as $key => $r){
     foreach($r as $k => $item){
         //id will be used to edit the row
@@ -29,8 +34,8 @@ $applications_actions = '
 $view->header('Aplikacje');
 
 $view->Section([
-                "name"=>"Akcje",
-                "content"=>"EE",
+                "name"=>"Sortowanie",
+                "content"=>'',
                 "class"=>"default-section"
 ]);
 
