@@ -6,11 +6,11 @@ class Database {
     protected $db;
 
     //connect to db
-    public function __construct($login="lai", $password="lai", $host="localhost", $dbname="lai"){
+    public function __construct($login="lai", $password="lai", $host="jqub97.ddns.net", $port="3306", $dbname="lai"){
         $this->isConnected = true;
 
         try {
-            $this->db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8",$login,$password);
+            $this->db = new PDO("mysql:host={$host};port={$port};dbname={$dbname};charset=utf8",$login,$password);
 
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
