@@ -10,6 +10,7 @@
     }
 
     $user = unserialize($_SESSION['user']);
+    $view = new View();
 
 ?>
 <!doctype html>

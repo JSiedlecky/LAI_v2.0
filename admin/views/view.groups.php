@@ -1,7 +1,5 @@
 <?php
 
-$view = new View();
-
 $result = $view->db->Select('groups');
 
 $groups = ParseToTable($result);

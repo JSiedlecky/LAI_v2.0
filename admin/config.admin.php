@@ -5,6 +5,8 @@
     include('classes/User.php');
     include('classes/Permissions.php');
     include('classes/View.php');
+    include('classes/Form.php');
+    include('classes/Form2.php');
 
     //helpers
     include('helpers/string.functions.php');

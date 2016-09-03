@@ -70,9 +70,12 @@ class View {
     public function Render($options = ["debug"=>false]){
         if($options['debug']){
             die($this->content);
+            $this->content = "";
         } else {
             echo $this->header;
             echo $this->content;
+            $this->header = "";
+            $this->content = "";
         }
     }
 

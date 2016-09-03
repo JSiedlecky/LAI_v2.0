@@ -1,12 +1,6 @@
 <?php
 
-$view = new View();
-
-$db = new Database();
-
-
-
-$result = $db->Select('applications',['*']);
+$result = $view->db->Select('applications',['*']);
 
 $applications_data = array();
 
@@ -31,7 +25,7 @@ $applications_actions = '
 
 ';
 
-$view->header('Aplikacje');
+$view->Header('Aplikacje');
 
 $view->Section([
                 "name"=>"Sortowanie",
