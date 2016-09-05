@@ -34,6 +34,7 @@ $form->Select('auto2','Auto2',$selectdata,'vw',true, 2);
 $form->Checkbox('auto3','Auto3',$checkboxdata, 'vw', true);
 $form->Number('number','Number',3,1,5);
 $form->Range('range','Range',10,20);
+$form->Button('button','Button');
 $form->Color('color','Color');
 
 

@@ -152,6 +152,14 @@ class Form2 {
     $this->content .= $input;
   }
 
+  public function Button($name,$value) {
+    $input = '<div class="form_section">';
+      $input .= '<input type="button" name="'.$name.'" value="'.$value.'">';
+    $input .= '</div>';
+
+    $this->content .= $input;
+  }
+
   private function buildStandardInput($type, $name, $display_name, $placeholder = "", $add = ""){
     $input = '<div class="form_section">';
       $input .= '<div class="input_name">'.$display_name.'</div>';
