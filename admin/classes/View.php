@@ -14,7 +14,7 @@ class View {
         $this->header = '<h2 class="view-header">'.$string.'</h2>';
     }
 
-    public function AppendContent($appending){
+    public function Custom($appending){
         $this->content .= $appending;
     }
 

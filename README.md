@@ -109,8 +109,6 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- mail
 	- lastLogin
 - newsletter - dane:
-	- imie
-	- nazwisko
 	- mail
 - zgłoszenia
 	- imie
@@ -122,7 +120,6 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 	- (dla cisco) 2/4 semestry
 - aktualności
 	- tytuł
-	- zajawka
 	- data
 	- treść
 
@@ -134,21 +131,14 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 
 ### Notkatki
 
-- dokończyć newsletter w stópce (action)(formularz powinien działać :v)
-- dynamiczne menu (podświetlanie obecjenj karty)
-- dopytać o adresy email i telefony
-- przy rozdzielczości niższej niż 1200px dodaje się dziwny padding/margin z prawej i nie wiem co to jest. do naprawy :v
 - nowe zgłoszenie = powiadomienie na email do Szołtyska
 - tworzenie wirtryn www - uzupełni wlaściwym tekstem, dodac właściwą grafike
 
 ### Admin stuff
 
-- Left navi:
-	- nowy wpis do aktualności
-	- wyślij newsletter
+- Top navi:
 	- ustawienia
 	- wyloguj
-	- copyright LAI 2016
 
 - Top navi:
 	- Grupy (do 15 osob)
@@ -170,7 +160,6 @@ Projekt nowej strony gliwickiego LAI. Stworzone przez D. Szołtysek, M. Łamasz,
 - Cisco, 4 grafiki tematyczne (4 semestry)  >  600 x 200
 - WWW, min. 3 grafiki tematyczne > 1500x200
 - Do tego przydało by się z jedno jakieś ładne logo Cisco / ew. ZSTI; nie musi być duże
-- ? może jakieś lekkie tło
 
 Grafiki mogą być większe, byle z zachowaniem skali.
 

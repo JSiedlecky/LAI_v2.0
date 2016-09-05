@@ -40,6 +40,6 @@ $form->Color('color','Color');
 
 $form->ResetBtn('Wyczyść');
 
-$view->AppendContent($form->Render());
+$view->Custom($form->Render());
 
 $view->Render();

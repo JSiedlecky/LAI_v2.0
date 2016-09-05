@@ -79,7 +79,7 @@ html, body {
 
 .homepage {
     line-height: 50px;
-    font-size: 15px;
+    font-size: 12px;
     width: calc(10% - 50px);
     text-align: center;
     float: left;
@@ -222,4 +222,30 @@ html, body {
 
 .applications tbody tr td:nth-child(10) {
   background-color: rgba(39, 174, 96, 0.5);
+}
+
+/* GROUPS */
+.group_section {
+  background-color: white;
+  margin-bottom: 10px;
+  height: 50px;
+  width: 60%;
+  min-width: 750px;
+  border: 1px solid #CCCCCC;
+}
+
+.group_section .group_vertical_separator{
+  float: left;
+  padding: 5px 5px;
+  border-right: 1px solid #CCCCCC;
+  height: 100%;
+}
+
+.group_section .group_vertical_separator:last-child{
+  border: none;
+}
+
+.group_section .group_vertical_separator .group_id, .group_section .group_vertical_separator .group_status {
+  line-height: 40px;
+  vertical-align: middle;
 }

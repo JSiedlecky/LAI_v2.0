@@ -2,28 +2,28 @@
 
 $result = $view->db->Select('groups');
 
-$groups = ParseToTable($result);
-
-$view->Header('Grupy');
-
-$view->Table([
-              "name"=>"Lista grup",
-              "ordinal"=>false,
-              "column_names"=> ['LP',
-                                'Nazwa Grupy',
-                                'Moduł',
-                                'Lata',
-                                'Tydzień/weekend',
-                                'Ilość studentow',
-                                'Status'],
-                                "data"=> $groups,
-                "class"=>"default-table"
-]);
-
-$view->Render();
-
-foreach($result as $count => $array){
-  foreach($array as $key => $value){
-    echo $key." => ".$value."<br>";
-  }
+$custom = '';
+foreach($result as $r){
+  $custom .= '<section class="group_section">';
+    $custom .= '<div class="group_vertical_separator">';
+      $custom .= '<div class="group_id">'.$r['idg'].'</div>';
+    $custom .= '</div>';
+    $custom .= '<div class="group_vertical_separator">';
+      $custom .= '<div class="group_name">'.GROUP_NAME.': \''.$r['group_name'].'\'</div>';
+      $custom .= '<div class="group_module">'.GROUP_MODULE.': \''.$r['module'].'\'</div>';
+    $custom .= '</div>';
+    $custom .= '<div class="group_vertical_separator">';
+      $custom .= '<div class="group_years">'.GROUP_YEARS.': '.$r['years'].'</div>';
+      $custom .= '<div class="group_days">'.GROUP_DAYS.': '.$r['days'].'</div>';
+    $custom .= '</div>';
+    $custom .= '<div class="group_vertical_separator">';
+      $custom .= '<div class="group_students">'.GROUP_STUDENTS.': '.$r['students'].'/'.$r['max_students'].'</div>';
+      $custom .= '<div class="group_date">'.GROUP_DATE.': '.$r['start'].'</div>';
+    $custom .= '</div>';
+    $custom .= '<div class="group_vertical_separator">';
+      $custom .= '<div class="group_status">'.GROUP_STATUS.': '.$r['active'].'</div>';
+    $custom .= '</div>';
+  $custom .= '</section>';
 }
+
+echo $custom;
