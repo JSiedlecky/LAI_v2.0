@@ -1,131 +1,187 @@
 <?php
 
-  class Form{
+class Form2 {
 
-    private $method;
-    private $url;
-    private $radioName = '';
+  private $content = "";
+  private $ajax = false;
 
-    public function __construct($method = "POST",$typeOfDataTransport = "submit",$url = "#"){
-      if(strtolower($typeOfDataTransport) != "get"){
-
-      }
-      $this->method = $method;
-      $this->url = $url;
+  public function __construct($ajax = false, $method = "POST", $action = "#", $class = "default-form", $novalidate = false){
+    if($ajax) {
+      $form = '<form';
+      $this->ajax = $ajax;
     }
+    else $form = '<form method="'.$method.'" action="'.$action.'"';
 
-    public function start($formClass = ''){
-      return '<form action="'.$this->url.'" class="'.$formClass.'" method="'.$this->method.'">';
-    }
+    $form .= ' class="'.$class.'"';
 
-    public function close(){
-      return '</form>';
-    }
+    if($novalidate) $form .= " novalidate>";
+      else $form .= ">";
 
-    public function getRadiName(){
-      return $this->radioName;
-    }
-
-    public function getTextbox($name,$placeholder){
-      $html = '<input type="text" name="'.$name.'" placeholder="'.$placeholder.'"/>';
-      return $html;
-    }
-
-    public function getPassword($name,$placeholder){
-      $html = '<input type="text" name="'.$name.'" placeholder="'.$placeholder.'"/>';
-      return $html;
-    }
-
-    public function getSubmit($name,$value){
-      $html = '<input type="submit" name="'.$name.'" value="'.$value.'"/>';
-      return $html;
-    }
-
-    public function getReset(){
-      $html = '<input type="reset" />';
-      return $html;
-    }
-
-    public function setRadioName($name){
-      $this->radioName = $name;
-    }
-
-    //allways add @ before this function
-    public function getRadio($value,$displayName,$checked,$name){
-      if($this->radioName == ''){
-        $this->radioName = $name;
-      }
-      if($checked != null){
-        $checked = "checked";
-      }
-      return '<input type="radio" name="'.$this->radioName.'" value="'.$value.'" '.$checked.'/>'.$displayName;
-    }
-
-    public function getCheckbox($name, $value,$displayName){
-      return '<input type="checkboc" name="'.$name.'" value="'.$value.'" />'.$displayName;
-    }
-
-    public function getButton($name,$value){
-      return '<input type="button" name="'.$name.'" value="'.$value.'"/>';
-    }
-
-    public function getNumber($name,$value){
-      if($value == null){
-        $value = 0;
-      }
-      return '<input type="number" name="'.$name.'" value="'.$value.'">';
-    }
-
-    public function getNumberMinMax($name,$min,$max,$value){
-      if($value == null){
-        $value = 0;
-      }
-      return '<input type="number" name="'.$name.'" min="'.$min.'" max="'.$max.'" value="'.$value.'">';
-    }
-
-    public function getNumberMin($name,$min,$value){
-      if($value == null){
-        $value = 0;
-      }
-      return '<input type="number" name="'.$name.'" min="'.$min.'" value="'.$value.'">';
-    }
-
-    public function getNumberMax($name,$max,$value){
-      if($value == null){
-        $value = 0;
-      }
-      return '<input type="number" name="'.$name.'" max="'.$max.'" value="'.$value.'">';
-    }
-
-    public function getNumberWithSteps($name,$min,$max,$value,$step){
-      if($value == null){
-        $value = 0;
-      }
-      return '<input type="number" name="'.$name.'" min="'.$min.'" max="'.$max.'" value="'.$value.'" step="'.$step.'"/>';
-    }
-
-    public function getUrl($name){
-      return '<input type="url" name="'.$name.'" />';
-    }
-
-    public function getDate($name){
-      return '<input type="date" name="'.$name.'" />';
-    }
-
-    public function getDateMin($name,$min){
-      return '<input type="date" name="'.$name.'" min="'.$min.'"/>';
-    }
-
-    public function getDateMax($name,$max){
-      return '<input type="date" name="'.$name.'" max="'.$max.'"/>';
-    }
-
-    public function getDateMinMax($name,$min,$max){
-      return '<input type="date" name="'.$name.'"min="'.$min.'" max="'.$max.'"/>';
-    }
-
-    public function getColor($name){
-      return '<input type="color" name="'.$name.'">';
-    }
-
+    $this->content .= $form;
   }
+
+  #TEXT-ISH INPUTS
+
+  public function Textbox($name, $display_name, $placeholder = "", $add = "") {
+    $input = $this->buildStandardInput('text', $name, $display_name, $placeholder, $add);
+
+    $this->content .= $input;
+  }
+
+  public function Email($name, $display_name, $placeholder = "", $add = "") {
+    $input = $this->buildStandardInput('email', $name, $display_name, $placeholder, $add);
+
+    $this->content .= $input;
+  }
+
+  public function Password($name, $display_name, $placeholder = "", $add = ""){
+    $input = $this->buildStandardInput('password', $name, $display_name, $placeholder, $add);
+
+    $this->content .= $input;
+  }
+
+  public function Textarea($name, $display_name, $placeholder = "", $rows = 7, $cols =  40){
+    $input = '<div class="form_section">';
+      $input .= '<div class="input_name">'.$display_name.'</div>';
+      $input .= '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'">';
+        $input .= ($placeholder != "" ? $placeholder : '');
+      $input .= '</textarea>';
+    $input .= '</div';
+
+    $this->content .= $input;
+  }
+
+  #HTML5 SPECIFIC INPUTS
+
+  public function Number($name, $display_name, $placeholder = "", $min = 0, $max = 0, $add = ""){
+    $add = ''.($min > 0  ? ' min="'.$min.'"' : '').($max > 0 ? ' max="'.$max.'"' : '').' '.$add;
+    $input = $this->buildStandardInput('number',$name,$display_name,$placeholder,$add);
+
+    $this->content .= $input;
+  }
+
+  public function Range($name, $display_name, $min = 0, $max = 10, $add = ""){
+    $add = ' min="'.$min.'" max="'.$max.'" '.$add;
+    $input = $this->buildStandardInput('range',$name,$display_name,'',$add);
+
+    $this->content .= $input;
+  }
+
+  //NOT VALID ON SAFARI/EDGE
+  public function Color($name, $display_name, $add = ""){
+    $input = $this->buildStandardInput('color',$name,$display_name,'',$add);
+
+    $this->content .= $input;
+  }
+
+  #DATES
+
+  public function Date($name, $display_name){
+    $input = $this->buildStandardInput('date', $name, $display_name);
+
+    $this->content .= $input;
+  }
+
+  public function DateMin($name, $display_name, $min){
+    $add = 'min="'.$min.'"';
+    $input = $this->buildStandardInput('date', $name, $display_name, "", $add);
+
+    $this->content .= $input;
+  }
+
+  public function DateMax($name, $display_name, $max){
+    $add = 'max="'.$max.'"';
+    $input = $this->buildStandardInput('date', $name, $display_name, "", $add);
+
+    $this->content .= $input;
+  }
+
+  public function DateMinMax($name, $display_name, $min, $max){
+    $add = 'min="'.$min.'" max="'.$max.'"';
+    $input = $this->buildStandardInput('date', $name, $display_name, "", $add);
+
+    $this->content .= $input;
+  }
+
+  #CHOISES
+
+  public function Radio($name, $display_name, $data = [], $checked = "", $horizontal = false){
+    $input = '<div class="form_section">';
+      $input .= '<div class="input_name">'.$display_name.'</div>';
+      foreach($data as $v => $d){
+        $input .= '<input type="radio" value="'.$v.'" '.($checked == $v ? 'checked' : '').'> '.$d.(!$horizontal? '<br>' : ' ');
+      }
+    $input .='</div>';
+
+    $this->content .= $input;
+  }
+
+  public function Select($name, $display_name, $data = [], $selected = "", $multiple = flase, $size = 0){
+    $input = '<div class="form_section">';
+      $input .= '<div class="input_name">'.$display_name.'</div>';
+      $input .= '<select name="'.$name.'"'.($size > 0 ? 'size="'.$size.'"' : '').($multiple ? ' multiple' : '').'>';
+        foreach($data as $v => $d){
+          $input .= '<option'.($v == $selected ? ' selected' : '').'>';
+            $input .= $v;
+          $input .= '</option>';
+        }
+      $input .= '</select>';
+    $input .= '</div>';
+
+    $this->content .= $input;
+  }
+
+  public function Checkbox($name, $display_name, $data = [], $checked = "", $horizontal = false){
+    $input = '<div class="form_section">';
+      $input .= '<div class="input_name">'.$display_name.'</div>';
+      foreach($data as $v => $d){
+        $input .= '<input type="checkbox" name="'.$name.'" value="'.$v.'"'.($v == $checked ? 'checked' : '').'> '.$d.(!$horizontal ? '<br>' : ' ');
+      }
+    $input .= '</div>';
+
+    $this->content .= $input;
+  }
+
+  #BUTTONS
+
+  public function ResetBtn($value){
+    $input = '<div class="form_section">';
+      $input .= '<input type="reset" value="'.$value.'">';
+    $input .='</div>';
+
+    $this->content .= $input;
+  }
+
+  public function Button($name,$value) {
+    $input = '<div class="form_section">';
+      $input .= '<input type="button" name="'.$name.'" value="'.$value.'">';
+    $input .= '</div>';
+
+    $this->content .= $input;
+  }
+
+  private function buildStandardInput($type, $name, $display_name, $placeholder = "", $add = ""){
+    $input = '<div class="form_section">';
+      $input .= '<div class="input_name">'.$display_name.'</div>';
+      $input .= '<input type="'.$type.'" name="'.$name.'"'.($placeholder != "" ? ' placeholder="'.$placeholder.'"' : '').' '.$add.' />';
+    $input .= '</div>';
+
+    return $input;
+  }
+
+  public function Render($submit = "Wyślij", $debug = false){
+    if(!$this->ajax){
+      $this->content .= '<div class="form_section">';
+        $this->content .= '<input type="submit" value="'.$submit.'">';
+      $this->content .= '</div>';
+    }
+    $this->content .= '</form>';
+
+    if($debug){
+      die(htmlspecialchars($this->content));
+    }
+
+    return $this->content;
+    $this->content = "";
+  }
+}
