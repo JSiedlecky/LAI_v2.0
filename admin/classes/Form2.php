@@ -51,6 +51,29 @@ class Form2 {
     $this->content .= $input;
   }
 
+  #HTML5 SPECIFIC INPUTS
+
+  public function Number($name, $display_name, $placeholder = "", $min = 0, $max = 0, $add = ""){
+    $add = ''.($min > 0  ? ' min="'.$min.'"' : '').($max > 0 ? ' max="'.$max.'"' : '').' '.$add;
+    $input = $this->buildStandardInput('number',$name,$display_name,$placeholder,$add);
+
+    $this->content .= $input;
+  }
+
+  public function Range($name, $display_name, $min = 0, $max = 10, $add = ""){
+    $add = ' min="'.$min.'" max="'.$max.'" '.$add;
+    $input = $this->buildStandardInput('range',$name,$display_name,'',$add);
+
+    $this->content .= $input;
+  }
+
+  //NOT VALID ON SAFARI/EDGE
+  public function Color($name, $display_name, $add = ""){
+    $input = $this->buildStandardInput('color',$name,$display_name,'',$add);
+
+    $this->content .= $input;
+  }
+
   #DATES
 
   public function Date($name, $display_name){
