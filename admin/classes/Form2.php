@@ -86,7 +86,7 @@ class Form2 {
     $input = '<div class="form_section">';
       $input .= '<div class="input_name">'.$display_name.'</div>';
       foreach($data as $v => $d){
-        $input .= '<input type="radio" value="'.$v.'" '.($checked == $v ? 'checked' : '').'> '.$d.($horizontal != true ? '<br>' : ' ');
+        $input .= '<input type="radio" value="'.$v.'" '.($checked == $v ? 'checked' : '').'> '.$d.(!$horizontal? '<br>' : ' ');
       }
     $input .='</div>';
 
@@ -103,6 +103,17 @@ class Form2 {
           $input .= '</option>';
         }
       $input .= '</select>';
+    $input .= '</div>';
+
+    $this->content .= $input;
+  }
+
+  public function Checkbox($name, $display_name, $data = [], $checked = "", $horizontal = false){
+    $input = '<div class="form_section">';
+      $input .= '<div class="input_name">'.$display_name.'</div>';
+      foreach($data as $v => $d){
+        $input .= '<input type="checkbox" name="'.$name.'" value="'.$v.'"'.($v == $checked ? 'checked' : '').'> '.$d.(!$horizontal ? '<br>' : ' ');
+      }
     $input .= '</div>';
 
     $this->content .= $input;
