@@ -1,6 +1,6 @@
 <?php
 
-class Form2 {
+/*class Form2 {
 
   private $content = "";
   private $ajax = false;
@@ -184,4 +184,4 @@ class Form2 {
     return $this->content;
     $this->content = "";
   }
-}
+}*/

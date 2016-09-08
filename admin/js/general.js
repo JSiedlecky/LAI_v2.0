@@ -24,7 +24,7 @@ $(document).ready(function(){
         if(ajax) $.ajax({
             method: "POST",
             url: "ajax/manage_lm.php",
-            data: "display_lm="+data_show,
+            data: "display_lm=" + data_show,
             complete: function(raw_data){
                 console.log(raw_data.responseText);
             }

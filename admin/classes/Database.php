@@ -81,7 +81,7 @@ class Database {
                 $select = "*";
             }
 
-            if (count($wheres)) {
+            if (count($wheres) && $where !=['']) {
                 $where = "";
 
                 $i = 0;
@@ -95,7 +95,7 @@ class Database {
             if($limit != "") $limit = "LIMIT ".$limit;
 
             $sql = "SELECT {$select} FROM {$table} {$where} {$additional} {$limit}";
-
+          
             $q = $this->db->prepare($sql);
             $q->execute();
             $result = $q->fetchAll();
