@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 class Form {
+=======
+class Form2 {
+>>>>>>> origin/master
 
   private $content = "";
   private $ajax = false;

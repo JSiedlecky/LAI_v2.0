@@ -226,26 +226,44 @@ html, body {
 
 /* GROUPS */
 .group_section {
-  background-color: white;
+  background-color: #757575;
   margin-bottom: 10px;
-  height: 50px;
-  width: 60%;
+  height: 75px;
   min-width: 750px;
   border: 1px solid #CCCCCC;
+  color: white;
 }
 
 .group_section .group_vertical_separator{
   float: left;
-  padding: 5px 5px;
+  padding: 5px 10px;
   border-right: 1px solid #CCCCCC;
   height: 100%;
 }
 
-.group_section .group_vertical_separator:last-child{
-  border: none;
+.group_section .group_id {
+  font-size: 20px;
+  line-height: 60px;
+  vertical-align: middle;
 }
 
-.group_section .group_vertical_separator .group_id, .group_section .group_vertical_separator .group_status {
-  line-height: 40px;
+.group_name, .group_module, .group_status, .group_years, .group_days, .group_students {
+  line-height: 20px;
   vertical-align: middle;
+}
+
+.group_section .group_additional {
+  height: 70%;
+}
+
+.group_section .group_start, .group_section .group_end {
+  float: left;
+}
+
+.group_section .group_end {
+  padding-left: 10px;
+}
+
+.group_section .group_vertical_separator:last-child, .group_section .group_vertical_separator:first-child{
+  border: none;
 }
