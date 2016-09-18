@@ -225,13 +225,18 @@ html, body {
 }
 
 /* GROUPS */
+.group {
+  margin-bottom: 20px;
+}
+
 .group_section {
-  background-color: #757575;
-  margin-bottom: 10px;
+  background-color: #A2A2A2;
   height: 75px;
   min-width: 750px;
-  border: 1px solid #CCCCCC;
+  border: 3px solid #CCCCCC;
   color: white;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .group_section .group_vertical_separator{
@@ -267,3 +272,27 @@ html, body {
 .group_section .group_vertical_separator:last-child, .group_section .group_vertical_separator:first-child{
   border: none;
 }
+
+.group_vertical_separator:first-child {
+  width: 5%
+}
+.group_vertical_separator:nth-child(2) {
+  width: 15%;
+}
+.group_vertical_separator:nth-child(3) {
+  width: 20%;
+}
+.group_vertical_separator:last-child {
+  width: 60%;
+  line-height:normal;
+}
+
+.group_table {
+  width: 100%;
+}
+
+.group_table tr td:first-child { width: 5%; }
+.group_table tr td:nth-child(2) { width: 15%; }
+.group_table tr td:nth-child(3) { width: 20%; }
+.group_table tr td:nth-child(4) { width: 30%; }
+.group_table tr td:nth-child(5) { width: 20%; }

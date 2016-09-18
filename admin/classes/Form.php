@@ -1,17 +1,13 @@
 <?php
 
-<<<<<<< HEAD
 class Form {
-=======
-class Form2 {
->>>>>>> origin/master
 
   private $content = "";
   private $ajax = false;
 
   public function __construct($ajax = false, $method = "POST", $action = "#", $class = "default-form", $novalidate = false){
     if($ajax) {
-      $form = '<form';
+      $form = '<form onsubmit="return false;" ';
       $this->ajax = $ajax;
     }
     else $form = '<form method="'.$method.'" action="'.$action.'"';
@@ -25,6 +21,10 @@ class Form2 {
   }
 
   #TEXT-ISH INPUTS
+
+  public function Hidden($name, $value){
+    $this->content .= '<input type="hidden" name="'.$name.'" value="'.$value.'">';
+  }
 
   public function Textbox($name, $display_name, $placeholder = "", $add = "") {
     $input = $this->buildStandardInput('text', $name, $display_name, $placeholder, $add);
@@ -120,13 +120,14 @@ class Form2 {
     $this->content .= $input;
   }
 
-  public function Select($name, $display_name, $data = [], $selected = "", $multiple = flase, $size = 0){
+  public function Select($name, $display_name, $data = [], $selected = "", $multiple = false, $size = 0){
     $input = '<div class="form_section">';
       $input .= '<div class="input_name">'.$display_name.'</div>';
       $input .= '<select name="'.$name.'"'.($size > 0 ? 'size="'.$size.'"' : '').($multiple ? ' multiple' : '').'>';
+        $input .= '<option value="">Wybierz</option>';
         foreach($data as $v => $d){
-          $input .= '<option'.($v == $selected ? ' selected' : '').'>';
-            $input .= $v;
+          $input .= '<option value="'.$v.'"'.($v == $selected ? ' selected' : '').'>';
+            $input .= $d;
           $input .= '</option>';
         }
       $input .= '</select>';

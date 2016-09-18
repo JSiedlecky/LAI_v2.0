@@ -68,7 +68,7 @@ class Database {
         }
     }
 
-    public function Select($table = "", $selections = ['*'], $wheres = [], $additional = "", $limit = "", $debug=[]){
+    public function Select($table = "", $selections = ['*'], $wheres = [], $additional = "", $limit = "", $debug=false){
         try {
             if ($selections[0] != "*") {
                 $select = "";
@@ -81,12 +81,12 @@ class Database {
                 $select = "*";
             }
 
-            if (count($wheres) && $where !=['']) {
-                $where = "";
+            if (count($wheres) && $wheres !=['']) {
+                $where = "WHERE ";
 
                 $i = 0;
                 foreach ($wheres as $k => $v) {
-                    $where .= "WHERE `{$k}` = '{$v}' ";
+                    $where .= "`{$k}` = '{$v}' ";
                     ($i != (count($wheres) - 1) ? $where .= "AND " : $where .= "");
                     $i++;
                 }
@@ -95,13 +95,13 @@ class Database {
             if($limit != "") $limit = "LIMIT ".$limit;
 
             $sql = "SELECT {$select} FROM {$table} {$where} {$additional} {$limit}";
-          
+            if($debug)return $sql;
+
             $q = $this->db->prepare($sql);
             $q->execute();
             $result = $q->fetchAll();
 
-            if(isset($debug['debug']))return $sql;
-            else return $result;
+            return $result;
         } catch (PDOException $e) {
             throw new Exception($e->getMessage());
         }

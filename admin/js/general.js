@@ -85,6 +85,40 @@ $(document).ready(function(){
       checkbox_input.prop('checked',!is_checked);
     });
 
+    //GROUPS
+    $('.group_section').each(function(){
+      RandomizeBorderColor($(this));
+    });
+
+    var table = $('.group').find('thead, tbody').hide(0);
+
+    $('.group_section').click(function(){
+      var tb = $(this).parent().find('tbody');
+      var th = $(this).parent().find('thead');
+
+      if(tb.css('display') == 'table-row-group') {
+        tb.hide('slow');
+        th.hide('slow');
+      }
+      else {
+        tb.show('slow');
+        th.show('slow');
+      }
+
+    });
+
+    $('.search-form input, .search-form select').on('change',function(){
+      if($(this).val() != ''){
+        if($(this).val() == 'cisco' || $(this).attr('name') == 'groupyears' || $(this).attr('name') == 'groupdays'){
+          $('.search-form input').not($(this)).not('input[type="submit"]').not('input[type="hidden"]').prop('disabled',true);
+          $('.search-form select').prop('disabled', false);
+        } else {
+        $('.search-form input, .search-form select').not($(this)).not('input[type="submit"]').not('input[type="hidden"]').prop('disabled',true);
+        }
+      } else {
+        $('.search-form input, .search-form select').prop('disabled',false);
+      }
+    });
     //AJAX REQUESTS
 
 });

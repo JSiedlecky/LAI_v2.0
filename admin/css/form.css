@@ -1,0 +1,12 @@
+.input_name {
+  font-weight: bold;
+}
+
+form.horizontal-form {
+  display: block;
+  min-height: 50px;
+}
+
+.horizontal-form .form_section {
+  float: left;
+}

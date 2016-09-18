@@ -17,10 +17,11 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/general.js"></script>
+    <script src="js/functions.js"></script>
 
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form2.css">
+    <link rel="stylesheet" href="css/form.css">
 
 
 </head>

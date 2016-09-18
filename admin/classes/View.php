@@ -29,7 +29,7 @@ class View {
         $this->content .= $section;
     }
 
-    public function Table($options = ["name"=>"","ordinal"=>false,"class"=>"default-table","column_names"=>[],"data"=>[],"column_class"=>[]]){
+    public function Table($options = ["name"=>"","ordinal"=>false,"class"=>"default-table","column_names"=>[],"data"=>[],"column_class"=>[], "html"=>false]){
         $table = '<table class="'.$options['class'].'">';
 
             $table .= "<thead>";
@@ -64,7 +64,10 @@ class View {
             $table .= '</tbody>';
         $table .= '</table>';
 
-        $this->content .= $table;
+        if(!$options['html'])
+          $this->content .= $table;
+        else
+          return $table;
     }
 
     public function Render($options = ["debug"=>false]){

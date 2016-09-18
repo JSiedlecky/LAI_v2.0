@@ -12,8 +12,6 @@ unset($_COOKIE["additional"]);
 
 $applications_data = array();
 
-
-
 foreach($result as $key => $r){
     foreach($r as $k => $item){
         //id will be used to edit the row
@@ -109,7 +107,8 @@ $view->Table([
                                   'Dodatkowe informacje',
                                   'Status'],
                 "data"=> $applications_data,
-                "class"=>"default-table applications"
+                "class"=>"default-table applications",
+                "html" => false
 ]);
 
 $view->Render();
