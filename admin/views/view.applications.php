@@ -35,7 +35,7 @@ $view->Custom('<script src="js/sorting.js"></script>');
 $view->Header('Aplikacje');
 
 $view->Section([
-                "name"=>"Sortowanie",
+                "name"=>"Sortowanie i Wyszukiwanie",
                 "content"=>"",
                 "class"=>"default-section"
 ]);
@@ -52,13 +52,7 @@ $view->Custom('<div class="btn-group" role="group">
   </ul>
 </div>
 </div>
-');
-$view->Section([
-                "name"=>"Wyszukiwanie",
-                "content"=>"",
-                "class"=>"default-section"
-]);
-$view->Custom('
+
   <div class="btn-group" role="group" aria-label="...">
 
 <div class="btn-group" role="group">
