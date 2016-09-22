@@ -23,7 +23,7 @@ foreach($result as $key => $r){
           // else we add a normal item to the row
           else if($k == "status" && $item != "") $applications_data[$key][] = $item;
         //adding a checkbox to edit the row
-        if($k == "status") $applications_data[$key][] = '<input type="checkbox" name="'.$id.'">';
+        if($k == "status") $applications_data[$key][] = '<input type="checkbox" value="'.$id.'" name="id[]">';
     }
 }
 
@@ -86,8 +86,18 @@ $view->Custom('<div class="btn-group" role="group">
      <button type="button" id="sendSortingData" class="btn btn-default">Wyszukaj / Sortuj</button>
 </div>
 ');
-
-
+$view->Section([
+                "name"=>"Akcje",
+                "content"=>"",
+                "class"=>"default-section"
+]);
+$view->Custom('
+<form method="GET" action="#" class="btn-group" role="group" aria-label="...">
+<p>
+  <input type="submit" class="btn btn-default" name="page" value="testAdd">
+<input type="submit" class="btn btn-default" name="page" value="applications">
+  </p>
+');
 $view->Table([
                 "name"=>"Lista aplikacji",
                 "ordinal"=>true,
@@ -104,5 +114,7 @@ $view->Table([
                 "class"=>"default-table applications",
                 "html" => false
 ]);
-
+$view->Custom('
+</form>
+');
 $view->Render();
