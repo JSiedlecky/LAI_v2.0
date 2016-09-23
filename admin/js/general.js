@@ -119,6 +119,18 @@ $(document).ready(function(){
         $('.search-form input, .search-form select').prop('disabled',false);
       }
     });
+
+    $('select[name="groupmodule"]').on('change', function(){
+      if($(this).val() == 'www'){
+        $('select').not($(this)).prop('disabled', true);
+        $('select').not($(this)).val(null);
+        $('select').not($(this)).prop('required', false);
+      } else {
+        $('select').prop('disabled',false);
+        $('select').prop('required',true);
+      }
+    });
+
     //AJAX REQUESTS
 
 });

@@ -10,6 +10,7 @@
     //helpers
     include('helpers/string.functions.php');
     include('helpers/parser.functions.php');
+    include('helpers/errors.functions.php');
 
     //defines
     #GROUPS

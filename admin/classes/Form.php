@@ -26,28 +26,28 @@ class Form {
     $this->content .= '<input type="hidden" name="'.$name.'" value="'.$value.'">';
   }
 
-  public function Textbox($name, $display_name, $placeholder = "", $add = "") {
-    $input = $this->buildStandardInput('text', $name, $display_name, $placeholder, $add);
+  public function Textbox($name, $display_name, $placeholder = "", $required = false, $add = "") {
+    $input = $this->buildStandardInput('text', $name, $display_name, $placeholder, $required, $add);
 
     $this->content .= $input;
   }
 
-  public function Email($name, $display_name, $placeholder = "", $add = "") {
-    $input = $this->buildStandardInput('email', $name, $display_name, $placeholder, $add);
+  public function Email($name, $display_name, $placeholder = "", $required = false, $add = "") {
+    $input = $this->buildStandardInput('email', $name, $display_name, $placeholder, $required, $add);
 
     $this->content .= $input;
   }
 
-  public function Password($name, $display_name, $placeholder = "", $add = ""){
-    $input = $this->buildStandardInput('password', $name, $display_name, $placeholder, $add);
+  public function Password($name, $display_name, $placeholder = "", $required = false, $add = ""){
+    $input = $this->buildStandardInput('password', $name, $display_name, $placeholder, $required, $add);
 
     $this->content .= $input;
   }
 
-  public function Textarea($name, $display_name, $placeholder = "", $rows = 7, $cols =  40){
+  public function Textarea($name, $display_name, $placeholder = "", $required = false, $add = "", $rows = 7, $cols =  40){
     $input = '<div class="form_section">';
       $input .= '<div class="input_name">'.$display_name.'</div>';
-      $input .= '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'">';
+      $input .= '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" '.($required ? 'required ' : '').''.$add.'>';
         $input .= ($placeholder != "" ? $placeholder : '');
       $input .= '</textarea>';
     $input .= '</div';
@@ -57,52 +57,52 @@ class Form {
 
   #HTML5 SPECIFIC INPUTS
 
-  public function Number($name, $display_name, $placeholder = "", $min = 0, $max = 0, $add = ""){
-    $add = ''.($min > 0  ? ' min="'.$min.'"' : '').($max > 0 ? ' max="'.$max.'"' : '').' '.$add;
-    $input = $this->buildStandardInput('number',$name,$display_name,$placeholder,$add);
+  public function Number($name, $display_name, $placeholder = "", $required = false, $min = 'false', $max = 'false', $add = ""){
+    $add = ''.($min !== 'false'  ? ' min="'.$min.'"' : '').($max !== 'false' ? ' max="'.$max.'"' : '').' '.$add;
+    $input = $this->buildStandardInput('number',$name,$display_name,$placeholder,$required, $add);
 
     $this->content .= $input;
   }
 
-  public function Range($name, $display_name, $min = 0, $max = 10, $add = ""){
+  public function Range($name, $display_name, $min = 0, $max = 10, $required = false, $add = ""){
     $add = ' min="'.$min.'" max="'.$max.'" '.$add;
-    $input = $this->buildStandardInput('range',$name,$display_name,'',$add);
+    $input = $this->buildStandardInput('range',$name,$display_name,'',$required, $add);
 
     $this->content .= $input;
   }
 
   //NOT VALID ON SAFARI/EDGE
-  public function Color($name, $display_name, $add = ""){
-    $input = $this->buildStandardInput('color',$name,$display_name,'',$add);
+  public function Color($name, $display_name, $required = false, $add = ""){
+    $input = $this->buildStandardInput('color',$name,$display_name,'', $required, $add);
 
     $this->content .= $input;
   }
 
   #DATES
 
-  public function Date($name, $display_name){
-    $input = $this->buildStandardInput('date', $name, $display_name);
+  public function Date($name, $display_name, $required = false){
+    $input = $this->buildStandardInput('date', $name, $display_name, $required);
 
     $this->content .= $input;
   }
 
-  public function DateMin($name, $display_name, $min){
-    $add = 'min="'.$min.'"';
-    $input = $this->buildStandardInput('date', $name, $display_name, "", $add);
+  public function DateMin($name, $display_name, $min, $required = false, $add = ""){
+    $add .= ' min="'.$min.'"';
+    $input = $this->buildStandardInput('date', $name, $display_name, "", $required, $add);
 
     $this->content .= $input;
   }
 
-  public function DateMax($name, $display_name, $max){
+  public function DateMax($name, $display_name, $max, $required = false){
     $add = 'max="'.$max.'"';
-    $input = $this->buildStandardInput('date', $name, $display_name, "", $add);
+    $input = $this->buildStandardInput('date', $name, $display_name, "", $required, $add);
 
     $this->content .= $input;
   }
 
-  public function DateMinMax($name, $display_name, $min, $max){
+  public function DateMinMax($name, $display_name, $min, $max, $required = false){
     $add = 'min="'.$min.'" max="'.$max.'"';
-    $input = $this->buildStandardInput('date', $name, $display_name, "", $add);
+    $input = $this->buildStandardInput('date', $name, $display_name, "", $required, $add);
 
     $this->content .= $input;
   }
@@ -120,10 +120,10 @@ class Form {
     $this->content .= $input;
   }
 
-  public function Select($name, $display_name, $data = [], $selected = "", $multiple = false, $size = 0){
+  public function Select($name, $display_name, $data = [], $required = false, $selected = "", $multiple = false, $size = 0){
     $input = '<div class="form_section">';
       $input .= '<div class="input_name">'.$display_name.'</div>';
-      $input .= '<select name="'.$name.'"'.($size > 0 ? 'size="'.$size.'"' : '').($multiple ? ' multiple' : '').'>';
+      $input .= '<select name="'.$name.'"'.($size > 0 ? 'size="'.$size.'"' : '').($multiple ? ' multiple' : '').($required ? ' required' : '').'>';
         $input .= '<option value="">Wybierz</option>';
         foreach($data as $v => $d){
           $input .= '<option value="'.$v.'"'.($v == $selected ? ' selected' : '').'>';
@@ -165,19 +165,19 @@ class Form {
     $this->content .= $input;
   }
 
-  private function buildStandardInput($type, $name, $display_name, $placeholder = "", $add = ""){
+  private function buildStandardInput($type, $name, $display_name, $placeholder = "", $required = false, $add = ""){
     $input = '<div class="form_section">';
       $input .= '<div class="input_name">'.$display_name.'</div>';
-      $input .= '<input type="'.$type.'" name="'.$name.'"'.($placeholder != "" ? ' placeholder="'.$placeholder.'"' : '').' '.$add.' />';
+      $input .= '<input type="'.$type.'" name="'.$name.'"'.($placeholder != "" ? ' placeholder="'.$placeholder.'" ' : '').($required ? 'required' : '').' '.$add.'/>';
     $input .= '</div>';
 
     return $input;
   }
 
-  public function Render($submit = "Wyślij", $debug = false){
+  public function Render($submit = "Wyślij", $name=false, $debug = false){
     if(!$this->ajax){
       $this->content .= '<div class="form_section">';
-        $this->content .= '<input type="submit" value="'.$submit.'">';
+        $this->content .= '<input type="submit" value="'.$submit.'" '.($name != false ? 'name="'.$name.'"' : '').'>';
       $this->content .= '</div>';
     }
     $this->content .= '</form>';

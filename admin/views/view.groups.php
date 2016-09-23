@@ -37,7 +37,7 @@ $search->Select('groupdays', 'Po trybie zajęć', [
                                                   "Weekend"=>"Weekend"
                                                 ]);
 
-$view->Header('Grupy');
+$view->Header('Grupy       <a class="addgroup" href="index.php?page=add&type=group">Dodaj grupę <i class="fa fa-plus" aria-hidden="true"></i></a>');
 
 $view->Section([
               'name'=>'Wyszukiwanie',
