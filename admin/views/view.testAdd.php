@@ -1,8 +1,43 @@
 <?php
 if(isset($_GET["id"])){
 $im = $_GET["id"];
+$where = '';
+for($i = 0; $i <count($im); $i++){
+    if($i >= 1){
+      $where.=" OR ";
+    }
+    $where.="`id` = ".$im[$i]."";
+}
+$result = $view->db->Query("SELECT * FROM `applications` WHERE ".$where);
 
-
+foreach($result as $key => $r){
+    foreach($r as $k => $item){
+        //id will be used to edit the row
+        if($k == "id") $id = $item;
+        //adding regular item to a row
+        if($k != "id" && $k != "status") $applications_data[$key][] = $item;
+        //if status is set to null we send the apropriate message
+        
+        //adding a checkbox to edit the row
+        if($k == "status") $applications_data[$key][] = '<input type="checkbox" value="'.$id.'" name="id[]">';
+    }
+}
+$view->Table([
+                "name"=>"Lista aplikacji",
+                "ordinal"=>true,
+                "column_names"=> ['Imie',
+                                  'Nazwisko',
+                                  'Email',
+                                  'Telefon',
+                                  'Moduł',
+                                  'Lata',
+                                  'Tydzień/weekend',
+                                  'Dodatkowe informacje',
+                                  ],
+                "data"=> $applications_data,
+                "class"=>"default-table applications",
+                "html" => false
+]);
   $groups = $view->db->Query('SELECT * FROM groups WHERE students != max_students');
 
 $search = new Form(false,'POST','','default-form horizontal-form search-form');
