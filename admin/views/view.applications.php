@@ -23,14 +23,14 @@ foreach($result as $key => $r){
           // else we add a normal item to the row
           else if($k == "status" && $item != "") $applications_data[$key][] = $item;
         //adding a checkbox to edit the row
-        if($k == "status") $applications_data[$key][] = '<input type="checkbox" value="'.$id.'" name="id[]">';
+        if($k == "status") $applications_data[$key][] = '<input class="in" type="checkbox" value="'.$id.'" name="id[]">';
     }
 }
 
 $applications_actions = '
 
 ';
-$view->Custom('<script src="js/sorting.js"></script>');
+
 
 $view->Header('Aplikacje');
 
@@ -96,6 +96,7 @@ $view->Custom('
 <p>
   <input type="submit" class="btn btn-default" name="page" value="testAdd">
 <input type="submit" class="btn btn-default" name="page" value="applications">
+<input type="text" class="hidden" id="types" name="type" value="none">
   </p>
 ');
 $view->Table([
@@ -117,4 +118,5 @@ $view->Table([
 $view->Custom('
 </form>
 ');
+$view->Custom('<script src="js/sorting.js"></script>');
 $view->Render();

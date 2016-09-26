@@ -79,11 +79,11 @@ $(document).ready(function(){
     });
 
     //APPLICATIONS TABLE ANIMATIONS AND ADDITIONAL USAGE
-    $('.applications tbody tr td:not(:last-of-type)').on('click touch', function(e){
+  /*  $('.applications tbody tr td:not(:last-of-type)').on('click touch', function(e){
       var checkbox_input = $(this).parent().find('input[type="checkbox"]');
       var is_checked = checkbox_input.prop('checked');
       checkbox_input.prop('checked',!is_checked);
-    });
+    });*/
 
     //GROUPS
     $('.group_section').each(function(){

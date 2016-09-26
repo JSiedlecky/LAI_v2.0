@@ -4,6 +4,9 @@ $(function(){
   var yearsOrder = "none";
   var order;
   var text;
+  var numberOfElements = 0;
+  var context="none";
+  var leng = $(".applications tr").length;
   var carter = " <span class='caret'></span>";
   $("#nameOrder>li>a").click(function(){
     changeState(this);
@@ -58,6 +61,43 @@ $(function(){
     });
 
   });
+  $(".in").click(function(){
+
+    if(context == "none"){
+      context = $(this).parent().parent().children('td:nth-child(6)').text();
+      console.log(context);
+      $("#types").attr('value', $(this).parent().parent().children('td:nth-child(6)').text());
+      for(var i = 1; i < leng; i++){
+        if($(".applications tr:nth-child("+i+")").children('td:nth-child(6)').text() != context){
+          $(".applications tr:nth-child("+i+") td:last-child .in").attr("disabled", 'disabled');
+        }else {
+          numberOfElements +=1;
+        }
+      }
+    }else{
+        var tmpNumOfEle = 0;
+
+        for(var i = 1; i < leng; i++){
+
+          if(!$(".applications tr:nth-child("+i+") td:last-child .in").is(":checked")){
+            tmpNumOfEle +=1;
+
+          }
+        }
+
+        if(tmpNumOfEle == leng-2 ){
+          context = "none";
+
+            for(var i = 1; i < leng; i++){
+
+              $(".applications tr:nth-child("+i+") td:last-child .in").prop('disabled', false);
+            }
+        }
+      }
+    ;
+
+
+  })
   function changeState(selector){
     order = selector.getAttribute("data-order");
     text = $(selector).text();

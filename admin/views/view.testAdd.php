@@ -1,6 +1,8 @@
 <?php
 if(isset($_GET["id"])){
 $im = $_GET["id"];
+$type = $_GET["type"];
+$idu = unserialize($_POST['idu']);
 $where = '';
 for($i = 0; $i <count($im); $i++){
     if($i >= 1){
@@ -17,9 +19,9 @@ foreach($result as $key => $r){
         //adding regular item to a row
         if($k != "id" && $k != "status") $applications_data[$key][] = $item;
         //if status is set to null we send the apropriate message
-        
+
         //adding a checkbox to edit the row
-        if($k == "status") $applications_data[$key][] = '<input type="checkbox" value="'.$id.'" name="id[]">';
+        if($k == "status") $applications_data[$key][] = '<input type="checkbox" class="check" " name="id[]">';
     }
 }
 $view->Table([
@@ -38,8 +40,11 @@ $view->Table([
                 "class"=>"default-table applications",
                 "html" => false
 ]);
-  $groups = $view->db->Query('SELECT * FROM groups WHERE students != max_students');
+$view->Custom('<p id="numberOfApplication">
 
+</p>');
+  $groups = $view->db->Query("SELECT * FROM groups WHERE `module` LIKE '".$type."' AND students != max_students ");
+$view->Custom('<form >');
 $search = new Form(false,'POST','','default-form horizontal-form search-form');
 
 $search->Hidden('page','groups');
@@ -67,8 +72,10 @@ $view->Section([
             ]);
 
 $custom = '<div>';
+$view->Custom('</form>');
 if(count($groups) == 0) $custom .= "Brak wyników dla podanych kryteriów wyszukiwania.";
 else {
+  $view->Custom('<form method="GET" action="#">');
   foreach($groups as $g){
     $students = $view->db->Select('students',
                                   ['ids','name','surname','email','phone','activity'],
@@ -97,7 +104,11 @@ else {
         $custom .= '<div class="group_start">'.GROUP_START.': '.$g['start'].'</div>';
         $custom .= '<div class="group_end">'.GROUP_END.': '.$g['end'].'</div>';
       $custom .= '</div>';
-    $custom .= '</section>';
+
+    $custom .= '</section>
+    <input type="number" class="btn btn-default addBtn hidden" value="'.$g['idg'].'">';
+
+      $custom .='<button type="number" class="btn btn-default addBtn">+</button>';
     $custom .= $view->Table([
                             "name"          => '',
                             "ordinal"       => false,
@@ -116,7 +127,11 @@ else {
 }
 $custom .= '</div>';
 $view->Custom($custom);
-
+$view->Custom('<input name="idu[]" class="hidden" value='.htmlentities(serialize(im)).'>');
+$view->Custom('<input name="page" class="hidden" value='.$_GET['page'].'>');
+$view->Custom('<input name="type" class="hidden" value='.$_GET['type'].'>');
+$view->Custom('</form>');
+$view->Custom('<script src="js/addApplication.js"></script>');
 $view->Render();
 }
 else {
