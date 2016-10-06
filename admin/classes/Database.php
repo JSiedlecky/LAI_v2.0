@@ -173,6 +173,10 @@ class Database {
         $this->db = NULL;
         $this->isConnected = false;
     }
+    public function test()
+    {
+      echo "mama";
+    }
 
 }
 

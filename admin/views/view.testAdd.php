@@ -2,7 +2,8 @@
 if(isset($_GET["id"])){
 $im = $_GET["id"];
 $type = $_GET["type"];
-$idu = unserialize($_POST['idu']);
+session_start();
+$_SESSION["ids"] = $id;
 $where = '';
 for($i = 0; $i <count($im); $i++){
     if($i >= 1){
@@ -106,9 +107,9 @@ else {
       $custom .= '</div>';
 
     $custom .= '</section>
-    <input type="number" class="btn btn-default addBtn hidden" value="'.$g['idg'].'">';
+    <input type="number"  class="btn btn-default addBtn hidden" value="'.$g['idg'].'">';
 
-      $custom .='<button type="number" class="btn btn-default addBtn">+</button>';
+      $custom .='<button type="submit" name="idg" class="btn btn-default addBtn" value="'.$g['idg'].'">+</button>';
     $custom .= $view->Table([
                             "name"          => '',
                             "ordinal"       => false,
@@ -127,8 +128,9 @@ else {
 }
 $custom .= '</div>';
 $view->Custom($custom);
-$view->Custom('<input name="idu[]" class="hidden" value='.htmlentities(serialize(im)).'>');
-$view->Custom('<input name="page" class="hidden" value='.$_GET['page'].'>');
+$view->Custom('<input name="idu" class="hidden" value='.serialize($im).'>');
+//$_SESSION['idused'] = $im;
+$view->Custom('<input name="page" class="hidden" value=addToGroup>');
 $view->Custom('<input name="type" class="hidden" value='.$_GET['type'].'>');
 $view->Custom('</form>');
 $view->Custom('<script src="js/addApplication.js"></script>');

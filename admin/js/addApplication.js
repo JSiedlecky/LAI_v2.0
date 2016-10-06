@@ -7,8 +7,8 @@ $(function(){
           ilosc +=1;
         }
     }
-    document.getElementById("numberOfApplication").innerHTML = "Zaznaczyłeś : "+ilosc+" aplikacji";
-    ilosc =0;
+    document.getElementById("numberOfApplication").innerHTML = "Zaznaczyłeś : "+ ilosc +" aplikacji";
+    ilosc = 0;
   });
 
 });
