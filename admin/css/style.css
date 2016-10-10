@@ -227,6 +227,7 @@ html, body {
 /* GROUPS */
 .group {
   margin-bottom: 20px;
+  position: relative;
 }
 
 .group_section {
@@ -303,4 +304,18 @@ html, body {
   padding: 4px 6px;
   background-color: white;
   border-radius: 20px;
+}
+
+.group_options {
+  display: block !important;
+  top: 5px;
+  left: 2px;
+  position: absolute !important;
+}
+
+.option_select {
+  position: absolute;
+  left: 20px;
+  top: 3px;
+  display: none;
 }

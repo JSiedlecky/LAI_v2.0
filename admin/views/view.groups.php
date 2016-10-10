@@ -19,7 +19,7 @@ else if(isset($_POST['groupdays']) && ($_POST['groupdays'] != ''))
 else
   $groups = $view->db->Select('groups');
 
-$search = new Form(false,'POST','','default-form horizontal-form search-form');
+$search = new Form(false,'POST','#','default-form horizontal-form search-form');
 
 $search->Hidden('page','groups');
 $search->Textbox('groupname','Po nazwie grupy','CISCO_1');
@@ -57,6 +57,12 @@ else {
     $students = ParseActivity($students);
 
     $custom .= '<div class="group">';
+    $custom .= '<i class="fa fa-lg fa-cog group_options" aria-hidden="true"></i>';
+    $custom .= '<select class="option_select" data-groupid="'.$g['idg'].'">';
+      $custom .= '<option value="choose">Wybierz</option>';
+      $custom .= '<option value="modify">Modyfikuj</option>';
+      $custom .= '<option value="delete">Usuń</option>';
+    $custom .= '</select>';
     $custom .= '<section class="group_section">';
       $custom .= '<div class="group_vertical_separator">';
         $custom .= '<div class="group_id">#'.$g['idg'].'</div>';

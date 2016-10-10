@@ -131,6 +131,35 @@ $(document).ready(function(){
       }
     });
 
-    //AJAX REQUESTS
+    $('.group_options').click(function(){
+      var options = $(this).next('.option_select');
+      options.css('display',(options.css('display') == 'none' ? 'block' : 'none'));
+    });
+
+    $('.option_select').on('change', function(){
+      var val = $(this).val();
+      var group_id = $(this).attr('data-groupid');
+
+      if(val == 'modify'){
+        var host = 'http://lai.com/admin/index.php?page=edit&type=group&id='+group_id;
+
+        window.location.href = host;
+      }
+
+      if(val == 'delete'){
+        if(confirm('Czy na pewno usunąć grupę?')){
+          $.ajax({
+            method:'get',
+            url:'ajax/group.actions.php',
+            data:'action=delete&id='+group_id,
+            complete: function(data){
+              if(data.responseText == 'OK') location.reload();
+              else alert('Wystąpił błąd, spróbuj później.');
+            }
+          });
+        }
+      }
+
+    });
 
 });

@@ -23,5 +23,4 @@
     define('GROUP_START','Data otwarcia grupy');
     define('GROUP_END','Data zamknięcia grupy');
 
-
 ?>
