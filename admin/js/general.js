@@ -162,4 +162,18 @@ $(document).ready(function(){
 
     });
 
+    if($('select[name="groupmodule"]').val() == 'www'){
+      $('select[name="groupyears"]').prop('required', false).prop('disabled', true);
+      $('select[name="groupdays"]').prop('required', false).prop('disabled', true);
+    }
+
+    $('select[name="groupmodule"]').on('change', function(){
+      if($(this).val() == 'www'){
+        $('select[name="groupyears"]').prop('required', false).prop('disabled', true);
+        $('select[name="groupdays"]').prop('required', false).prop('disabled', true);
+      } else {
+        $('select[name="groupyears"]').prop('required', true).prop('disabled', false);
+        $('select[name="groupdays"]').prop('required', true).prop('disabled', false);
+      }
+    });
 });

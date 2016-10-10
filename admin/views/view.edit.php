@@ -1,4 +1,4 @@
-<?php
+ <?php
   $type = $_GET['type'];
   $validTypes = ['group'];
   if(isset($_GET['id'])) $id = $_GET['id'];
@@ -9,7 +9,8 @@
     switch($type){
       case 'group':
         $group = $view->db->Select('groups',['*'],['idg'=>$id])[0];
-        print_obj($group);
+        $students = $view->db->Query("SELECT * FROM `students` WHERE `".$group['module']."` != NULL");
+        print_obj($students);
 
         $form = new Form(false,'post','#','default-form');
         $form->Textbox('group_name','Nazwa grupy','',true,'value="'.$group['group_name'].'"');
@@ -25,6 +26,11 @@
           'Tydzień'   => 'Tydzień roboczy',
           'Weekend'   => 'Weekendy'
         ], true,$group['days']);
+        $form->Number('groupmaxstudents','Maksymalna ilość uczniów w grupie:','15', true,'1','','value="'.$group['max_students'].'"');
+        $form->DateMin('groupstart','Data otwarcia grupy',$group['start'],true,'value="'.$group['start'].'"');
+        $form->DateMin('groupend','Data zamknięcia grupy',$group['start'],true,'value="'.$group['start'].'"');
+        $form->Textarea('groupadditional','Notatki dotyczące grupy:',$group['additional'],false,'maxlength="200"');
+
         $view->Header('Edytuj grupę: #'.$id);
         $view->Custom($form->Render('Zapisz zmiany.'));
         $view->Render();
