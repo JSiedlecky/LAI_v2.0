@@ -13,10 +13,10 @@
     $nstart = $_POST['groupstart'];
     $nadditional = $_POST['groupadditional'];
 
-    if(uniqueName('groups','group_name',$nname)){
+    if(uniqueName('groups','group_name',$nname,'Ta nazwa jest już zajęta!')){
       if($view->db->Insert('groups',['group_name','module','years','days','students','max_students','active','start','end','additional'],
-                      [$nname,$nmodule,$nyears,$ndays,0,$nmaxstudents,0,$nstart,'0000-00-00',$nadditional])) echo 'Pomyślnie dodano grupę!';
-    } else echo 'Grupa z taka nazwa już istnieje!';
+                      [$nname,$nmodule,$nyears,$ndays,0,$nmaxstudents,0,$nstart,date('Y-m-d'),$nadditional])) echo 'Pomyślnie dodano grupę!';
+    } else echo 'Wystąpił błąd!';
   }
 
 

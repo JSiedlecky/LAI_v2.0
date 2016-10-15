@@ -115,7 +115,7 @@ class Database {
 
             $i = 0;
             foreach($updates as $k => $v){
-                $update .= "`".$k."` = '".$v."' ";
+                $update .= "`".$k."` = ".($v == 'NULL' ? $v : "'".$v."'");
 
                 $i != (count($updates) - 1) ? $update .= ", " : $update .= " ";
 
@@ -124,15 +124,18 @@ class Database {
 
             $i = 0;
 
-            $where = "";
+            $where = "WHERE ";
             foreach($wheres as $k => $v){
-                $where .= "WHERE `".$k."` = '".$v."' ";
+                $where .= "`".$k."` = '".$v."' ";
 
                 $i != (count($wheres) - 1) ? $where .= "AND " : $where .= "";
                 $i++;
             }
 
             $sql = "UPDATE {$table} SET {$update} {$where}";
+
+            if(isset($debug['debug'])) die($sql);
+
             $q = $this->db->prepare($sql);
             $q->execute();
 

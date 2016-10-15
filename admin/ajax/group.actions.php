@@ -4,9 +4,19 @@
   $db = new Database();
 
   $action = $_GET['action'];
-  $id = $_GET['id'];
 
   if($action == 'delete'){
+    $id = $_GET['id'];
+
     if($db->Delete('groups',['idg'=>$id])) echo 'OK';
+    else echo 'ERROR';
+  }
+
+  if($action == 'deletestudentfromgroup'){
+    $idg = $_GET['groupid'];
+    $ids = $_GET['studentid'];
+    $module = $_GET['module'];
+
+    if($db->Update('students',[$module.'_group' => 'NULL'],[$module.'_group' => $idg, 'ids' => $ids])) echo 'OK';
     else echo 'ERROR';
   }

@@ -50,7 +50,7 @@ class Form {
       $input .= '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" '.($required ? 'required ' : '').''.$add.'>';
         $input .= ($placeholder != "" ? $placeholder : '');
       $input .= '</textarea>';
-    $input .= '</div';
+    $input .= '</div>';
 
     $this->content .= $input;
   }
@@ -174,7 +174,7 @@ class Form {
     return $input;
   }
 
-  public function Render($submit = "Wyślij", $name=false, $debug = false){
+  public function Render($submit = "Wyślij", $name = false, $debug = false){
     if(!$this->ajax){
       $this->content .= '<div class="form_section">';
         $this->content .= '<input type="submit" value="'.$submit.'" '.($name != false ? 'name="'.$name.'"' : '').'>';

@@ -176,4 +176,23 @@ $(document).ready(function(){
         $('select[name="groupdays"]').prop('required', true).prop('disabled', false);
       }
     });
+
+    $('i.delete-student').parent('td').css({'cursor':'pointer'});
+    $('i.delete-student').parent('td').on('click', function() {
+      var studentid = $(this).parent('tr').find('td').first().text();
+      var gmodule = $('input[name="originalmodule"]').val();
+      console.log(gmodule);
+
+      if(confirm('Czy napewno usunąć ucznia z tej grupy?')){
+        $.ajax({
+          method:'get',
+          url:'ajax/group.actions.php',
+          data:'action=deletestudentfromgroup&module='+gmodule+'&groupid='+getQueryVariable('id')+'&studentid='+studentid,
+          complete: function(data){
+            if(data.responseText == 'OK') location.reload();
+            else {console.log(data.responseText);alert('Wystąpił błąd, spróbuj później.')};
+          }
+        })
+      }
+    });
 });
