@@ -195,4 +195,13 @@ $(document).ready(function(){
         })
       }
     });
+
+    $('.payment-actions').on('click', function(){
+      var action = $(this).attr('data-action');
+      var me = $(this).parent('td').parent('tr').find('td');
+
+      if(action == "modify"){
+        var host = "http://lai.com/admin/index.php?page=edit&type=payment&payment="+me[0].innerText;
+      }
+    });
 });

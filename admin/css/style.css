@@ -319,3 +319,24 @@ html, body {
   top: 3px;
   display: none;
 }
+
+.payments-table {
+  width: 100%;
+  position: relative;
+}
+
+.payments-table tr {
+  position: relative;;
+}
+
+.payment-actions {
+  display: block;
+  float: left;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 17px;
+}
+
+.payment-actions:hover {
+  background-color: #e4e4e4;
+}
