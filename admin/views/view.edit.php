@@ -1,10 +1,10 @@
  <?php
   $type = $_GET['type'];
-  $validTypes = ['group'];
+  $validTypes = ['group', 'payment'];
   if(isset($_GET['id'])) $id = $_GET['id'];
 
   #POST HANDLING
-  if(isset($_POST['formsubmitted'])){
+  if(isset($_POST['groupsubmitted'])){
     #n... stands for new ...
     $nname = $_POST['groupname'];
     $nmodule = $_POST['groupmodule'];
@@ -32,6 +32,23 @@
 
   }
 
+  if(isset($_POST['paymentsubmitted'])){
+    $namount = $_POST['amount'];
+    $npaymentfor = $_POST['payment_for'];
+    $npayer =  $_POST['payer'];
+    $npaymentdate = $_POST['payment_date'];
+    $nadditional = (isset($_POST['additional']) ? $_POST['additional'] : '');
+
+    if($view->db->Update('payments',
+                        [ 'amount'        => $namount,
+                          'payment_for'   => $npaymentfor,
+                          'payer'         => $npayer,
+                          'payment_date'  => $npaymentdate,
+                          'additional'    => $nadditional],
+                        [ 'idpay' => $_GET['payment']]))
+      echo 'Pomyślnie edytowano płatność!';
+    else echo 'Wystąpił błąd!';
+  }
 
   #DISPLAYING RIGHT FORM
   if(in_array($type,$validTypes)){
@@ -83,9 +100,25 @@
         ]);
 
         $view->Header('Edytuj grupę: #'.$id);
-        $view->Custom('<div style="float: left; width: 30%;">'.$form->Render('Zapisz zmiany.','formsubmitted').'</div>');
+        $view->Custom('<div style="float: left; width: 30%;">'.$form->Render('Zapisz zmiany.','groupsubmitted').'</div>');
         $view->Custom('<div style="float: left; width: 70%;">'.$stable."</div>");
 
+        $view->Render();
+      break;
+      case 'payment':
+        $pid = $_GET['payment'];
+        $payment = $view->db->Select('payments',['*'],['idpay' => $pid])[0];
+
+        $form = new Form(false,'post','#','default-form');
+        $form->Number('amount', 'Wartość (zł)', $payment['amount'], true, 0, 'false', 'value="'.$payment['amount'].'"');
+        $form->Textbox('payment_for','Płatność za',$payment['payment_for'],true, 'value="'.$payment['payment_for'].'"');
+        $form->Textbox('payer','Uczeń',$payment['payer'],true, 'value="'.$payment['payer'].'"');
+        $form->Date('payment_date','Data płatności', true, 'value="'.$payment['payment_date'].'"');
+        $form->Textarea('additional', 'Dodatkowe informacje', $payment['additional'], false);
+
+
+        $view->Header("Edytujesz płatność: #".$pid);
+        $view->Custom($form->Render('Zapisz zmiany.', 'paymentsubmitted'));
         $view->Render();
       break;
     }

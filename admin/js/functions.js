@@ -24,3 +24,15 @@ function getQueryVariable(variable)
        }
        return(false);
 }
+
+function validatePayments(rows){
+  rows.each(function(i){
+    var inputs = $(this).find('input');
+
+    inputs.each(function(e){
+      if($(this).val() == '') return false;
+    });
+  });
+
+  return true;
+}

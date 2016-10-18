@@ -17,19 +17,19 @@
     <meta name="format-detection" content="telephone=yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
-    <script src="https://code.angularjs.org/1.5.0/angular-animate.min.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
     <script src="js/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
     <script src="js/ui-bootstrap-1.2.4.min.js"></script>
     <script src="js/mainCtrl.js"></script>
     <script src="js/activeMenu.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/indexStyle.css">
     <link rel="stylesheet" href="css/zgloszenieStyle.css">

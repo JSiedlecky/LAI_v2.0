@@ -80,8 +80,8 @@ class Form {
 
   #DATES
 
-  public function Date($name, $display_name, $required = false){
-    $input = $this->buildStandardInput('date', $name, $display_name, $required);
+  public function Date($name, $display_name, $required = false, $add = ''){
+    $input = $this->buildStandardInput('date', $name, $display_name, '', $required, $add);
 
     $this->content .= $input;
   }

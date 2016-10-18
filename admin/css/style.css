@@ -340,3 +340,25 @@ html, body {
 .payment-actions:hover {
   background-color: #e4e4e4;
 }
+
+.rowofform {
+  width: 100%;
+}
+
+#addpayment {
+  margin: 50px auto;
+  display: block;
+}
+
+#addrowofform {
+  padding: 10px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+#addrowofform:hover {
+  color: rgba(0,0,0,0.7);
+  background-color: #e4e4e4;
+  transition: 0.3s;
+  cursor: pointer;
+}

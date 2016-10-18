@@ -9,4 +9,5 @@ form.horizontal-form {
 
 .horizontal-form .form_section {
   float: left;
+  margin-left: 10px;
 }

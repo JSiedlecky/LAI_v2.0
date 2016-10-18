@@ -199,9 +199,52 @@ $(document).ready(function(){
     $('.payment-actions').on('click', function(){
       var action = $(this).attr('data-action');
       var me = $(this).parent('td').parent('tr').find('td');
+      var id = me[0].innerText;
 
       if(action == "modify"){
-        var host = "http://lai.com/admin/index.php?page=edit&type=payment&payment="+me[0].innerText;
+        var host = "http://lai.com/admin/index.php?page=edit&type=payment&payment="+id;
+
+        window.location.href = host;
       }
+
+      if(action == "delete"){
+        if(confirm('Czy na pewno usunąć płatność?')){
+          $.ajax({
+            method:'get',
+            url:'ajax/payment.actions.php',
+            data:'action=delete&id='+id,
+            complete: function(data){
+              if(data.responseText == 'OK') location.reload();
+              else alert('Wystąpił błąd, spróbuj później.');
+            }
+          });
+        }
+      }
+    });
+
+    $('#addrowofform').on('click', function(){
+      var row = $('.rowofform')[0].innerHTML;
+      row = '<div class="rowofform">'+row+'</div>';
+
+      $('.allrowsofforms').append(row);
+    });
+
+    $('#addpayment').on('click', function(){
+      var allrows = $('.rowofform');
+      var data = {};
+
+      if(validatePayments(allrows)){
+        allrows.each(function(i){
+          data[i] = {
+            'amount'      : $(this).find('input[name="amount"]').val(),
+            'payment_for' : $(this).find('input[name="payment_for"]').val(),
+            'payer'       : $(this).find('input[name="payer"]').val(),
+            'payment_date': $(this).find('input[name="payment_date"]').val(),
+            'additional'  : $(this).find('textarea[name="additional"]').val()
+          }
+        });
+
+        console.dir(data);
+      } else alert('Wypełnij wszystkie pola!');
     });
 });

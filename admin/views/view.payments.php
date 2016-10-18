@@ -10,7 +10,7 @@
     }
   }
 
-  $view->Header('Płatności');
+  $view->Header('Płatności       <a class="addgroup" href="index.php?page=add&type=payment">Dodaj płatność <i class="fa fa-plus" aria-hidden="true"></i></a>');
   $view->Table([
                 'name'          => 'Lista wszystkich płatności',
                 'ordinal'       => false,

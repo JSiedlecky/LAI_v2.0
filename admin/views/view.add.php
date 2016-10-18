@@ -1,9 +1,9 @@
 <?php
   $type = $_GET['type'];
-  $validTypes = ['group'];
+  $validTypes = ['group','payment'];
 
   #POST HANDLING
-  if(isset($_POST['formsubmitted'])){
+  if(isset($_POST['groupsubmitted'])){
     #n... stands for new ...
     $nname = $_POST['groupname'];
     $nmodule = $_POST['groupmodule'];
@@ -43,9 +43,24 @@
         $form->Textarea('groupadditional','Notatki dotyczące grupy:','',false,'maxlength="200"');
 
         $view->Header('Dodaj grupę');
-        $view->Custom($form->Render('Dodaj','formsubmitted'));
+        $view->Custom($form->Render('Dodaj','groupsubmitted'));
         $view->Render();
-        break;
+      break;
+      case 'payment':
+        $form = new Form(true,'post','#','default-form horizontal-form');
+        $form->Number('amount', 'Wartość (zł)', '300', true, 0);
+        $form->Textbox('payment_for','Płatność za','CISCO_42_2',true);
+        $form->Textbox('payer','Uczeń','Jan Kowalski',true);
+        $form->Date('payment_date','Data płatności', true);
+        $form->Textarea('additional', 'Dodatkowe informacje','',false,'',1, 60);
+
+
+        $view->Header("Dodaj płatności");
+        $view->Custom('<div class="allrowsofforms"><div class="rowofform">'.$form->Render().'</div></div>');
+        $view->Custom('<br><span id="addrowofform"> <i class="fa fa-plus" aria-hidden="true"></i> Dodaj kolejną płatność</span>');
+        $view->Custom('<button id="addpayment"> Dodaj płatności </button>');
+        $view->Render();
+      break;
     }
   } else {
      header('Location: index.php');
