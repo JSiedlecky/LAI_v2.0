@@ -25,14 +25,14 @@ function getQueryVariable(variable)
        return(false);
 }
 
-function validatePayments(row){
-  var inputs = row.find('input');
-  var flag = true;
+function validatePayments(rows){
+  rows.each(function(i){
+    var inputs = $(this).find('input');
 
-  inputs.each(function(i){
-    if($(this).val() == '') flag = false;
+    inputs.each(function(e){
+      if($(this).val() == '') return false;
+    });
   });
 
-  if(flag) return true;
-  else return false;
+  return true;
 }

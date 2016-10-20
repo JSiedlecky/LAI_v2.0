@@ -141,7 +141,8 @@ $(document).ready(function(){
       var group_id = $(this).attr('data-groupid');
 
       if(val == 'modify'){
-        var host = 'http://lai.com/admin/index.php?page=edit&type=group&id='+group_id;
+        //var host = 'http://lai.com/admin/index.php?page=edit&type=group&id='+group_id;
+        var host = 'http://127.0.0.1/LAI_v2.0/admin/index.php?page=edit&type=group&id='+group_id;
 
         window.location.href = host;
       }
@@ -231,7 +232,7 @@ $(document).ready(function(){
 
     $('#addpayment').on('click', function(){
       var allrows = $('.rowofform');
-      var data = { 'action':'add' };
+      var data = {};
 
       if(validatePayments(allrows)){
         allrows.each(function(i){
@@ -244,16 +245,7 @@ $(document).ready(function(){
           }
         });
 
-         $.ajax({
-           method:'post',
-           url:'ajax/payment.actions.php',
-           data:data,
-           complete: function(data){
-             if(data.responseText == 'OK') window.location.href = "http://lai.com/admin/index.php?page=payments";
-             else alert('Wystąpił błąd!');
-           }
-         });
-        console.log(data);
+        console.dir(data);
       } else alert('Wypełnij wszystkie pola!');
     });
 });

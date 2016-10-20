@@ -1,22 +1,30 @@
 <?php
-session_start();
+//read data to use
 $idused =unserialize( $_GET['idu']);
 $groupId = $_GET['idg'];
-$id =  $idused[0] ;
-$result = $view->db->Query("SELECT * FROM `applications`WHERE `id` =".$id);
-foreach ($result as $key => $value) {
-  echo $name = $value["name"];
-  echo "<br />";
-  echo $surname = $value["surname"];
-  echo "<br />";
-  echo $email = $value["email"];
-  echo "<br />";
-  echo $phone = $value["phone"];
-  echo "<br />";
+$students = $view->db->Select("groups",["students","max_students"],["idg"=>$groupId]);
+
+if($students[0]['max_students'] - $students[0]['students'] > 0){
+	foreach ($idused as $id) {
+		//gets from Database basic data
+		$result = $view->db->Query("SELECT * FROM `applications`WHERE `id` =".$id);
+		foreach ($result as $key => $value) {
+		   $name = $value["name"];
+			 $surname = $value["surname"];
+
+		   $email = $value["email"];
+		 	 $phone = $value["phone"];
+		}
+
+		  //Inserting aplication to studen
+			$view->db->Insert('students',["ids", "name", "surname", "email", "phone", "cisco", "www", "cisco_group", "www_group", "activity"],[NULL, "{$name}", "{$surname}", "{$email}" ,"{$phone}" , NULL, NULL, "{$groupId}", NULL, 1]);
+			//Updating mebers of group
+		  $view->db->NonResultQuery("UPDATE `groups` SET `students` = students + 1 WHERE `groups`.`idg` = '".$groupId."' ;");
+			//Delete
+		  $view->db->NonResultQuery("DELETE FROM `applications`WHERE `id` =".$id);
+
+
+
+	}
 }
-
-
-$view->db->Query("INSERT INTO `students` (`ids`, `name`, `surname`, `email`, `phone`, `cisco`, `www`, `cisco_group`, `www_group`, `activity`) VALUES (NULL, '".$name."', '".$surname."', '".$email."' ,'".$phone."' , NULL, NULL, '".$groupId."', NULL, 1)");
-$view->db->Query("UPDATE `groups` SET `students` = students + 1 WHERE `groups`.`idg` = '".$groupId."' ;");
-$view->db->Query("DELETE FROM `applications`WHERE `id` =".$id);
   ?>

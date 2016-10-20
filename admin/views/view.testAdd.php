@@ -2,8 +2,8 @@
 if(isset($_GET["id"])){
 $im = $_GET["id"];
 $type = $_GET["type"];
-session_start();
-$_SESSION["ids"] = $id;
+
+
 $where = '';
 for($i = 0; $i <count($im); $i++){
     if($i >= 1){
@@ -11,7 +11,9 @@ for($i = 0; $i <count($im); $i++){
     }
     $where.="`id` = ".$im[$i]."";
 }
+
 $result = $view->db->Query("SELECT * FROM `applications` WHERE ".$where);
+
 
 foreach($result as $key => $r){
     foreach($r as $k => $item){

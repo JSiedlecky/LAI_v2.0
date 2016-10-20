@@ -6,8 +6,8 @@ class Database {
     protected $db;
 
     //connect to db
-    //public function __construct($login="lai", $password="lai", $host="jqub97.ddns.net", $port="3306", $dbname="lai"){
-    public function __construct($login="lai", $password="lai", $host="localhost", $port="3306", $dbname="lai"){
+    public function __construct($login="lai", $password="lai", $host="jqub97.ddns.net", $port="3306", $dbname="lai"){
+   // public function __construct($login="lai", $password="lai", $host="localhost", $port="3306", $dbname="lai"){
         $this->isConnected = true;
 
         try {
@@ -22,14 +22,24 @@ class Database {
 
     public function Query($query){
         try{
-            $stmt = $this->db->prepare($query);
-            $result = $stmt->execute();
+            $stm = $this->db->prepare($query);
+            $stm->execute();
+            $result = $stm->fetchAll();
             return $result;
         } catch (PDOException $e){
             throw new Exception($e->getMessage());
         }
     }
-
+    public function NonResultQuery($query){
+      try{
+          $stm = $this->db->prepare($query);
+          $stm->execute();
+          //$result = $stm->fetchAll();
+          //return $result;
+      } catch (PDOException $e){
+          throw new Exception($e->getMessage());
+      }
+    }
     public function DescribeTable($table, $debug = false){
         try {
             $sql = "DESCRIBE ".$table;
@@ -61,6 +71,7 @@ class Database {
 
             $sql = "INSERT INTO {$table} ({$fields_insert}) VALUES ({$values_insert})";
             $stmt = $this->db->prepare($sql);
+
             $stmt->execute();
 
             if(isset($debug['debug']))return $sql;
