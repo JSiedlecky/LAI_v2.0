@@ -231,7 +231,7 @@ $(document).ready(function(){
 
     $('#addpayment').on('click', function(){
       var allrows = $('.rowofform');
-      var data = {};
+      var data = { 'action':'add' };
 
       if(validatePayments(allrows)){
         allrows.each(function(i){
@@ -244,7 +244,16 @@ $(document).ready(function(){
           }
         });
 
-        console.dir(data);
+         $.ajax({
+           method:'post',
+           url:'ajax/payment.actions.php',
+           data:data,
+           complete: function(data){
+             if(data.responseText == 'OK') window.location.href = "http://lai.com/admin/index.php?page=payments";
+             else alert('Wystąpił błąd!');
+           }
+         });
+        console.log(data);
       } else alert('Wypełnij wszystkie pola!');
     });
 });
