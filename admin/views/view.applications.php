@@ -3,13 +3,13 @@ if(isset($_COOKIE["additional"])){
 $additional = $_COOKIE["additional"];
 ?><script>document.cookie = "applications=; expires=Thu, 01 Jan 1970 00:00:00 UTC";</script><?php
 
-$result = $view->db->Select('applications',['*'],[],$additional);
+//$result = $view->db->Select('applications',['*'],[],$additional);
 unset($_COOKIE["additional"]);
 }else {
 
   $result = $view->db->Select('applications',['*']);
 }
-
+$result = $view->db->Select('applications',['*']);
 $applications_data = array();
 
 foreach($result as $key => $r){
@@ -94,7 +94,7 @@ $view->Section([
 $view->Custom('
 <form method="GET" action="#" class="btn-group" role="group" aria-label="...">
 <p>
-  <input type="submit" class="btn btn-default" name="page" value="testAdd">
+  <button type="submit" class="btn btn-default" name="page" value="prepareStudent">Kontynułuj</button>
 <input type="submit" class="btn btn-default" name="page" value="applications">
 <input type="text" class="hidden" id="types" name="type" value="none">
   </p>

@@ -19,7 +19,7 @@ class Database {
             throw new Exception($e->getMessage());
         }
     }
-
+    //send query and return data
     public function Query($query){
         try{
             $stm = $this->db->prepare($query);
@@ -30,12 +30,11 @@ class Database {
             throw new Exception($e->getMessage());
         }
     }
+    //send query with d no return data
     public function NonResultQuery($query){
       try{
           $stm = $this->db->prepare($query);
           $stm->execute();
-          //$result = $stm->fetchAll();
-          //return $result;
       } catch (PDOException $e){
           throw new Exception($e->getMessage());
       }

@@ -196,7 +196,7 @@ $(document).ready(function(){
         })
       }
     });
-
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PAYMENTS XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
     $('.payment-actions').on('click', function(){
       var action = $(this).attr('data-action');
       var me = $(this).parent('td').parent('tr').find('td');
