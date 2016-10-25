@@ -19,8 +19,8 @@ $(function(){
       data: {idList : list},
 
        complete: function(data){
-         console.log(data.responseText);
-          //goToApplication();
+
+          goToApplication();
 
           },
           error: function(e){
