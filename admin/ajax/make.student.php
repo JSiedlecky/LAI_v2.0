@@ -8,6 +8,7 @@ $db = new Database();
 
 
 
+
 $students = $db->Select("groups",["students","max_students"],["idg"=>$groupId]);
 
 if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0){
@@ -32,8 +33,16 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 
 
 
+
 	}
-	echo "done";
+	if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+	}
+
+			$_SESSION['addIds'] = $idused;
+			
+
+
 }
 else{
 	echo "Wystąpił bład";

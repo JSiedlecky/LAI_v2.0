@@ -2,7 +2,7 @@
 if(isset($_COOKIE["additional"])){
 $additional = $_COOKIE["additional"];
 ?><script>document.cookie = "applications=; expires=Thu, 01 Jan 1970 00:00:00 UTC";</script><?php
-
+unset($_SESSION['addIds']);
 //$result = $view->db->Select('applications',['*'],[],$additional);
 unset($_COOKIE["additional"]);
 }else {
@@ -31,7 +31,7 @@ $applications_actions = '
 
 ';
 
-
+//sets html elements
 $view->Header('Aplikacje');
 
 $view->Section([
@@ -93,10 +93,10 @@ $view->Section([
 ]);
 $view->Custom('
 <form method="GET" action="#" class="btn-group" role="group" aria-label="...">
-<p>
-  <button type="submit" class="btn btn-default" name="page" value="prepareStudent">Kontynułuj</button>
-<input type="submit" class="btn btn-default" name="page" value="applications">
-<input type="text" class="hidden" id="types" name="type" value="none">
+  <p>
+    <button type="submit" class="btn btn-default action" name="page" value="prepareStudent">Kontynuuj</button>
+    <button type="button"  class="btn btn-default action delete" name="deleteApplication">Usun</button>
+    <input type="text" class="hidden" id="types" name="type" value="none">
   </p>
 ');
 $view->Table([
@@ -115,8 +115,25 @@ $view->Table([
                 "class"=>"default-table applications",
                 "html" => false
 ]);
-$view->Custom('
-</form>
-');
+$view->Custom('</form>');
 $view->Custom('<script src="js/sorting.js"></script>');
+//delete modal
+$view->Custom('<div class="modal fade" tabindex="-1" role="dialog" id="deleteModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+        <button type="button" class="btn btn-danger" id="deleteBtn">USUŃ</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->');
+$view->Custom('<script src="js/deleteApplication.js"></script>');
 $view->Render();

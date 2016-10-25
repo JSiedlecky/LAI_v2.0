@@ -36,3 +36,6 @@ function validatePayments(rows){
 
   return true;
 }
+function goToApplication(){
+  window.location.href = "http://127.0.0.1/LAI_v2.0/admin/index.php?page=applications";
+}

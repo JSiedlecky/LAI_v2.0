@@ -15,15 +15,40 @@ if(isset($_GET["id"])){
 
     $view->Custom("<script>var typeOf = '".$type."'; var idlist=[".$arr."]; </script>");
 
+    //gets already used ids
+      $used = NULL;
+    if(isset($_SESSION['addIds'])){
+      $used = $_SESSION['addIds'];
+    }
+
+
+    //var used to check is this id used which prevent mysql error
+    $inList  = false;
+    //make where part of query
     $where = '';
     for($i = 0; $i <count($im); $i++){
+
         if($i >= 1){
           $where.=" OR ";
         }
-        $where.="`id` = ".$im[$i]."";
+        if($used != NULL){
+
+          foreach ($used as $value) {
+              if($value == $im[$i]){
+                $inList = true;
+              }
+            }
+        }
+
+        if($inList != true){
+            $where.="`id` = ".$im[$i]."";
+        }
+        $inList  = false;
     }
 
-    $result = $view->db->Query("SELECT * FROM `applications` WHERE ".$where);
+    //sends sql query to get selected aplications
+    if($where != ''){
+      $result = $view->db->Query("SELECT * FROM `applications` WHERE ".$where);
 
     $i = 0;
     foreach($result as $key => $r){
@@ -142,11 +167,32 @@ if(isset($_GET["id"])){
     }
     $custom .= '</div>';
     $view->Custom($custom);
-    //$view->Custom('<input name="idu" class="hidden" value='.serialize($im).'>');
-    //$_SESSION['idused'] = $im;
-    //$view->Custom('<input name="page" class="hidden" value=addToGroup>');
-    //->Custom('<input name="type" class="hidden" value='.$_GET['type'].'>');
+
     $view->Custom('</form>');
+  }
+  else{
+    $view->Custom('<div class="modal fade" tabindex="-1" role="dialog" id="myModal" data-backdrop="static" data-keyboard="false">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+
+                        <h4 class="modal-title">Koniec wybranych studentów</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>Przycisk przekieruje cię do wyboru aplikacji</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="goToApplication();">Przekierowanie</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <script>
+                 $("#myModal").modal("show");
+                </script>
+                '
+              );
+  }
     $view->Custom('<script src="js/addApplication.js"></script>');
     $view->Render();
 }

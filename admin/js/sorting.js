@@ -8,6 +8,9 @@ $(function(){
   var context="none";
   var leng = $(".applications tr").length;
   var carter = " <span class='caret'></span>";
+  //disable usable button
+  $('.action').prop('disabled', true);
+  //set sorting data
   $("#nameOrder>li>a").click(function(){
     changeState(this);
     nameOrder = order;
@@ -40,6 +43,7 @@ $(function(){
     $("#yearsOrderName").text(text);
 
   });
+  //send sorting ajax
   $("#sendSortingData").click(function(){
 
     $.ajax({
@@ -49,7 +53,7 @@ $(function(){
     //  contentType: "application/json; charset=utf-8",
       // dataType: "json",
        complete: function(data){
-              console.log('SEND'+data.responseText);
+
 
               document.cookie = "additional="+data.responseText;
               window.location.reload(false)
@@ -65,7 +69,7 @@ $(function(){
 
     if(context == "none"){
       context = $(this).parent().parent().children('td:nth-child(6)').text();
-      console.log(context);
+      ('.action').prop('disabled', false);
       $("#types").attr('value', $(this).parent().parent().children('td:nth-child(6)').text());
       for(var i = 1; i < leng; i++){
         if($(".applications tr:nth-child("+i+")").children('td:nth-child(6)').text() != context){
@@ -84,10 +88,11 @@ $(function(){
 
           }
         }
-
+        //if none of element is selected then enable all input in applications and disable action buttons
         if(tmpNumOfEle == leng-2 ){
           context = "none";
 
+          $('.action').prop('disabled', true);
             for(var i = 1; i < leng; i++){
 
               $(".applications tr:nth-child("+i+") td:last-child .in").prop('disabled', false);
