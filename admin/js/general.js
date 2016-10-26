@@ -230,6 +230,30 @@ $(document).ready(function(){
       $('.allrowsofforms').append(row);
     });
 
+    $('select[name="payment_for"]').prop('disabled', true);
+
+    $('.rowofform select[name="payer"]').on('change', function(){
+      var val = $(this).val();
+      var select = $(this).parent('div').parent('form').parent('div').find('select[name="payment_for"]');
+
+      if(val != ''){
+        select.attr('disabled', false);
+        select.attr('required', true);
+
+        $.ajax({
+          method:'get',
+          url:'ajax/payment.actions.php',
+          data:'action=selectpayment&student='+val,
+          complete: function(data) {
+          }
+        });
+      } else {
+        select.val('');
+        select.attr('disabled', true);
+        select.attr('required', false);
+      }
+    });
+
     $('#addpayment').on('click', function(){
       var allrows = $('.rowofform');
       var data = {};

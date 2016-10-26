@@ -51,6 +51,26 @@
         $form->Number('amount', 'Wartość (zł)', '300', true, 0);
         $form->Textbox('payment_for','Płatność za','CISCO_42_2',true);
         $form->Textbox('payer','Uczeń','Jan Kowalski',true);
+
+        $students = $view->db->Select('students',['name','surname','cisco','www','cisco_group','www_group']);
+        $students_list = [];
+        $groups = $view->db->Select('groups',['group_name']);
+        $groups_list = [];
+
+        foreach($students as $k => $v){
+          $students_list[$v['name'].' '.$v['surname']] = $v['name'].' '.$v['surname'];
+          foreach($groups as $i => $g){
+            if($v['cisco_group'] == explode('_',$g['group_name'])[1]) $groups_list[$v['name'].' '.$v['surname']] = $g['group_name'];
+            if($v['www_group'] == explode('_',$g['group_name'])[1]) $groups_list[$v['name'].' '.$v['surname']] = $g['group_name'];
+          }
+        }
+        print_obj($groups_list);
+
+        $form = new Form(true,'post','#','default-form horizontal-form');
+        $form->Number('amount', 'Wartość (zł)', '300', true, 0);
+        $form->Select('payer','Uczeń',$students_list,true);
+        $form->Select('payment_for','Płatność za',[]);
+
         $form->Date('payment_date','Data płatności', true);
         $form->Textarea('additional', 'Dodatkowe informacje','',false,'',1, 60);
 
