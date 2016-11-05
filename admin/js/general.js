@@ -337,7 +337,13 @@ $(document).ready(function(){
           method: 'post',
           data: data,
           complete: function(data){
-            console.log(data.responseText);
+            if(data.responseText === 'OK'){
+              alert('Pomyślnie dodano płatności.');
+              redirect('http://lai.com/admin/index.php?page=payments');
+            } else {
+              alert('Wystąpił błąd, spróbuj później.');
+              redirect('http://lai.com/admin/index.php?page=payments');
+            }
           }
         });
 
