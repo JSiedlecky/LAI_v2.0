@@ -34,7 +34,8 @@ class Database {
     public function NonResultQuery($query){
       try{
           $stm = $this->db->prepare($query);
-          $stm->execute();
+          if($stm->execute()) return true;
+          else return false;
       } catch (PDOException $e){
           throw new Exception($e->getMessage());
       }

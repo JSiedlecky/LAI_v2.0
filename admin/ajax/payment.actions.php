@@ -14,17 +14,27 @@ if($action == 'delete'){
 }
 
 if($action == 'add') {
-  $inserts = "INSERT INTO `payments` (`amount`,`payment_for`,`payer`,`payment_date`,`additional`) VALUES";
+  $inserts = "INSERT INTO `payments` (`amount`,`payment_for`,`payer`,`payment_date`,`additional`) VALUES ";
   $tmp = '';
-
+  $rows = count($_POST) - 1;
+  $cnt = 0;
   foreach($_POST as $index => $array){
     $tmp .= '(';
-    for($i = 0; $i < count($array) -1; $i++){
-      if($i !== count($array) - 1) $tmp .= $array[$i].',';
-      else $tmp .= $array[$i];
+    $cntr = 0;
+    $all = count($array) - 1;
+    foreach($array as $k => $v){
+      if($cntr !== $all) $tmp .= '"'.$v.'",';
+      else $tmp .= '"'.$v.'"';
+      $cntr++;
     }
-    $tmp .= '),';
+    if($cnt !== $rows) $tmp .= '),';
+    else $tmp .= ')';
+    $cnt++;
   }
+  $inserts .= $tmp;
+  if($db->NonResultQuery($inserts)){
+    echo 'OK';
+  } else echo 'ERROR';
 }
 
 if($action == 'selectpayment') {
