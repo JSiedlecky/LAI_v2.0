@@ -228,23 +228,86 @@ $(document).ready(function(){
       row = '<div class="rowofform">'+row+'</div>';
 
       $('.allrowsofforms').append(row);
+      $('select[name="payment_for"]').last().find('option').remove();
+      $('select[name="payment_for"]').last().append('<option value="">Wybierz</option>');
+      $('select[name="payer"]').on('change', function(){
+        var val = $(this).val();
+        var select = $(this).parent('div').parent('form').parent('div').find('select[name="payment_for"]')
+
+        if(val != ''){
+          select.attr('disabled', false);
+          select.attr('required', true);
+
+          $.ajax({
+            method:'get',
+            url:'ajax/payment.actions.php',
+            data:'action=selectpayment&student='+val,
+            complete: function(data) {
+              var tmp = data.responseText;
+              var arr = tmp.split(',');
+              select.text('');
+              var final = '<option value="">Wybierz</option>';
+              for(i = 0; i < arr.length; i++){
+                arr[i] = arr[i].split('_')[1];
+              }
+              if(arr[0] !== '') arr[0] = 'CISCO_'+arr[0];
+              if(arr[1] !== '') arr[1] = 'WWW_'+arr[1];
+
+              if(arr[1] === '') arr.splice(1,1);
+              if(arr[0] === '') arr.splice(0,1);
+
+
+              for(i = 0; i < arr.length; i++){
+                final += '<option value="'+arr[i]+'">'+arr[i]+'</option>';
+              }
+              select.append(final);
+              arr = [];
+              final = '';
+            }
+          });
+        } else {
+          select.val('');
+          select.attr('disabled', true);
+          select.attr('required', false);
+        }
+      });
+
     });
 
     $('select[name="payment_for"]').prop('disabled', true);
 
-    $('.rowofform select[name="payer"]').on('change', function(){
+    $('select[name="payer"]').on('change', function(){
       var val = $(this).val();
-      var select = $(this).parent('div').parent('form').parent('div').find('select[name="payment_for"]');
+      var select = $(this).parent('div').parent('form').parent('div').find('select[name="payment_for"]')
 
       if(val != ''){
         select.attr('disabled', false);
         select.attr('required', true);
+        select.text('');
 
         $.ajax({
           method:'get',
           url:'ajax/payment.actions.php',
           data:'action=selectpayment&student='+val,
           complete: function(data) {
+            var tmp = data.responseText;
+            var arr = tmp.split(',');
+            for(i = 0; i < arr.length; i++){
+              arr[i] = arr[i].split('_')[1];
+            }
+            if(arr[0] !== '') arr[0] = 'CISCO_'+arr[0];
+            if(arr[1] !== '') arr[1] = 'WWW_'+arr[1];
+
+            if(arr[1] === '') arr.splice(1,1);
+            if(arr[0] === '') arr.splice(0,1);
+
+            var final = '<option value="">Wybierz</option>';
+            for(i = 0; i < arr.length; i++){
+              final += '<option value="'+arr[i]+'">'+arr[i]+'</option>';
+            }
+            select.append(final);
+            arr = [];
+            final = '';
           }
         });
       } else {
@@ -262,14 +325,22 @@ $(document).ready(function(){
         allrows.each(function(i){
           data[i] = {
             'amount'      : $(this).find('input[name="amount"]').val(),
-            'payment_for' : $(this).find('input[name="payment_for"]').val(),
-            'payer'       : $(this).find('input[name="payer"]').val(),
+            'payment_for' : $(this).find('select[name="payment_for"]').val(),
+            'payer'       : $(this).find('select[name="payer"]').val(),
             'payment_date': $(this).find('input[name="payment_date"]').val(),
             'additional'  : $(this).find('textarea[name="additional"]').val()
           }
         });
 
-        console.dir(data);
+        $.ajax({
+          url: 'ajax/payment.actions.php?action=add',
+          method: 'post',
+          data: data,
+          complete: function(data){
+            console.log(data.responseText);
+          }
+        });
+
       } else alert('Wypełnij wszystkie pola!');
     });
 });

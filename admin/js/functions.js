@@ -14,8 +14,7 @@ function RandomizeBorderColor(selector) {
   selector.css('border-color',color);
 }
 
-function getQueryVariable(variable)
-{
+function getQueryVariable(variable){
        var query = window.location.search.substring(1);
        var vars = query.split("&");
        for (var i=0;i<vars.length;i++) {
@@ -26,16 +25,23 @@ function getQueryVariable(variable)
 }
 
 function validatePayments(rows){
+  var flag = true;
+
   rows.each(function(i){
     var inputs = $(this).find('input');
+    var selects = $(this).find('select');
 
-    inputs.each(function(e){
-      if($(this).val() == '') return false;
-    });
+    for(i = 0; i < inputs.length; i++){
+      if(inputs[i].value === '') flag = false;
+    }
+    for(i = 0; i < selects.length; i++){
+      if(selects[i].value === '') flag = false;
+    }
   });
 
-  return true;
+  return flag;
 }
+
 function goToApplication(){
   window.location.href = "http://127.0.0.1/LAI_v2.0/admin/index.php?page=applications";
 }

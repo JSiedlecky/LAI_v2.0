@@ -64,7 +64,6 @@
             if($v['www_group'] == explode('_',$g['group_name'])[1]) $groups_list[$v['name'].' '.$v['surname']] = $g['group_name'];
           }
         }
-        print_obj($groups_list);
 
         $form = new Form(true,'post','#','default-form horizontal-form');
         $form->Number('amount', 'Wartość (zł)', '300', true, 0);
