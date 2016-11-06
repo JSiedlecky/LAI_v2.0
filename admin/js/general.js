@@ -142,7 +142,7 @@ $(document).ready(function(){
 
       if(val == 'modify'){
         //var host = 'http://lai.com/admin/index.php?page=edit&type=group&id='+group_id;
-        var host = 'http://127.0.0.1/LAI_v2.0/admin/index.php?page=edit&type=group&id='+group_id;
+        var host = 'http://lai.com/admin/index.php?page=edit&type=group&id='+group_id;
 
         window.location.href = host;
       }
