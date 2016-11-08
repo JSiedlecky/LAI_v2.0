@@ -2,7 +2,7 @@
 $view->Custom('
 <form method="GET" action="#" class="btn-group" role="group" aria-label="...">
   <p>
-    <button type="submit" class="btn btn-default action" name="page" value="addUser">Dodaj użytkownika </button>
+    <button type="submit" class="btn btn-default action" name="page" value="userForm">Dodaj użytkownika </button>
     <button type="button"  class="btn btn-default action delete" name="deleteApplication">Usun</button>
     <input type="text" class="hidden" id="types" name="type" value="none">
   </p>

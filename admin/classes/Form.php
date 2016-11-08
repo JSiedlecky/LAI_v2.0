@@ -180,6 +180,7 @@ class Form {
         $this->content .= '<input type="submit" value="'.$submit.'" '.($name != false ? 'name="'.$name.'"' : '').'>';
       $this->content .= '</div>';
     }
+
     $this->content .= '</form>';
 
     if($debug){

@@ -20,7 +20,7 @@
             $user = new User($result[0]['idu']);
             $_SESSION['user'] = serialize($user);
         }
-
+        
         $db->Disconnect();
     }
     if(isset($_SESSION['user'])){
