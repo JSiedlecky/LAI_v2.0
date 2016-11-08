@@ -7,7 +7,7 @@ class Database {
 
     //connect to db
     //public function __construct($login="lai", $password="lai", $host="jqub97.ddns.net", $port="3306", $dbname="lai"){
-    public function __construct($login="lai", $password="lai", $host="localhost", $port="3306", $dbname="lai"){
+    public function __construct($login="root", $password="", $host="localhost", $port="3306", $dbname="lai"){
         $this->isConnected = true;
 
         try {

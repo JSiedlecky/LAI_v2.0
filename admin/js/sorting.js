@@ -69,7 +69,7 @@ $(function(){
 
     if(context == "none"){
       context = $(this).parent().parent().children('td:nth-child(6)').text();
-      ('.action').prop('disabled', false);
+      $('.action').prop('disabled', false);
       $("#types").attr('value', $(this).parent().parent().children('td:nth-child(6)').text());
       for(var i = 1; i < leng; i++){
         if($(".applications tr:nth-child("+i+")").children('td:nth-child(6)').text() != context){
