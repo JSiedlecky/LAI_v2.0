@@ -349,4 +349,6 @@ $(document).ready(function(){
 
       } else alert('Wypełnij wszystkie pola!');
     });
+
+  
 });
