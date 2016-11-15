@@ -15,7 +15,7 @@ $db->Disconnect();
             foreach ($menu_arr as $item) {
                 $active = "";
                 if(isset($_GET['page']) && $_GET['page'] == $item['page_scheme']) $active = 'class="active"';
-                echo '<li '.$active.'><a href="index.php?page='.$item['page_scheme'].'">'.$item['display_string'].'</a></li>';
+                if($user->getPermissions()['isGm'] || $user->getPermissions()[$item['page_scheme']]) echo '<li '.$active.'><a href="index.php?page='.$item['page_scheme'].'">'.$item['display_string'].'</a></li>';
             }
 
         ?>

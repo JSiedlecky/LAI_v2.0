@@ -12,7 +12,7 @@
 
   //READING ALL PREVIOUS NEWSLETTERS
   $nwltrs = $view->db->Select('send_newsletters');
-  
+
   //SETTING UP THE MAILER
   $mail = new PHPMailer;
 

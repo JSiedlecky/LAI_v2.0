@@ -17,6 +17,7 @@ class User {
         $this->idu = $idu;
         $this->display_name = $this->setDisplayName($idu);
         $this->display_lm = $this->getsetDisplayLm();
+        $this->permissions = $this->setPermissions($idu);
     }
 
     //GETS DISPLAY NAME FROM DB FOR CURRENT USER
@@ -46,7 +47,16 @@ class User {
 
     //GETS PERMISSIONS FROM DB FOR CURRENT USER
     private function setPermissions($idu){
+      $db = new Database();
+      $res = $db->Select('permissions',['*'],['idu'=>$idu]);
+      $returning = [];
 
+      foreach($res as $index => $array){
+        foreach($array as $k => $v){
+          if($k != 'idperm' && $k != 'idu') $returning[$k] = $v;
+        }
+      }
+      return $returning;
     }
 
     //RETURNS ID OF CURRENT USER
