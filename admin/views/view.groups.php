@@ -1,5 +1,9 @@
 <?php
 
+if(!$user->getPermissions()[$_GET['page']]){
+  header("location: index.php");
+}
+
 if(isset($_POST['groupname']) && ($_POST['groupname'] != ''))
   $groups = $view->db->Select('groups',['*'],['group_name' => $_POST['groupname']]);
 else if(isset($_POST['groupid']) && ($_POST['groupid'] != ''))
@@ -37,13 +41,15 @@ $search->Select('groupdays', 'Po trybie zajęć', [
                                                   "Weekend"=>"Weekend"
                                                 ]);
 
-$view->Header('Grupy       <a class="addgroup" href="index.php?page=add&type=group">Dodaj grupę <i class="fa fa-plus" aria-hidden="true"></i></a>');
+$view->Header('Grupy        '.($user->getPermissions()['isGm'] || $user->getPermissions()['group_add'] ? '<a class="addgroup" href="index.php?page=add&type=group">Dodaj grupę <i class="fa fa-plus" aria-hidden="true"></i></a>' : ''));
 
-$view->Section([
-              'name'=>'Wyszukiwanie',
-              'content'=> $search->Render('Szukaj'),
-              'class'=>'default-section'
-            ]);
+if($user->getPermissions()['isGm'] || $user->getPermissions()['group_sort']){
+  $view->Section([
+                'name'=>'Wyszukiwanie',
+                'content'=> $search->Render('Szukaj'),
+                'class'=>'default-section'
+              ]);
+}
 
 $custom = '<div>';
 if(count($groups) == 0) $custom .= "Brak wyników dla podanych kryteriów wyszukiwania.";
@@ -57,12 +63,14 @@ else {
     $students = ParseActivity($students);
 
     $custom .= '<div class="group">';
+    if($user->getPermissions()['isGm'] || $user->getPermissions()['group_modify'] || $user->getPermissions()['group_delete']){
     $custom .= '<i class="fa fa-lg fa-cog group_options" aria-hidden="true"></i>';
-    $custom .= '<select class="option_select" data-groupid="'.$g['idg'].'">';
-      $custom .= '<option value="choose">Wybierz</option>';
-      $custom .= '<option value="modify">Modyfikuj</option>';
-      $custom .= '<option value="delete">Usuń</option>';
-    $custom .= '</select>';
+      $custom .= '<select class="option_select" data-groupid="'.$g['idg'].'">';
+        $custom .= '<option value="choose">Wybierz</option>';
+        $custom .= ($user->getPermissions()['isGm'] || $user->getPermissions()['group_modify'] ? '<option value="modify">Modyfikuj</option>' : '');
+        $custom .= ($user->getPermissions()['isGm'] || $user->getPermissions()['group_delete'] ? '<option value="delete">Usuń</option>' : '');
+      $custom .= '</select>';
+    }
     $custom .= '<section class="group_section">';
       $custom .= '<div class="group_vertical_separator">';
         $custom .= '<div class="group_id">#'.$g['idg'].'</div>';

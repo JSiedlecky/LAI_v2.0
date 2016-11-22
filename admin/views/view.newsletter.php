@@ -1,4 +1,9 @@
 <?php
+
+  if(!$user->getPermissions()[$_GET['page']]){
+    header("location: index.php");
+  }
+
   require 'includes/PHPMailer/PHPMailerAutoload.php';
 
   //READING ALL THE MAILS ON THE LIST
@@ -71,12 +76,14 @@
   //RENDERING VIEW
   $view->Header('Newsletter');
   $view->Custom($form->Render('Wyślij','sendthehorde').'<br>');
-  $view->Table([
-                "name"          => "Wczesniejsze newslettery",
-                "ordinal"       => false,
-                "class"         => "default-table",
-                "column_names"  => ['ID', 'Nagłówek', 'Treść wiadomości', 'Data'],
-                "data"          => $nwltrs,
-                "html"          => false
-  ]);
+  if($user->getPermissions()['nl_old']){
+    $view->Table([
+                  "name"          => "Wczesniejsze newslettery",
+                  "ordinal"       => false,
+                  "class"         => "default-table",
+                  "column_names"  => ['ID', 'Nagłówek', 'Treść wiadomości', 'Data'],
+                  "data"          => $nwltrs,
+                  "html"          => false
+    ]);
+  }
   $view->Render();

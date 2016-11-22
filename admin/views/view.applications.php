@@ -1,4 +1,9 @@
 <?php
+
+if(!$user->getPermissions()[$_GET['page']]){
+  header("location: index.php");
+}
+
 if(isset($_COOKIE["additional"])){
 $additional = $_COOKIE["additional"];
 ?><script>document.cookie = "applications=; expires=Thu, 01 Jan 1970 00:00:00 UTC";</script><?php
@@ -20,8 +25,8 @@ foreach($result as $key => $r){
         if($k != "id" && $k != "status") $applications_data[$key][] = $item;
         //if status is set to null we send the apropriate message
         if($k == "status" && $item == "") $applications_data[$key][]  = "Nie rozpatrzono.";
-          // else we add a normal item to the row
-          else if($k == "status" && $item != "") $applications_data[$key][] = $item;
+        // else we add a normal item to the row
+        else if($k == "status" && $item != "") $applications_data[$key][] = $item;
         //adding a checkbox to edit the row
         if($k == "status") $applications_data[$key][] = '<input class="in" type="checkbox" value="'.$id.'" name="id[]">';
     }
