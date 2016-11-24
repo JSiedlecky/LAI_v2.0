@@ -350,5 +350,27 @@ $(document).ready(function(){
       } else alert('Wypełnij wszystkie pola!');
     });
 
-  
+    //user choose function
+      var lastVal = 0;
+      $('input[name="user"]').on('click', function(){
+
+          for(var i = 0; i < $('input[name="user"]').length;i++ ){
+            if($('input[name="user"]')[i].checked){
+              $('input[name="user"]').prop('checked', false);
+
+            }
+          }
+
+          if(lastVal == $(this).val()){
+            $(this).prop('checked', false);
+            $('#changeuser').removeClass("disabled");
+            lastVal = 0;
+          }else{
+            $(this).prop('checked', true);
+            $('#changeuser').addClass("disabled");
+            lastVal = $(this).val();
+          }
+
+      });
+
 });

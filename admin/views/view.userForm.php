@@ -3,6 +3,8 @@ function addValue($value){
 
   return "value='".$value."'";
 }
+
+echo $_GET['']
 if(isset($_GET['error'])){
   $view -> Custom('<div class="alert alert-danger" role="alert">Wystąpił błąd proszę ponownie podać dane</div>');
 }
