@@ -177,7 +177,7 @@ class Form {
   public function Custom($custom){
     $this->content .= $custom;
   }
-
+  
   public function Render($submit = "Wyślij", $name = false, $debug = false){
     if(!$this->ajax){
       $this->content .= '<div class="form_section">';
