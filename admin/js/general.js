@@ -362,15 +362,38 @@ $(document).ready(function(){
           }
 
           if(lastVal == $(this).val()){
-            $(this).prop('checked', false);
-            $('#changeuser').removeClass("disabled");
-            lastVal = 0;
+              $(this).prop('checked', false);
+              $('#changeuser').addClass("disabled");
+              $('#adduser').removeClass("disabled");
+              lastVal = 0;
           }else{
-            $(this).prop('checked', true);
-            $('#changeuser').addClass("disabled");
-            lastVal = $(this).val();
-          }
+              $(this).prop('checked', true);
+              $('#changeuser').removeClass("disabled");
+              $('#adduser').addClass("disabled");
+              lastVal = $(this).val();
+              }
 
+      });
+      var k = 0;
+      $('button[name="deleteApplication"]').click(function(){
+
+      })
+      $("#deleteBtnUser").click(function(){
+
+        $.ajax({
+          url: "ajax/deleteUser.php",
+          type: "POST",
+          data: {delId : lastVal},
+
+           complete: function(data){
+             location.reload();
+
+              },
+              error: function(e){
+                    console.log(e.message);
+
+                }
+        });
       });
 
 });

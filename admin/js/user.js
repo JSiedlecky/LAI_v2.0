@@ -1,13 +1,16 @@
 $(function(){
   //Change checkbox value
   $("#userFrom input[type='checkbox']").click(function(){
-    if($(this).val() == "0"){
+    if(  $(this).prop("value")){
       $(this).prop("value", "1");
     }
     else{
         $(this).prop("value", "0");
     }
   });
+    $("input[type='checkbox']").click(function(){
+
+    });
 //sends ajax request
   $("#actionUsersForm").click(function(){
     var allrows = $('form');
@@ -36,9 +39,11 @@ $(function(){
           'delPay'  : $(this).find('input[name="delPay"]').val(),
           'menuNews'  : $(this).find('input[name="menuNews"]').val(),
           'hisNews'  : $(this).find('input[name="hisNews"]').val(),
-          'menuUsers'  : $(this).find('input[name="menuUsers"]').val()
+          'menuUsers'  : $(this).find('input[name="menuUsers"]').val(),
+          'userId'  : $(this).find('input[name="userId"]').val()
         }});
-        
+
+
     $.ajax({
       url: "ajax/userFormAction.php",
       type: "post",
@@ -53,6 +58,8 @@ $(function(){
 
             }
     });
+  }else{
+    alert("Prosze wprowadzić dane");
   }
 });
 });

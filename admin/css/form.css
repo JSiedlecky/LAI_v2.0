@@ -11,3 +11,10 @@ form.horizontal-form {
   float: left;
   margin-left: 10px;
 }
+
+#userFrom input[type="checkbox"]{
+  margin-left: 10px;
+}
+#userFrom tr:hover{
+  background-color: #fff;
+}

@@ -3,6 +3,7 @@
     include('classes/User.php');
 
     session_start();
+    $last_login;
     if(isset($_POST['submit']) && !isset($_SESSION['user'])){
         $db = new Database();
 
@@ -11,6 +12,7 @@
 
         $result = $db->Select("users",['idu','password'],['login'=>$login],"","1");
 
+      
         if(empty($result)){
             header('location: enter.php');
             die();
@@ -18,13 +20,16 @@
 
         if(password_verify($passwd,$result[0]['password'])){
             $user = new User($result[0]['idu']);
+            $_SESSION['idu'] = $result[0]['idu'];
             $_SESSION['user'] = serialize($user);
+
         }
-        
+
         $db->Disconnect();
     }
     if(isset($_SESSION['user'])){
-        header("location: index.php");
+        header("location: passwordSeting.php");
+
     }
 ?>
 <!DOCTYPE html>
@@ -54,7 +59,7 @@
     <div class="admLoginRow row">
         <div class="admLoginOuter col-lg-4 col-md-6 col-sm-12 col-xs-12 col-lg-offset-4 col-md-offset-3">
             <h1 class="admH1 text-center">LAI Admin Panel Login</h1>
-            <form class="form-horizontal" method="post" action="#">
+            <form class="form-horizontal" method="POST" action="#">
                 <div class="form-group">
                     <label for="usrnm" class="col-sm-2 control-label">Username</label>
                     <div class="col-sm-10">

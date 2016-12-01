@@ -3,11 +3,13 @@ $_POST = $_POST[0];
     #load db class
     require "../classes/Database.php";
     $db = new Database();
+  //  echo $_POST['userId'];
+    $id  = $_POST['userId'];
     if(!isset($_POST['userId']))
     {
 
       #ADD USER
-      $db -> Insert("users",["display_name","login","email", "password"],[$_POST['nickname'],$_POST['login'],$_POST['mail'],$_POST['pswd']]);
+      $db -> Insert("users",["display_name","login","email", "password","last_login"],[$_POST['nickname'],$_POST['login'],$_POST['mail'],$_POST['pswd'],"1997-03-05 00:00:00"]);
       #G new user ID;
       $idu = $db -> Query("SELECT idu FROM users ORDER BY idu DESC LIMIT 1;");
       #adds user
@@ -17,8 +19,17 @@ $_POST = $_POST[0];
     }
     else
     {
-      $db -> Update("users", array('display_name' => $_POST['nickname'], 'login' => $_POST['login'],'email' => $_POST['mail'],'password' => $_POST['pswd']),array('idu' => $_POST['userId']));
-      echo "good";
+      #update user
+      $db -> Update("users", array('display_name' => $_POST['nickname'], 'login' => $_POST['login'],'email' => $_POST['mail'],'password' => $_POST['pswd']),array('idu' => $id));
+      #update perrimison menu
+      $db -> NonResultQuery("UPDATE `permissions` SET `applications` = ".$_POST['menuApp'].", `groups` = ".$_POST['menuGrup'].", `payments` = ".$_POST['menuPay'].",`newsletter` = ".$_POST['menuNews'].", `users` = ".$_POST['menuUsers']." WHERE `idu` = '".$id."' ;");
+      #update perrimison application
+      $db -> NonResultQuery("UPDATE `permissions` SET `app_add` = ".$_POST['addApp'].", `app_delete` = ".$_POST['delApp'].", `app_sort` = ".$_POST['sortApp'].",`app_action` = ".$_POST['actionApp']." WHERE `idu` = '".$id."' ;");
+      #update perrimison groups
+      $db -> NonResultQuery("UPDATE `permissions` SET `group_add` = ".$_POST['addGrp'].", `group_modify` = ".$_POST['modifyGrp'].", `group_delete` = ".$_POST['delGrp'].",`group_sort` = ".$_POST['sortGrp']." WHERE `idu` = '".$id."' ;");
+      #update Perrmisions rest
+      $db -> NonResultQuery("UPDATE `permissions` SET `pay_add` = ".$_POST['addPay'].", `pay_modify` = ".$_POST['modifyPay'].", `pay_delete` = ".$_POST['delPay'].",`nl_old` = ".$_POST['hisNews']." WHERE `idu` = '".$id."' ;");
+
     }
 
 
