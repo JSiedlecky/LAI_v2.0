@@ -12,13 +12,15 @@
 
         $result = $db->Select("users",['idu','password'],['login'=>$login],"","1");
 
-      
+
         if(empty($result)){
             header('location: enter.php');
             die();
         }
 
-        if(password_verify($passwd,$result[0]['password'])){
+        
+        if(password_verify($passwd,$result[0]['password']) || MD5($passwd) == $result[0]['password']){
+
             $user = new User($result[0]['idu']);
             $_SESSION['idu'] = $result[0]['idu'];
             $_SESSION['user'] = serialize($user);

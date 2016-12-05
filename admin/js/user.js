@@ -11,12 +11,28 @@ $(function(){
     $("input[type='checkbox']").click(function(){
 
     });
+    //is unique login
+    function isUnique(){
+        var is = true;
+
+        var login = $('input[name="login"]').val();
+        console.log(login);
+        for(var i = 0; i < users.length; i ++){
+          if(users[i] == login){
+            is = false;
+            oneAlert = false;
+            alert("prosze wprwoadzić unikalny login");
+          }
+        }
+
+        return is;
+    }
 //sends ajax request
   $("#actionUsersForm").click(function(){
     var allrows = $('form');
     var data = {};
-
-    if(validatePayments(allrows)){
+    var oneAlert = true;
+    if(validatePayments(allrows) && isUnique()){
       allrows.each(function(i){
         data[i] = {
           'nickname'      : $(this).find('input[name="nickname"]').val(),
@@ -59,7 +75,10 @@ $(function(){
             }
     });
   }else{
-    alert("Prosze wprowadzić dane");
+    if(oneAlert == true){
+      alert("Prosze poprawne dane");
+    }
+    oneAlert = true;
   }
 });
 });

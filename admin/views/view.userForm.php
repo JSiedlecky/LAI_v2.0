@@ -1,4 +1,5 @@
 <?php
+
 function addValue($value){
 
   return "value='".$value."'";
@@ -27,10 +28,15 @@ function PermissionsWithVal($display_name,$name,$checked = false){
   $input .= '/></div></td></div></tr>';
   return $input;
 }
-function checked(){
 
+$result = $view->db->Select('users',['login']);
+
+echo '<script type="text/javascript">';
+echo  ' var users = [];';
+foreach ($result as $key => $value) {
+  echo "users.push('".$value['login']."');";
 }
-
+echo "</script>";
 if(isset($_GET['error'])){
   $view -> Custom('<div class="alert alert-danger" role="alert">Wystąpił błąd proszę ponownie podać dane</div>');
 }

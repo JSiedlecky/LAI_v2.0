@@ -12,7 +12,8 @@
         if($_POST['pswd'] == $_POST['passwd']){
 
           $db->NonResultQuery("UPDATE `users` SET `last_login` = NOW() WHERE `idu` =".$_SESSION['idu']);
-          $db->NonResultQuery("UPDATE `users` SET `password` = '".$_POST['pswd']."' WHERE `idu` =".$_SESSION['idu']);
+          $db->NonResultQuery("UPDATE `users` SET `password` = '".password_hash($_POST['pswd'],PASSWORD_BCRYPT,['cost' => 11])."' WHERE `idu` =".$_SESSION['idu']);
+          header("location: index.php");
         }
       }
 ?>
