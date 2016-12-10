@@ -351,7 +351,8 @@ $(document).ready(function(){
       } else alert('Wypełnij wszystkie pola!');
     });
 
-<<<<<<< HEAD
+
+
     $('#sortName').on('change', function(){
       var val = $(this).val();
 
@@ -387,7 +388,7 @@ $(document).ready(function(){
       var id = $(this).find('td').first().text();
       redirect('index.php?page=student&id='+id);
     });
-=======
+
     //user choose function
       var lastVal = 0;
       $('input[name="user"]').on('click', function(){
