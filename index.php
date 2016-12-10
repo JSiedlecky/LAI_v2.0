@@ -44,7 +44,7 @@
 
     <header>
         <figure>
-            <img src="img/ph2375x200.png" id="headerImg2" alt=":C">
+            <img src="img/baner200.jpg" id="headerImg2" alt=":C">
         </figure>
         <figure>
             <img src="img/ph2375x400.png" id="headerImg4" alt=":C">

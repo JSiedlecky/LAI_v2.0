@@ -4,26 +4,26 @@ if(!$user->getPermissions()[$_GET['page']]){
   header("location: index.php");
 }
 
-if(isset($_POST['groupname']) && ($_POST['groupname'] != ''))
-  $groups = $view->db->Select('groups',['*'],['group_name' => $_POST['groupname']]);
-else if(isset($_POST['groupid']) && ($_POST['groupid'] != ''))
-  $groups = $view->db->Select('groups',['*'],['idg' => $_POST['groupid']]);
-else if(isset($_POST['groupmodule']) && ($_POST['groupmodule'] != '') &&  isset($_POST['groupyears']) && $_POST['groupyears'] != '' &&  isset($_POST['groupdays']) && $_POST['groupdays'] != '')
-  $groups = $view->db->Select('groups',['*'],['module' => $_POST['groupmodule'], 'years' => $_POST['groupyears'], 'days' => $_POST['groupdays']]);
-else if(isset($_POST['groupmodule']) && ($_POST['groupmodule'] != '') &&  isset($_POST['groupyears']) && $_POST['groupyears'] != '')
-  $groups = $view->db->Select('groups',['*'],['module' => $_POST['groupmodule'], 'years' => $_POST['groupyears']]);
-else if(isset($_POST['groupmodule']) && ($_POST['groupmodule'] != '') &&  isset($_POST['groupdays']) && $_POST['groupdays'] != '')
-  $groups = $view->db->Select('groups',['*'],['module' => $_POST['groupmodule'], 'days' => $_POST['groupdays']]);
-else if(isset($_POST['groupmodule']) && ($_POST['groupmodule'] != ''))
-  $groups = $view->db->Select('groups',['*'],['module' => $_POST['groupmodule']]);
-else if(isset($_POST['groupyears']) && ($_POST['groupyears'] != ''))
-  $groups = $view->db->Select('groups',['*'],['years' => $_POST['groupyears']]);
-else if(isset($_POST['groupdays']) && ($_POST['groupdays'] != ''))
-  $groups = $view->db->Select('groups',['*'],['days' => $_POST['groupdays']]);
+if(isset($_GET['groupname']) && ($_GET['groupname'] != ''))
+  $groups = $view->db->Select('groups',['*'],['group_name' => $_GET['groupname']]);
+else if(isset($_GET['groupid']) && ($_GET['groupid'] != ''))
+  $groups = $view->db->Select('groups',['*'],['idg' => $_GET['groupid']]);
+else if(isset($_GET['groupmodule']) && ($_GET['groupmodule'] != '') &&  isset($_GET['groupyears']) && $_GET['groupyears'] != '' &&  isset($_GET['groupdays']) && $_GET['groupdays'] != '')
+  $groups = $view->db->Select('groups',['*'],['module' => $_GET['groupmodule'], 'years' => $_GET['groupyears'], 'days' => $_GET['groupdays']]);
+else if(isset($_GET['groupmodule']) && ($_GET['groupmodule'] != '') &&  isset($_GET['groupyears']) && $_GET['groupyears'] != '')
+  $groups = $view->db->Select('groups',['*'],['module' => $_GET['groupmodule'], 'years' => $_GET['groupyears']]);
+else if(isset($_GET['groupmodule']) && ($_GET['groupmodule'] != '') &&  isset($_GET['groupdays']) && $_GET['groupdays'] != '')
+  $groups = $view->db->Select('groups',['*'],['module' => $_GET['groupmodule'], 'days' => $_GET['groupdays']]);
+else if(isset($_GET['groupmodule']) && ($_GET['groupmodule'] != ''))
+  $groups = $view->db->Select('groups',['*'],['module' => $_GET['groupmodule']]);
+else if(isset($_GET['groupyears']) && ($_GET['groupyears'] != ''))
+  $groups = $view->db->Select('groups',['*'],['years' => $_GET['groupyears']]);
+else if(isset($_GET['groupdays']) && ($_GET['groupdays'] != ''))
+  $groups = $view->db->Select('groups',['*'],['days' => $_GET['groupdays']]);
 else
   $groups = $view->db->Select('groups');
 
-$search = new Form(false,'POST','#','default-form horizontal-form search-form');
+$search = new Form(false,'GET','#','default-form horizontal-form search-form');
 
 $search->Hidden('page','groups');
 $search->Textbox('groupname','Po nazwie grupy','CISCO_1');

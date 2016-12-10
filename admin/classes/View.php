@@ -36,12 +36,12 @@ class View {
             if($options['name'] !== ""){
                 $colspan = count($options['column_names']);
                 if($options['ordinal']) $colspan++;
-                $table .= '<tr>';
+                $table .= '<tr class="tr_name">';
                 $table .= '<th class="t_name" colspan="'.$colspan.'">'.$options['name'].'</th>';
                 $table .= '</tr>';
             }
 
-            $table .= '<tr>';
+            $table .= '<tr class="tr_columns">';
             if($options['ordinal']) $table .= '<th class="t-ordinal">LP</th>';
                 foreach($options['column_names'] as $item){
                     $table .= '<th class="t-columns">'.$item.'</th>';

@@ -12,13 +12,13 @@
             &nbsp; Wyloguj
         </a>
     </section>
-    <section class="user right">
-        <a href="index.php?page=user" title="<?php echo $user->getDisplayName(); ?>">
+    <!-- <section class="user right">
+        <a href="index.php?page=user" title="<?php #echo $user->getDisplayName(); ?>">
             <i class="fa fa-user fa-lg" aria-hidden="true"></i>
-            &nbsp; <?php echo $user->getDisplayName(); ?>
+            &nbsp; <?php #echo $user->getDisplayName(); ?>
         </a>
     </section>
     <section class="notifications right">
         <i class="fa fa-bell-o fa-lg" aria-hidden="true"></i>
-    </section>
+    </section> -->
 </div>

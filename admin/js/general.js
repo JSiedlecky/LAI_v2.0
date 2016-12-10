@@ -342,7 +342,8 @@ $(document).ready(function(){
               redirect('http://lai.com/admin/index.php?page=payments');
             } else {
               alert('Wystąpił błąd, spróbuj później.');
-              redirect('http://lai.com/admin/index.php?page=payments');
+              console.log(data.responseText);
+              //redirect('http://lai.com/admin/index.php?page=payments');
             }
           }
         });
@@ -350,5 +351,39 @@ $(document).ready(function(){
       } else alert('Wypełnij wszystkie pola!');
     });
 
-  
+    $('#sortName').on('change', function(){
+      var val = $(this).val();
+
+      if(val !== ''){
+        redirect('http://lai.com/admin/index.php?page=students&sortName='+val);
+      }
+    });
+
+    $('#sortSurname').on('change', function(){
+      var val = $(this).val();
+
+      if(val !== ''){
+        redirect('http://lai.com/admin/index.php?page=students&sortSurname='+val);
+      }
+    });
+
+    $('#sortGroup').on('change', function(){
+      var val = $(this).val();
+
+      if(val !== ''){
+        redirect('http://lai.com/admin/index.php?page=students&sortGroup='+val);
+      }
+    });
+
+    $('#reloadPage').click(function(){
+      window.location.href = 'index.php?page=students';
+    });
+
+    $('tr').click(function(){
+      if(getQueryVariable("page") !== "students") return false;
+      if($(this).hasClass("tr_name") || $(this).hasClass("tr_columns")) return false;
+
+      var id = $(this).find('td').first().text();
+      redirect('index.php?page=student&id='+id);
+    });
 });

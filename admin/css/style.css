@@ -363,3 +363,21 @@ html, body {
   transition: 0.3s;
   cursor: pointer;
 }
+
+.students-table tr:hover td{
+  cursor: pointer;
+  background-color: #e4e4e4;
+}
+
+.associations-section {
+  width: 40%;
+  float: left;
+}
+
+.student-payments-table {
+  width: 60%;
+}
+
+.contact-section {
+  padding-top: 20px;
+}

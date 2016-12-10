@@ -20,7 +20,7 @@ if($user->getPermissions()['isGm'] || $user->getPermissions()['pay_modify'] || $
                 'name'          => 'Lista wszystkich płatności',
                 'ordinal'       => false,
                 'class'         => 'default-table payments-table',
-                'column_names'  => ['ID','Wartość','Za co','Od kogo','Data','Dodatkowe informacje','Akcje'],
+                'column_names'  => ['ID','Wartość','Za co','ID płatnika','Od kogo','Data','Dodatkowe informacje','Akcje'],
                 'data'          => $payments,
                 'html'          => false
               ]);

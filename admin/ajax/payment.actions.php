@@ -14,7 +14,7 @@ if($action == 'delete'){
 }
 
 if($action == 'add') {
-  $inserts = "INSERT INTO `payments` (`amount`,`payment_for`,`payer`,`payment_date`,`additional`) VALUES ";
+  $inserts = "INSERT INTO `payments` (`amount`,`payment_for`,`idpayer`,`payer`,`payment_date`,`additional`) VALUES ";
   $tmp = '';
   $rows = count($_POST) - 1;
   $cnt = 0;
@@ -25,6 +25,10 @@ if($action == 'add') {
     foreach($array as $k => $v){
       if($cntr !== $all) $tmp .= '"'.$v.'",';
       else $tmp .= '"'.$v.'"';
+      if($k == 'payment_for'){
+        $id = $db->Select('students',['ids'],['name'=>explode(' ',$_POST[$index]['payer'])[0], 'surname'=>explode(' ',$_POST[$index]['payer'])[1]])[0]['ids'];
+        $tmp .= '"'.$id.'",';
+      }
       $cntr++;
     }
     if($cnt !== $rows) $tmp .= '),';

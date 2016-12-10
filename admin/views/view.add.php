@@ -52,7 +52,7 @@
         $form->Textbox('payment_for','Płatność za','CISCO_42_2',true);
         $form->Textbox('payer','Uczeń','Jan Kowalski',true);
 
-        $students = $view->db->Select('students',['name','surname','cisco','www','cisco_group','www_group']);
+        $students = $view->db->Select('students',['ids','name','surname','cisco','www','cisco_group','www_group']);
         $students_list = [];
         $groups = $view->db->Select('groups',['group_name']);
         $groups_list = [];
@@ -72,7 +72,6 @@
 
         $form->Date('payment_date','Data płatności', true);
         $form->Textarea('additional', 'Dodatkowe informacje','',false,'',1, 60);
-
 
         $view->Header("Dodaj płatności");
         $view->Custom('<div class="allrowsofforms"><div class="rowofform">'.$form->Render().'</div></div>');

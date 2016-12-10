@@ -76,7 +76,7 @@
   //RENDERING VIEW
   $view->Header('Newsletter');
   $view->Custom($form->Render('Wyślij','sendthehorde').'<br>');
-  if($user->getPermissions()['nl_old']){
+  if($user->getPermissions()['isGm'] || $user->getPermissions()['nl_old']){
     $view->Table([
                   "name"          => "Wczesniejsze newslettery",
                   "ordinal"       => false,
