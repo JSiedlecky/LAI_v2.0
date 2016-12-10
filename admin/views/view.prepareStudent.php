@@ -50,6 +50,7 @@ if(isset($_GET["id"])){
     if($where != ''){
       $result = $view->db->Query("SELECT * FROM `applications` WHERE ".$where);
 
+
     $i = 0;
     foreach($result as $key => $r){
         foreach($r as $k => $item){
@@ -84,16 +85,32 @@ if(isset($_GET["id"])){
     </p>');
 
       $groups = $view->db->Query("SELECT * FROM groups WHERE `module` LIKE '".$type."' AND students != max_students ");
+      //z grup
+      if(isset($_POST['groupname']) && ($_POST['groupname'] != ''))
+        $groups = $view->db->Select('groups',['*'],['group_name' => $_POST['groupname']]);
+      else if(isset($_POST['groupid']) && ($_POST['groupid'] != ''))
+        $groups = $view->db->Select('groups',['*'],['idg' => $_POST['groupid']]);
+      else if(isset($_POST['groupmodule']) && ($_POST['groupmodule'] != '') &&  isset($_POST['groupyears']) && $_POST['groupyears'] != '' &&  isset($_POST['groupdays']) && $_POST['groupdays'] != '')
+        $groups = $view->db->Select('groups',['*'],['module' => $_POST['groupmodule'], 'years' => $_POST['groupyears'], 'days' => $_POST['groupdays']]);
+      else if(isset($_POST['groupmodule']) && ($_POST['groupmodule'] != '') &&  isset($_POST['groupyears']) && $_POST['groupyears'] != '')
+        $groups = $view->db->Select('groups',['*'],['module' => $_POST['groupmodule'], 'years' => $_POST['groupyears']]);
+      else if(isset($_POST['groupmodule']) && ($_POST['groupmodule'] != '') &&  isset($_POST['groupdays']) && $_POST['groupdays'] != '')
+        $groups = $view->db->Select('groups',['*'],['module' => $_POST['groupmodule'], 'days' => $_POST['groupdays']]);
+      else if(isset($_POST['groupmodule']) && ($_POST['groupmodule'] != ''))
+        $groups = $view->db->Select('groups',['*'],['module' => $_POST['groupmodule']]);
+      else if(isset($_POST['groupyears']) && ($_POST['groupyears'] != ''))
+        $groups = $view->db->Select('groups',['*'],['years' => $_POST['groupyears']]);
+      else if(isset($_POST['groupdays']) && ($_POST['groupdays'] != ''))
+        $groups = $view->db->Select('groups',['*'],['days' => $_POST['groupdays']]);
+      else
+        $groups = $view->db->Select('groups');
     //$view->Custom('<form >');
     $search = new Form(false,'POST','','default-form horizontal-form search-form');
 
-    $search->Hidden('page','groups');
+    $search->Hidden('page','prepareStudent');
     $search->Textbox('groupname','Po nazwie grupy','CISCO_1');
     $search->Textbox('groupid', 'Po ID grupy','1');
-    $search->Select('groupmodule', 'Po module grupy',[
-                                                      "cisco"=>"Cisco",
-                                                      "www"=>"WWW"
-                                                    ]);
+
     $search->Select('groupyears', 'Po długości zajeć',[
                                                       "1"=>"Jeden rok",
                                                       "2"=>"Dwa lata"

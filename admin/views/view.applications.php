@@ -3,20 +3,22 @@
 if(!$user->getPermissions()[$_GET['page']]){
   header("location: index.php");
 }
-
+#read additionals form cookies and send query to get applications
 if(isset($_COOKIE["additional"])){
 $additional = $_COOKIE["additional"];
 ?><script>document.cookie = "applications=; expires=Thu, 01 Jan 1970 00:00:00 UTC";</script><?php
 unset($_SESSION['addIds']);
-//$result = $view->db->Select('applications',['*'],[],$additional);
 unset($_COOKIE["additional"]);
+$result = $view->db->Select('applications',['*'],[],$additional);
 }else {
+
 
   $result = $view->db->Select('applications',['*']);
 }
-$result = $view->db->Select('applications',['*']);
-$applications_data = array();
+setcookie("additional", "", time()-3600);
 
+$applications_data = array();
+#preaper the  sutdent table
 foreach($result as $key => $r){
     foreach($r as $k => $item){
         //id will be used to edit the row

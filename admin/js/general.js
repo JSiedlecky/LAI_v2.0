@@ -351,6 +351,7 @@ $(document).ready(function(){
       } else alert('Wypełnij wszystkie pola!');
     });
 
+<<<<<<< HEAD
     $('#sortName').on('change', function(){
       var val = $(this).val();
 
@@ -386,4 +387,51 @@ $(document).ready(function(){
       var id = $(this).find('td').first().text();
       redirect('index.php?page=student&id='+id);
     });
+=======
+    //user choose function
+      var lastVal = 0;
+      $('input[name="user"]').on('click', function(){
+
+          for(var i = 0; i < $('input[name="user"]').length;i++ ){
+            if($('input[name="user"]')[i].checked){
+              $('input[name="user"]').prop('checked', false);
+
+            }
+          }
+
+          if(lastVal == $(this).val()){
+              $(this).prop('checked', false);
+              $('#changeuser').addClass("disabled");
+              $('#adduser').removeClass("disabled");
+              lastVal = 0;
+          }else{
+              $(this).prop('checked', true);
+              $('#changeuser').removeClass("disabled");
+              $('#adduser').addClass("disabled");
+              lastVal = $(this).val();
+              }
+
+      });
+      var k = 0;
+      $('button[name="deleteApplication"]').click(function(){
+
+      })
+      $("#deleteBtnUser").click(function(){
+
+        $.ajax({
+          url: "ajax/deleteUser.php",
+          type: "POST",
+          data: {delId : lastVal},
+
+           complete: function(data){
+             location.reload();
+
+              },
+              error: function(e){
+                    console.log(e.message);
+
+                }
+        });
+      });
+
 });
