@@ -1,4 +1,5 @@
 $(function(){
+  $("#logerr").hide();
   //Change checkbox value
   $("#userFrom input[type='checkbox']").click(function(){
     if(  $(this).prop("value")){
@@ -11,28 +12,12 @@ $(function(){
     $("input[type='checkbox']").click(function(){
 
     });
-    //is unique login
-    function isUnique(){
-        var is = true;
-
-        var login = $('input[name="login"]').val();
-        console.log(login);
-        for(var i = 0; i < users.length; i ++){
-          if(users[i] == login){
-            is = false;
-            oneAlert = false;
-            alert("prosze wprwoadzić unikalny login");
-          }
-        }
-
-        return is;
-    }
 //sends ajax request
   $("#actionUsersForm").click(function(){
     var allrows = $('form');
     var data = {};
-    var oneAlert = true;
-    if(validatePayments(allrows) && isUnique()){
+
+    if(validatePayments(allrows)){
       allrows.each(function(i){
         data[i] = {
           'nickname'      : $(this).find('input[name="nickname"]').val(),
@@ -56,7 +41,9 @@ $(function(){
           'menuNews'  : $(this).find('input[name="menuNews"]').val(),
           'hisNews'  : $(this).find('input[name="hisNews"]').val(),
           'menuUsers'  : $(this).find('input[name="menuUsers"]').val(),
-          'userId'  : $(this).find('input[name="userId"]').val()
+          'userId'  : $(this).find('input[name="userId"]').val(),
+          'menuStudents' : $(this).find('input[name="menuStudents"]').val(),
+          'menuNewss' : $(this).find('input[name="menuNewss"]').val()
         }});
 
 
@@ -65,8 +52,18 @@ $(function(){
       type: "post",
       data: data,
        complete: function(data){
-              alert("Udało się dodać/zmodifikować urzytkownika");
-              window.location.href = 'http://127.0.0.1/LAI_v2.0/admin/index.php?page=users';
+              
+              if(data.responseText == "3"){
+
+
+                  $('input[name="login"]').css('border',"1px solid #a94442");
+                  $("#logerr").show();
+
+              }else {
+                alert("Udało się dodać/zmodifikować urzytkownika");
+                window.location.href = 'http://127.0.0.1/LAI_v2.0/admin/index.php?page=users';
+              }
+
               console.log(data.responseText);
           },
           error: function(e){
@@ -75,10 +72,7 @@ $(function(){
             }
     });
   }else{
-    if(oneAlert == true){
-      alert("Prosze poprawne dane");
-    }
-    oneAlert = true;
+    alert("Prosze wprowadzić dane");
   }
 });
 });
