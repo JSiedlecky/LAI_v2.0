@@ -65,18 +65,21 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 					}
 					//if module is cisco
 					if($module == "Cisco"){
+
 						//is he hav already cisco group
-						if($cisco == NULL && $cisco <= 0){
+						if($cisco == NULL || $cisco == 0){
+							echo $cisco;
 								$db->NonResultQuery("UPDATE `students` SET `cisco_group` = '".$groupId."'  WHERE `ids` = '".$ids."' ;");
 						}
 
 					}
 					else {
-						if($www == NULL && $www <= 0){
+						if($www == NULL || $www <= 0){
 								//add to www group
 								$db->NonResultQuery("UPDATE `students` SET `www_group` = '".$groupId."'  WHERE `ids` = '".$ids."' ;");
 					}
 				}
+				echo $ids;
 				//Updating mebers of group
 				$db->NonResultQuery("UPDATE `groups` SET `students` = students + 1 WHERE `groups`.`idg` = '".$groupId."' ;");
 				//Delete
