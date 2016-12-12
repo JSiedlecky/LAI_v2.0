@@ -71,7 +71,10 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 
 						//is he hav already cisco group
 						if($cisco == NULL || $cisco == 0){
-							echo $cisco;
+
+							//Updating mebers of group
+							$db->NonResultQuery("UPDATE `groups` SET `students` = students + 1 WHERE `groups`.`idg` = '".$groupId."' ;");
+							//add to cisco group
 								$db->NonResultQuery("UPDATE `students` SET `cisco_group` = '".$groupId."'  WHERE `ids` = '".$ids."' ;");
 						}
 
@@ -80,11 +83,12 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 						if($www == NULL || $www <= 0){
 								//add to www group
 								$db->NonResultQuery("UPDATE `students` SET `www_group` = '".$groupId."'  WHERE `ids` = '".$ids."' ;");
+								//Updating mebers of group
+								$db->NonResultQuery("UPDATE `groups` SET `students` = students + 1 WHERE `groups`.`idg` = '".$groupId."' ;");
 					}
 				}
 
-				//Updating mebers of group
-				$db->NonResultQuery("UPDATE `groups` SET `students` = students + 1 WHERE `groups`.`idg` = '".$groupId."' ;");
+
 				//Delete
 				$db->NonResultQuery("DELETE FROM `applications`WHERE `id` =".$toDel);
 
