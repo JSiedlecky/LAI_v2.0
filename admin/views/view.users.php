@@ -15,7 +15,8 @@ $view->Custom('
 ');
 
 #view of all users
-$result = $view->db->Select("users",["display_name",'idu']);
+//$result = $view->db->Select("users",["display_name",'idu']);
+$result = $view->db->Query("SELECT `display_name`,`idu` FROM `users` WHERE `idu` > 1 ");
 $view->Custom('<table class="default-table"><thead><tr><th class="t_name" colspan="2">Lista Użytkowników</th></tr><tr><th class="t-ordinal">LP</th><th class="t-columns">Nazwa użytkowników</th></tr></thead><tbody>');
 $html="";
 $lp = 1;
