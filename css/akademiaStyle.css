@@ -3,7 +3,7 @@
     font-size: 20px;
 }
 .akademiaParallax {
-    background: url("../img/parallax.png") fixed 100%;
+    background: url("../img/parallax1.png") fixed 100%;
 }
 .akademiaParallaxInner {
     padding: 8%;
@@ -14,7 +14,7 @@
     background: #f46b45; /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #f46b45 , #eea849); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #f46b45 , #eea849); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    
     margin-top: 30px;
     height: 200px;
     margin-bottom: none;
@@ -63,7 +63,7 @@
 @media (min-width: 1200px) {
     .akademiaCiscoWWW {
         margin-top: 15px;
-
+        
     }
     .akademiaCisco, .akademiaWWW {
         height: 230px;
@@ -75,3 +75,5 @@
         border-right: 1px solid black;
     }
 }
+
+
