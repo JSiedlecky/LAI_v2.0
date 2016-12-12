@@ -7,6 +7,11 @@
 
   if($action == 'delete'){
     $id = $_GET['id'];
+    $group = $db->Select('groups',['*'],['idg'=>$id])[0];
+    $db->Update('students',
+      [$group['module']             => NULL,
+       $group['module'].'_group'    => NULL],
+      [$group['module'].'_group'    => $id]);
 
     if($db->Delete('groups',['idg'=>$id])) echo 'OK';
     else echo 'ERROR';

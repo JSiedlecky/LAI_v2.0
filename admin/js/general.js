@@ -155,7 +155,7 @@ $(document).ready(function(){
             data:'action=delete&id='+group_id,
             complete: function(data){
               if(data.responseText == 'OK') location.reload();
-              else alert('Wystąpił błąd, spróbuj później.');
+              else console.log(data.responseText);
             }
           });
         }
