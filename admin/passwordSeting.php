@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="css/enter.css">
 
 </head>
-<body>
+<body style="background:linear-gradient(to left, #f46b45 , #eea849);">
 
 <div class="container-fluid">
     <div class="admLoginRow row">
@@ -48,13 +48,13 @@
                 <div class="form-group">
                     <label for="usrnm" class="col-sm-2 control-label">Hasło</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="pswd" placeholder="Username" required>
+                        <input type="text" class="form-control" name="pswd" placeholder="Hasło" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="passwd" class="col-sm-2 control-label">Powtórz</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" name="passwd" placeholder="Password" required>
+                        <input type="password" class="form-control" name="passwd" placeholder="Powtórz" required>
                     </div>
                 </div>
                 <div class="form-group">
