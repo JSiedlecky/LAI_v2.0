@@ -43,7 +43,7 @@
 <div class="container-fluid">
     <div class="admLoginRow row">
         <div class="admLoginOuter col-lg-4 col-md-6 col-sm-12 col-xs-12 col-lg-offset-4 col-md-offset-3">
-            <h1 class="admH1 text-center">Podaj swoje hasło nowe</h1>
+            <h1 class="admH1 text-center">Podaj nowe hasło</h1>
             <form class="form-horizontal" method="POST" action="#">
                 <div class="form-group">
                     <label for="usrnm" class="col-sm-2 control-label">Hasło</label>
