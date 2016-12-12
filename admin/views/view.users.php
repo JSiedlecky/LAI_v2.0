@@ -3,9 +3,12 @@
 $view->Custom('
 <form method="POST" action="index.php?page=userForm" class="btn-group" role="group" aria-label="...">
   <p>
+
     <button type="submit" class="btn btn-default action" id="adduser" name="page" value="userForm">Dodaj użytkownika </button>
     <button type="submit" class="btn btn-default action disabled" id="changeuser" name="page" value="userForm">Edytuj użytkownika </button>
     <button type="button"  class="btn btn-default action delete" name="deleteApplication" data-toggle="modal" data-target="#deleteModal">Usun</button>
+
+
     <input type="text" class="hidden" id="types" name="type" value="none">
   </p>
 

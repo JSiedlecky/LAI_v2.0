@@ -26,6 +26,7 @@ if(isset($_GET["id"])){
     $inList  = false;
     //make where part of query
     $where = '';
+    $i=0;
     for($i = 0; $i <count($im); $i++){
 
         if($i >= 1){
@@ -45,7 +46,9 @@ if(isset($_GET["id"])){
         }
         $inList  = false;
     }
-
+    $view->Custom($where);
+    print_r($where);
+    $i=0;
     //sends sql query to get selected aplications
     if($where != ''){
       $result = $view->db->Query("SELECT * FROM `applications` WHERE ".$where);
@@ -84,7 +87,13 @@ if(isset($_GET["id"])){
 
     </p>');
 
-      $groups = $view->db->Query("SELECT * FROM groups WHERE `module` LIKE '".$type."' AND students != max_students ");
+      if($type == "Cisco"){
+        $type = "cisco";
+      }
+
+      $sql = "SELECT * FROM `groups` WHERE `module` = '".$type."' AND students != max_students ";
+
+      $groups = $view->db->Query($sql);
       //z grup
       if(isset($_POST['groupname']) && ($_POST['groupname'] != ''))
         $groups = $view->db->Select('groups',['*'],['group_name' => $_POST['groupname']]);
@@ -103,7 +112,7 @@ if(isset($_GET["id"])){
       else if(isset($_POST['groupdays']) && ($_POST['groupdays'] != ''))
         $groups = $view->db->Select('groups',['*'],['days' => $_POST['groupdays']]);
       else
-        $groups = $view->db->Select('groups');
+        $groups = $view->db->Query($sql);
     //$view->Custom('<form >');
     $search = new Form(false,'POST','','default-form horizontal-form search-form');
 

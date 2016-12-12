@@ -88,10 +88,11 @@ $(function(){
 
           }
         }
+        console.log(tmpNumOfEle);
         //if none of element is selected then enable all input in applications and disable action buttons
         if(tmpNumOfEle == leng-1 ){
           context = "none";
-          
+
           $('.action').prop('disabled', true);
             for(var i = 1; i < leng; i++){
 
@@ -99,10 +100,10 @@ $(function(){
             }
         }
       }
-    ;
 
 
-  })
+
+  });
   function changeState(selector){
     order = selector.getAttribute("data-order");
     text = $(selector).text();

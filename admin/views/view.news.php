@@ -30,7 +30,7 @@ $view->Custom($form->Render('Dodaj wpis', 'addpost'));
 $view->Table([
   "name"          => "Stare wpisy",
   "ordinal"       => false,
-  "class"         => "default-table",
+  "class"         => "default-table news-table",
   "column_names"  => ["ID","Tytuł", "Skrót", "Data zamieszczenia", "Zawartość"],
   "data"          => $old_posts,
   "html"          => false

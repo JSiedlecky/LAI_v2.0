@@ -1,10 +1,10 @@
 <?php
 
-    $host = "jqub97.ddns.net";
+    $host = "localhost";
     $port = 3306;
     $db = "lai";
-    $db_user = "lai";
-    $db_passwd = "lai";
+    $db_user = "root";
+    $db_passwd = "";
     $conn = "";
 
     try {

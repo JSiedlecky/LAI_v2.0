@@ -381,7 +381,7 @@ $(document).ready(function(){
       window.location.href = 'index.php?page=students';
     });
 
-    $('tr').click(function(){
+    $('.students-table tr').click(function(){
       if(getQueryVariable("page") !== "students") return false;
       if($(this).hasClass("tr_name") || $(this).hasClass("tr_columns")) return false;
 
@@ -435,7 +435,7 @@ $(document).ready(function(){
         });
       });
 
-      $('tr').click(function(){
+      $('.news-table tr').click(function(){
         if(getQueryVariable("page") !== "news") return false;
         if($(this).hasClass("tr_name") || $(this).hasClass("tr_columns")) return false;
 

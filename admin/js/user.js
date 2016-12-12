@@ -1,4 +1,5 @@
 $(function(){
+  $("#logerr").hide();
   //Change checkbox value
   $("#userFrom input[type='checkbox']").click(function(){
     if(  $(this).prop("value")){
@@ -56,7 +57,9 @@ $(function(){
           'menuNews'  : $(this).find('input[name="menuNews"]').val(),
           'hisNews'  : $(this).find('input[name="hisNews"]').val(),
           'menuUsers'  : $(this).find('input[name="menuUsers"]').val(),
-          'userId'  : $(this).find('input[name="userId"]').val()
+          'userId'  : $(this).find('input[name="userId"]').val(),
+         'menuStudents' : $(this).find('input[name="menuStudents"]').val(),
+         'menuNewss' : $(this).find('input[name="menuNewss"]').val()
         }});
 
 
@@ -65,8 +68,14 @@ $(function(){
       type: "post",
       data: data,
        complete: function(data){
-              alert("Udało się dodać/zmodifikować urzytkownika");
-              window.location.href = 'http://127.0.0.1/LAI_v2.0/admin/index.php?page=users';
+         if(data.responseText == "3"){
+            $('input[name="login"]').css('border',"1px solid #a94442");
+            $("#logerr").show();
+
+        }else {
+          alert("Udało się dodać/zmodifikować urzytkownika");
+          window.location.href = 'http://127.0.0.1/LAI_v2.0/admin/index.php?page=users';
+        }
               console.log(data.responseText);
           },
           error: function(e){

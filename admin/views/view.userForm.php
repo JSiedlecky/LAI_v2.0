@@ -50,6 +50,7 @@ if(isset($_POST['user'])){
   $form -> Textbox("nickname","Podaj Imie i Nazwisko","Np. Jan Kowalski",true, addValue($result[0]['display_name']));
   #Login
   $form -> Textbox("login", "Podaj login urzytkownika","Login",true,addValue($result[0]['login']));
+  $form -> Custom("<p class='alert alert-danger' id='logerr'>Taki login juz występuje proszę podać inny</p>");
   #Password
   $form -> Password("pswd", "Podaj domyślne hasło(będzie zmienione przy pierwszym logowaniu)", "Hasło", true,addValue($result[0]['password']));
   #Email
@@ -74,6 +75,16 @@ if(isset($_POST['user'])){
   $form -> Custom(PermissionsWithVal("Usuwanie grup ","delGrp",$result[0]['group_delete']));
   $form -> Custom(PermissionsWithVal("Modifikowaćnie grup ","modifyGrp",$result[0]['group_modify']));
   $form -> Custom(PermissionsWithVal("Sortowanie grup ","sortGrp",$result[0]['group_sort']));
+  $form -> Custom("</table>");
+  #News
+  $form -> Custom("<h3>Aktulaności</h3>");
+  $form -> Custom("<table>");
+  $form -> Custom(PermissionsWithVal("Wyświetlanie aktualnosci ","menuNewss",$result[0]['news']));
+  $form -> Custom("</table>");
+  #Students
+  $form -> Custom("<h3>Uczniowie</h3>");
+  $form -> Custom("<table>");
+  $form -> Custom(PermissionsWithVal("Wyświetlanie uczniów ","menuStudents",$result[0]['students']));
   $form -> Custom("</table>");
   #Payments
   $form -> Custom("<h3>Płatności</h3>");
@@ -105,6 +116,7 @@ if(isset($_POST['user'])){
     $form -> Textbox("nickname","Podaj Imie i Nazwisko","Np. Jan Kowalski",true);
     #Login
     $form -> Textbox("login", "Podaj login urzytkownika","Login",true);
+    $form -> Custom("<p class='alert alert-danger' id='logerr'>Taki login juz występuje proszę podać inny</p>");
     #Password
     $form -> Password("pswd", "Podaj domyślne hasło(będzie zmienione przy pierwszym logowaniu)", "Hasło", true);
     #Email
@@ -127,6 +139,16 @@ if(isset($_POST['user'])){
     $form -> Custom(Permissions("Usuwanie grup ","delGrp"));
     $form -> Custom(Permissions("Modifikowaćnie grup ","modifyGrp"));
     $form -> Custom(Permissions("Sortowanie grup ","sortGrp"));
+    $form -> Custom("</table>");
+    #News
+    $form -> Custom("<h3>Aktulaności</h3>");
+    $form -> Custom("<table>");
+    $form -> Custom(Permissions("Wyświetlanie aktualnosci ","menuNewss"));
+    $form -> Custom("</table>");
+    #Students
+    $form -> Custom("<h3>Uczniowie</h3>");
+    $form -> Custom("<table>");
+    $form -> Custom(Permissions("Wyświetlanie uczniów ","menuStudents"));
     $form -> Custom("</table>");
     #Payments
     $form -> Custom("<h3>Płatności</h3>");
