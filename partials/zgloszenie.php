@@ -72,10 +72,10 @@
             <div class="zgloszeniePanel col-lg-4 col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Informacja</h3>
+                        <h3 class="panel-title">Panel title</h3>
                     </div>
                     <div class="panel-body">
-                        Zgłoszenia są rozpatrywane w momencie powstawania nowych grup.
+                        Panel content
                     </div>
                 </div>
             </div>
