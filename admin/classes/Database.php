@@ -55,7 +55,7 @@ class Database {
         }
     }
 
-    public function Insert($table="", $fields=[], $values=[], $debug = []){
+      public function Insert($table="", $fields=[], $values=[], $debug = []){
         try{
             $fields_insert = "";
             $values_insert = "";

@@ -1,8 +1,17 @@
 <?php
-  include('classes/Form.php');
-  $form = new Form();
-  echo $form->start("form-inline");
-  $form->setRadioName("mama");
-  echo @$form->getUrl();
-  echo $form->close();
+  include('helpers/string.functions.php');
+
+  $array = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat mi purus, at fringilla sapien luctus vitae. Fusce vel elit quis arcu mollis finibus. Aliquam erat volutpat. Suspendisse laoreet a enim vel volutpat. Nunc rutrum diam at libero venenatis venenatis. Aliquam quis libero vel dui iaculis pharetra et in mauris. Nam dignissim blandit imperdiet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis ut nibh dui. Ut id felis nunc. Vestibulum facilisis felis orci, quis iaculis nunc varius sed. Aliquam erat volutpat. Phasellus feugiat ex a purus vulputate sodales. Duis congue interdum mi, sit amet volutpat sapien iaculis et.
+
+Phasellus rhoncus scelerisque sagittis. Proin eleifend tempor tellus eu condimentum. Vivamus at tempor libero. Ut sed tempor metus. Proin semper accumsan eros, ut gravida enim dapibus non. Mauris sed pharetra nunc, vitae ornare nunc. Etiam id lorem finibus ex sagittis consectetur. Praesent elementum nibh non interdum scelerisque. Vestibulum quis diam lectus. Sed rutrum nisl non molestie congue. Nulla facilisi. Donec cursus ligula quis nisl scelerisque, vitae tristique elit molestie. Cras non tellus eu eros varius mollis. Pellentesque faucibus magna vel magna finibus, in commodo erat accumsan. Donec porttitor, quam gravida sodales volutpat, ex quam vulputate nisi, eget tempus nibh quam sit amet lectus. Donec dignissim hendrerit mollis.
+
+Nunc porta ipsum quis turpis porttitor, ut pretium turpis ultrices. Ut finibus pretium ligula, vel accumsan est dignissim nec. Sed maximus ante iaculis sem pharetra facilisis. Donec accumsan iaculis magna, sed semper tellus viverra et. Aliquam vitae sollicitudin elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. In leo neque, pharetra non aliquam in, cursus ac nibh. Ut a enim vehicula, posuere justo in, suscipit nulla. Vestibulum vitae metus vel erat tincidunt euismod. Sed pellentesque, justo non ornare sagittis, magna neque rhoncus libero, ac tempor est risus nec nibh. Curabitur et tincidunt elit. Duis dictum, ante vitae scelerisque euismod, risus leo pellentesque nunc, at porttitor odio odio et elit. Nullam turpis dolor, dignissim id neque ut, ornare molestie tortor. Aenean eget nisi sem. Nullam ut libero in nunc laoreet feugiat.
+
+Maecenas auctor dolor vitae mauris fringilla dictum. Praesent sodales sed metus dictum eleifend. Suspendisse non tempus purus. Proin non viverra quam, vitae lobortis lorem. Nunc sed pulvinar libero. Praesent elementum feugiat aliquet. Praesent libero diam, laoreet vel urna ac, pharetra porta metus. Integer eu vehicula velit. Suspendisse consectetur ante ac mauris mattis, vel tempus lacus rutrum. Curabitur dictum placerat placerat. Maecenas mauris massa, mattis sit amet cursus sit amet, efficitur quis enim.
+
+Ut tincidunt hendrerit dictum. Cras tortor mi, hendrerit iaculis pretium pellentesque, dictum ut diam. Nunc sit amet laoreet lectus. Ut sit amet rutrum tellus, ut scelerisque massa. Vestibulum faucibus suscipit iaculis. Sed vel nisi at metus congue fermentum. Curabitur dapibus facilisis erat at pharetra. Phasellus iaculis vulputate semper. Cras vestibulum, nisi non iaculis tristique, sem neque accumsan felis, vitae iaculis orci eros et lorem. Mauris eget dui orci. Nunc eros metus, finibus in libero sit amet, maximus fringilla leo. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+
+";
+
+  echo shorten_string($array, 4);
 ?>

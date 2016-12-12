@@ -435,4 +435,11 @@ $(document).ready(function(){
         });
       });
 
+      $('tr').click(function(){
+        if(getQueryVariable("page") !== "news") return false;
+        if($(this).hasClass("tr_name") || $(this).hasClass("tr_columns")) return false;
+
+        var id = $(this).find('td').first().text();
+        redirect('index.php?page=editnews&id='+id);
+      });
 });
