@@ -79,7 +79,7 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 								$db->NonResultQuery("UPDATE `students` SET `www_group` = '".$groupId."'  WHERE `ids` = '".$ids."' ;");
 					}
 				}
-				echo $ids;
+
 				//Updating mebers of group
 				$db->NonResultQuery("UPDATE `groups` SET `students` = students + 1 WHERE `groups`.`idg` = '".$groupId."' ;");
 				//Delete
@@ -94,7 +94,7 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 			session_start();
 	}
 
-		//	$_SESSION['addIds'] = $idused;
+			$_SESSION['addIds'] = $idused;
 
 
 
