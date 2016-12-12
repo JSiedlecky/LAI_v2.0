@@ -46,8 +46,7 @@ if(isset($_GET["id"])){
         }
         $inList  = false;
     }
-    $view->Custom($where);
-    print_r($where);
+
     $i=0;
     //sends sql query to get selected aplications
     if($where != ''){
@@ -129,7 +128,7 @@ if(isset($_GET["id"])){
                                                       "Weekend"=>"Weekend"
                                                     ]);
 
-    $view->Header('Grupy');
+    $view->Header('Aplikacje');
 
     $view->Section([
                   'name'=>'Wyszukiwanie',
