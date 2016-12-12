@@ -1,11 +1,11 @@
 <?php
-
 //read data to use
 $idused =$_POST['idu'];
 $groupId = $_POST['idg'];
 $type = $_POST['type'];
 require "../classes/Database.php";
 $db = new Database();
+<<<<<<< Updated upstream
 function isInDb($db,$name,$surname,&$ids){
 	$result = $db->Query("SELECT `ids`,`name`,`surname` FROM `students`");
 
@@ -20,8 +20,6 @@ function isInDb($db,$name,$surname,&$ids){
 	return false;
 }
 
-
-
 $students = $db->Select("groups",["students","max_students"],["idg"=>$groupId]);
 
 if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0){
@@ -33,6 +31,10 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 		//gets from Database basic data
 		$result = $db->Query("SELECT * FROM `applications`WHERE `id` =".$id);
 
+	foreach ($idused as $id) {
+		//gets from Database basic data
+		$result = $db->Query("SELECT * FROM `applications`WHERE `id` =".$id);
+
 		foreach ($result as $key => $value) {
 			// get all needed data to send querys to db
 		   $name = $value["name"];
@@ -41,6 +43,7 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 		   $email = $value["email"];
 		 	 $phone = $value["phone"];
 		}
+
 		$id = 0;
 		if(!isInDb($db,$name,$surname,$ids)){
 				//if user isn't in the db
@@ -90,6 +93,21 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 
 	}
 
+		if($module == "Cisco"){
+
+		  //Inserting aplication to studen
+			$db->Insert('students',["ids", "name", "surname", "email", "phone", "cisco", "www", "cisco_group", "www_group", "activity"],[NULL, "{$name}", "{$surname}", "{$email}" ,"{$phone}" , NULL, NULL, "{$groupId}", NULL, 1]);
+		}else{
+				$db->Insert('students',["ids", "name", "surname", "email", "phone", "cisco", "www", "cisco_group", "www_group", "activity"],[NULL, "{$name}", "{$surname}", "{$email}" ,"{$phone}" , NULL, NULL, NULL,"{$groupId}", 1]);
+		}
+			//Updating mebers of group
+  		$db->NonResultQuery("UPDATE `groups` SET `students` = students + 1 WHERE `groups`.`idg` = '".$groupId."' ;");
+			//Delete
+		  $db->NonResultQuery("DELETE FROM `applications`WHERE `id` =".$id);
+
+
+
+	}
 	if (session_status() == PHP_SESSION_NONE) {
 			session_start();
 	}
@@ -102,5 +120,4 @@ if($students[0]['max_students'] - $students[0]['students'] - count($idused) >= 0
 else{
 	echo "Wystąpił bład";
 }
-
 ?>
