@@ -29,7 +29,7 @@ $_POST = $_POST[0];
              #update pswd
              $db -> NonResultQuery("UPDATE `users` SET `password` = '".password_hash($pswd,PASSWORD_BCRYPT,['cost' => 11])."' WHERE `idu` =".$idu[0]['idu'].";");
              #adds user
-             $db -> Insert("permissions",array("idperm", "idu", "isGm", "applications", "groups", "payments", "newsletter", "users","students","news", "app_add", "app_delete", "app_sort", "app_action", "group_add", "group_modify", "group_delete", "group_sort", "pay_add", "pay_modify", "pay_delete", "nl_old"),[NULL,$idu[0]['idu'], '0', $_POST['menuApp'], $_POST['menuGrup'], $_POST['menuPay'], $_POST['menuNews'], $_POST['menuUsers'],$_POST['menuStudents'],$_POST['menuNewss'],$_POST['addApp'], $_POST['delApp'], $...(line truncated)...
+             $db -> Insert("permissions",array("idperm", "idu", "isGm", "applications", "groups", "payments", "newsletter", "users","students","news", "app_add", "app_delete", "app_sort", "app_action", "group_add", "group_modify", "group_delete", "group_sort", "pay_add", "pay_modify", "pay_delete", "nl_old"),[NULL,$idu[0]['idu'], '0', $_POST['menuApp'], $_POST['menuGrup'], $_POST['menuPay'], $_POST['menuNews'], $_POST['menuUsers'],$_POST['menuStudents'],$_POST['menuNewss'],$_POST['addApp'], $_POST['delApp'], $_POST['sortApp'], $_POST['actionApp'], $_POST['addGrp'],$_POST['modifyGrp'] , $_POST['delGrp'], $_POST['sortGrp'], $_POST['addPay'], $_POST['modifyPay'], $_POST['delPay'], $_POST['hisNews']]);
 
              echo "good";
            }
