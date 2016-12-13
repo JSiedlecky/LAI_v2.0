@@ -25,6 +25,7 @@
         <?php if(isset($_GET['page'])) { ?>
             <?php include('views/view.'.$_GET['page'].'.php')?>
         <?php } else include('includes/body.main.php'); ?>
+      
     </div>
 
 </body>
